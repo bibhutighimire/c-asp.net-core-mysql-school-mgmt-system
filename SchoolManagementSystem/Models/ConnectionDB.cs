@@ -13,5 +13,8 @@ namespace SchoolManagementSystem.Models
 
         }
         public DbSet<Position> tblPosition { get; set; }
+        public DbSet<Coursename> tblCoursename { get; set; }
+        public DbSet<Teacher> tblTeacher { get; set; }
+
     }
 }
