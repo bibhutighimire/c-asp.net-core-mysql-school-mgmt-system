@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SchoolManagementSystem.Controllers
 {
-    public class HomeController : Controller
+    public class NewsController : Controller
     {
         public IActionResult Index()
         {

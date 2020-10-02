@@ -14,4 +14,20 @@ body {
     width: 100px;
     height: 100px;
 }
+.containerImgHolder img{
+    width: 100%;
+    height: auto;
+    margin: 15px auto;
 
+}
+.colorfulTexts {
+    color:darkgreen;
+    font-size:large;
+    font-weight:bold;
+}
+.noncolorfulTexts {
+    color: black;
+    font-size: medium;
+    font-weight: bold;
+    margin:15px 0;
+}

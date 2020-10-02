@@ -15,19 +15,16 @@
         
         <nav>
             <ul>
-           
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
                 <li>@Html.ActionLink("News", "Index", "News")</li>
                 <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
                 <li>@Html.ActionLink("Donate", "Index", "Donate")</li>
                 <li style="float:right">@Html.ActionLink("Login", "Index", "Login")</li>
                 <li style="float:right">@Html.ActionLink("Register", "Index", "Register")</li>
-
             </ul>
         </nav>
     </header>
     <div class="container">
-        <div class="containerImgHolder"><img src="~/images/homepageimageofkids.jpg" /></div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
