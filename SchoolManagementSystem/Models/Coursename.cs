@@ -15,6 +15,11 @@ namespace SchoolManagementSystem.Models
         public string coursename { get; set; }
         public int teacherid { get; set; }
 
-        //public Teacher teacherids { get; set; }
+        //public virtual Teacher Teacher { get; set; }
+        //public Teacher firstname { get; set; }
+        //public Teacher lastname { get; set; }
+
+        //public Teacher email { get; set; }
+        
     }
 }

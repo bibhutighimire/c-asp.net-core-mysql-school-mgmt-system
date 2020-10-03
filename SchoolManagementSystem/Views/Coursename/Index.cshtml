@@ -1,5 +1,4 @@
-﻿@model IEnumerable<SchoolManagementSystem.Models.Coursename>
-@*@model IEnumerable<SchoolManagementSystem.Models.Teacher>*@
+﻿@model IEnumerable<SchoolManagementSystem.Models.NewVM>
 
 @{
     ViewData["Title"] = "Index";
@@ -12,15 +11,13 @@
     <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
-  
-
     @*<thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.coursename)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.courseid)
+                @Html.DisplayNameFor(model => model.teacherid)
             </th>
             <th></th>
         </tr>
@@ -28,24 +25,13 @@
     <tbody>
         @foreach (var item in Model)
         {
-            @foreach (Teacher teacher in ViewBag.Listofteacher)
-            {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.coursename)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.coursenameid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => teacher.firstname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => teacher.email)
-            </td>
+            <td>@Html.DisplayFor(modelItem => item.listofcoursename.coursename)</td>
+            <td>@Html.DisplayFor(modelItem => item.ListOfTeachers.firstname)</td>
 
         </tr>
-            }
         }
         </tbody>
 </table>
+
+
