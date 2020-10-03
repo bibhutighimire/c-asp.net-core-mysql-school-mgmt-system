@@ -1,37 +1,30 @@
 ﻿@model IEnumerable<SchoolManagementSystem.Models.NewVM>
+    <link rel="stylesheet" href="~/css/site.css" />
+    @{
+        ViewData["Title"] = "Index";
+        Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
+        <link rel="stylesheet" href="~/css/site.css" />
+    }
+    <link rel="stylesheet" href="~/css/site.css" />
+    <h1>List of Courses being taught in the School!</h1>
 
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
-}
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    @*<thead>
+    <table id="customers">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.coursename)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.teacherid)
-            </th>
-            <th></th>
+            <th> @Html.DisplayNameFor(model => model.listofcoursename.coursenameid)</th>
+            <th> @Html.DisplayNameFor(model => model.listofcoursename.coursename)</th>
+            <th> @Html.DisplayNameFor(model => model.ListOfTeachers.firstname)</th>
+            <th> @Html.DisplayNameFor(model => model.ListOfTeachers.lastname)</th>
+            <th> @Html.DisplayNameFor(model => model.ListOfTeachers.email)</th>
+
         </tr>
-    </thead>*@
-    <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.listofcoursename.coursename)</td>
-            <td>@Html.DisplayFor(modelItem => item.ListOfTeachers.firstname)</td>
-
-        </tr>
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.listofcoursename.coursenameid)</td>
+                <td>@Html.DisplayFor(modelItem => item.listofcoursename.coursename)</td>
+                <td>@Html.DisplayFor(modelItem => item.ListOfTeachers.firstname)</td>
+                <td>@Html.DisplayFor(modelItem => item.ListOfTeachers.lastname)</td>
+                <td>@Html.DisplayFor(modelItem => item.ListOfTeachers.email)</td>
+            </tr>
         }
-        </tbody>
-</table>
-
-
+    </table>

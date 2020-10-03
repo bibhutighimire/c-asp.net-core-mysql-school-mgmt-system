@@ -11,7 +11,11 @@ namespace SchoolManagementSystem.Models
     public class Coursename
     {
     [Key]
+        [Display(Name = "Course ID")]
         public int coursenameid { get; set; }
+        [Required(ErrorMessage = "Course Name Required")]
+        [Display(Name = "Course Name")]
+        //[DataType(DataType.EmailAddress)]
         public string coursename { get; set; }
         public int teacherid { get; set; }
 
