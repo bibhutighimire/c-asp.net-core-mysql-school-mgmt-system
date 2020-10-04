@@ -32,10 +32,11 @@ namespace SchoolManagementSystem.Controllers
                 if (record != null)
                 {
 
-                    //ViewBag.allrecord = record;
-                    //ViewBag.firstname = record.firstname;
-                    //ViewBag.teacherid = record.teacherid;
-                    ViewData["firstname"] = record.firstname;
+                    ViewBag.allrecord = record;
+                    ViewBag.firstname = record.firstname;
+                    ViewBag.teacherid = record.teacherid;
+                    ViewBag.positionid = record.positionid;
+                    //ViewData["firstname"] = record.firstname;
                     return View();
                 }
                
@@ -48,5 +49,12 @@ namespace SchoolManagementSystem.Controllers
             return RedirectToAction("Index");
             //return RedirectToAction("Home/Index");
         }
+        public IActionResult Signout()
+        {
+
+            return RedirectToAction("Index");
+        }
     }
+
+    
 }
