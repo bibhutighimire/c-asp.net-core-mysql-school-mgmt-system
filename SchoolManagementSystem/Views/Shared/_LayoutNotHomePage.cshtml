@@ -15,6 +15,18 @@
 
         <nav>
             <ul>
+                @if (@ViewBag.firstname != null)
+                {
+                    <h3> Welcome @ViewBag.firstname </h3>
+                    <li>@Html.ActionLink("My Profile", "Index", "Profile", new { id = @ViewBag.teacherid }, null)</li>
+                    <li>@Html.ActionLink("Sign Out", "Index", "SignOut")</li>
+                }
+                else
+                {
+                    <li style="float:right">@Html.ActionLink("Login", "Index", "Login")</li>
+                    <li style="float:right">@Html.ActionLink("Register", "Index", "Register")</li>
+                }
+
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
                 <li>@Html.ActionLink("News", "Index", "News")</li>
                 <li>@Html.ActionLink("Courses", "Index", "Coursename")</li>

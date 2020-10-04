@@ -31,20 +31,22 @@ namespace SchoolManagementSystem.Controllers
 
             return View(joinedtable);
         }
-        //[HttpPost]
-        //public IActionResult Index(Teacher teacher)
-        //{
-        //    Teacher t = new Teacher();
-        //    t.firstname = teacher.firstname;
-        //    t.lastname = teacher.lastname;
-        //    t.dob = teacher.dob;
-        //    t.email = teacher.email;
-        //    t.positionid = 3;
-        //    t.username = teacher.username;
-        //    t.password = teacher.password;
-        //    t.coursenameid = _context.tblCoursename.Select(x=>x.coursenameid==teacher.);
-
-        //    return View();
-        //}
+        [HttpPost]
+        public IActionResult Index(Teacher teacher)
+        {
+            Teacher t = new Teacher();
+            // string newcoursename = teacher.coursename;
+            t.firstname = teacher.firstname;
+            t.lastname = teacher.lastname;
+            t.dob = teacher.dob;
+            t.email = teacher.email;
+            t.positionid = 3;
+            t.username = teacher.username;
+            t.password = teacher.password;
+            t.coursenameid = teacher.coursenameid;
+            _context.tblTeacher.Add(t);
+            _context.SaveChanges();
+            return View();
+        }
     }
 }
