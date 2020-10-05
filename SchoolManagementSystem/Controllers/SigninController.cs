@@ -26,19 +26,37 @@ namespace SchoolManagementSystem.Controllers
         public IActionResult Login(Signin signin)
         {
             
-               Signin s = new Signin();
             try
             {
-                var record = _context.tblTeacher.Where(x => x.username.ToLower() == signin.Username.ToLower() && x.password.ToLower() == signin.Password.ToLower()).FirstOrDefault();
-                if (record != null)
+                //var record = _context.tblTeacher.Where(x => x.username.ToLower() == signin.Username.ToLower() && x.password.ToLower() == signin.Password.ToLower()).FirstOrDefault();
+                var recordstudent = _context.tblStudent.Where(x => x.username.ToLower() == signin.Username.ToLower() && x.password.ToLower() == signin.Password.ToLower()).FirstOrDefault();
+                //if (record != null)
+                //{
+                //    // Session["positionid"]= record.positionid; 
+                //    ViewBag.allrecord = record;
+                //    ViewBag.firstname = record.firstname;
+                //    ViewBag.teacherid = record.teacherid;
+                //    int positionid = 3;
+                //    string strpid = Convert.ToString(positionid);
+                //    HttpContext.Session.SetString("FNAME", record.firstname);
+                //    ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                //    HttpContext.Session.SetString("POSITIONID", strpid);
+                //    ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+
+                //    //ViewData["firstname"] = record.firstname;
+                //    return View();
+                //}
+
+
+                if (recordstudent != null)
                 {
-                   // Session["positionid"]= record.positionid; 
-                    ViewBag.allrecord = record;
-                    ViewBag.firstname = record.firstname;
-                    ViewBag.teacherid = record.teacherid;
-                    int positionid = record.positionid;
+                    // Session["positionid"]= record.positionid; 
+                    ViewBag.allrecord = recordstudent;
+                    ViewBag.firstname = recordstudent.firstname;
+                    ViewBag.teacherid = recordstudent.studentid;
+                    int positionid = 4;
                     string strpid = Convert.ToString(positionid);
-                    HttpContext.Session.SetString("FNAME", record.firstname);
+                    HttpContext.Session.SetString("FNAME", recordstudent.firstname);
                     ViewBag.firstname = HttpContext.Session.GetString("FNAME");
                     HttpContext.Session.SetString("POSITIONID", strpid);
                     ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
@@ -46,7 +64,25 @@ namespace SchoolManagementSystem.Controllers
                     //ViewData["firstname"] = record.firstname;
                     return View();
                 }
-               
+
+                //var recordadmin = _context.tblAdmin.Where(x => x.username.ToLower() == signin.Username.ToLower() && x.password.ToLower() == signin.Password.ToLower()).FirstOrDefault();
+                //if (record != null)
+                //{
+                //    // Session["positionid"]= record.positionid; 
+                //    ViewBag.allrecord = record;
+                //    ViewBag.firstname = record.firstname;
+                //    ViewBag.teacherid = record.teacherid;
+                //    int positionid = 2;
+                //    string strpid = Convert.ToString(positionid);
+                //    HttpContext.Session.SetString("FNAME", record.firstname);
+                //    ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                //    HttpContext.Session.SetString("POSITIONID", strpid);
+                //    ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+
+                //    //ViewData["firstname"] = record.firstname;
+                //    return View();
+                //}
+
             }
             catch
             {

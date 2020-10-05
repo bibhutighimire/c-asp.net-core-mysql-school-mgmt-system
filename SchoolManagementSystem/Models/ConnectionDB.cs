@@ -16,7 +16,11 @@ namespace SchoolManagementSystem.Models
         public DbSet<Position> tblPosition { get; set; }
         public DbSet<Coursename> tblCoursename { get; set; }
         public DbSet<Teacher> tblTeacher { get; set; }
-        public DbSet<SchoolManagementSystem.Models.Signin> Signin { get; set; }
+
+        public DbSet<Student> tblStudent { get; set; }
+
+        public DbSet<Admin> tblAdmin { get; set; }
+        //public DbSet<SchoolManagementSystem.Models.Signin> Signin { get; set; }
 
     }
 }

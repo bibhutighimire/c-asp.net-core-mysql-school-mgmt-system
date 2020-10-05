@@ -34,6 +34,11 @@ namespace SchoolManagementSystem.Models
 		[Display(Name = "Password")]
 		[DataType(DataType.Password)]
 		public string password { get; set; }
-		public int coursenameid { get; set; }
+		public int classnameid { get; set; }
+
+		public string grade { get; set; }
+		public string classname { get; set; }
+		public string teachername { get; set; }
+		public int teacherid { get; set; }
 	}
 }

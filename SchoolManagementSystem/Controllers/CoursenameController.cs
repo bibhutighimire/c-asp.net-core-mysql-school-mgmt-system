@@ -41,6 +41,7 @@ namespace SchoolManagementSystem.Controllers
                                      join c in listofcoursename on t.teacherid equals c.teacherid
                               select new NewVM{ listofcoursename = c, ListOfTeachers = t };
 
+
             return View(joinedtable);
         }
     }

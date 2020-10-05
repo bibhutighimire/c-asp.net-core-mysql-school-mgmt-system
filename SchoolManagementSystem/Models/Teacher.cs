@@ -37,5 +37,7 @@ namespace SchoolManagementSystem.Models
 		public int coursenameid { get; set; }
 		//public Coursename coursename { get; set; }
 
+		
+
 	}
 }
