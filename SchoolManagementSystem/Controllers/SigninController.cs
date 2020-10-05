@@ -28,26 +28,25 @@ namespace SchoolManagementSystem.Controllers
             
             try
             {
-                //var record = _context.tblTeacher.Where(x => x.username.ToLower() == signin.Username.ToLower() && x.password.ToLower() == signin.Password.ToLower()).FirstOrDefault();
+                var record = _context.tblTeacher.Where(x => x.username.ToLower() == signin.Username.ToLower() && x.password.ToLower() == signin.Password.ToLower()).FirstOrDefault();
+               
+                if (record != null)
+                {
+                    // Session["positionid"]= record.positionid; 
+                    ViewBag.allrecord = record;
+                    ViewBag.firstname = record.firstname;
+                    ViewBag.teacherid = record.teacherid;
+                    int positionid = 3;
+                    string strpid = Convert.ToString(positionid);
+                    HttpContext.Session.SetString("FNAME", record.firstname);
+                    ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                    HttpContext.Session.SetString("POSITIONID", strpid);
+                    ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                    //ViewData["firstname"] = record.firstname;
+                    return View();
+                }
+
                 var recordstudent = _context.tblStudent.Where(x => x.username.ToLower() == signin.Username.ToLower() && x.password.ToLower() == signin.Password.ToLower()).FirstOrDefault();
-                //if (record != null)
-                //{
-                //    // Session["positionid"]= record.positionid; 
-                //    ViewBag.allrecord = record;
-                //    ViewBag.firstname = record.firstname;
-                //    ViewBag.teacherid = record.teacherid;
-                //    int positionid = 3;
-                //    string strpid = Convert.ToString(positionid);
-                //    HttpContext.Session.SetString("FNAME", record.firstname);
-                //    ViewBag.firstname = HttpContext.Session.GetString("FNAME");
-                //    HttpContext.Session.SetString("POSITIONID", strpid);
-                //    ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-
-                //    //ViewData["firstname"] = record.firstname;
-                //    return View();
-                //}
-
-
                 if (recordstudent != null)
                 {
                     // Session["positionid"]= record.positionid; 
@@ -65,23 +64,23 @@ namespace SchoolManagementSystem.Controllers
                     return View();
                 }
 
-                //var recordadmin = _context.tblAdmin.Where(x => x.username.ToLower() == signin.Username.ToLower() && x.password.ToLower() == signin.Password.ToLower()).FirstOrDefault();
-                //if (record != null)
-                //{
-                //    // Session["positionid"]= record.positionid; 
-                //    ViewBag.allrecord = record;
-                //    ViewBag.firstname = record.firstname;
-                //    ViewBag.teacherid = record.teacherid;
-                //    int positionid = 2;
-                //    string strpid = Convert.ToString(positionid);
-                //    HttpContext.Session.SetString("FNAME", record.firstname);
-                //    ViewBag.firstname = HttpContext.Session.GetString("FNAME");
-                //    HttpContext.Session.SetString("POSITIONID", strpid);
-                //    ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                var recordadmin = _context.tblAdmin.Where(x => x.username.ToLower() == signin.Username.ToLower() && x.password.ToLower() == signin.Password.ToLower()).FirstOrDefault();
+                if (recordadmin != null)
+                {
+                    // Session["positionid"]= record.positionid; 
+                    ViewBag.allrecord = recordadmin;
+                    ViewBag.firstname = recordadmin.firstname;
+                    ViewBag.adminid = recordadmin.adminid;
+                    int positionid = 2;
+                    string strpid = Convert.ToString(positionid);
+                    HttpContext.Session.SetString("FNAME", recordadmin.firstname);
+                    ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                    HttpContext.Session.SetString("POSITIONID", strpid);
+                    ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
 
-                //    //ViewData["firstname"] = record.firstname;
-                //    return View();
-                //}
+                    //ViewData["firstname"] = record.firstname;
+                    return View();
+                }
 
             }
             catch

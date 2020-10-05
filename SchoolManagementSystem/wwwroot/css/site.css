@@ -23,12 +23,12 @@ body {
 .colorfulTexts {
     color:darkgreen;
     font-size:large;
-    font-weight:bold;
+   
 }
 .noncolorfulTexts {
     color: black;
     font-size: medium;
-    font-weight: bold;
+   
     margin:15px 0;
 }
 .footer-box {

@@ -12,7 +12,7 @@
 <body>
     <header>
         <div class="logoHolder"><img src="~/images/logo.jpg" /></div>
-        
+
         <nav>
             <ul>
                 @if (ViewBag.positionid == "2")
@@ -22,14 +22,14 @@
                     <li>@Html.ActionLink("News", "Index", "News")</li>
 
                     <li>@Html.ActionLink("All Courses", "Index", "Coursename")</li>
-                    <li>@Html.ActionLink("All Students", "Index", "Signup")</li>
-                    <li>@Html.ActionLink("All Admins", "Index", "Signup")</li>
-                    <li>@Html.ActionLink("All Teachers", "Index", "Signup")</li>
+                    <li>@Html.ActionLink("All Students", "Index", "Student")</li>
+                    <li>@Html.ActionLink("All Admins", "Index", "Admin")</li>
+                    <li>@Html.ActionLink("All Teachers", "Index", "Teacher")</li>
 
-                    <li>@Html.ActionLink("Add Students", "Index", "Signup")</li>
-                    <li>@Html.ActionLink("Add Admins", "Index", "Signup")</li>
-                    <li>@Html.ActionLink("Add Teachers", "Index", "Signup")</li>
-                    <li>@Html.ActionLink("Add Courses", "Index", "Signup")</li>
+                    <li>@Html.ActionLink("Add Students", "Create", "Student")</li>
+                    <li>@Html.ActionLink("Add Admins", "Create", "Admin")</li>
+                    <li>@Html.ActionLink("Add Teachers", "Create", "Teacher")</li>
+                    <li>@Html.ActionLink("Add Courses", "Create", "Course")</li>
 
 
                     <li style="float:right">@Html.ActionLink("My Profile", "Index", "Profile", new { id = @ViewBag.teacherid }, null)</li>
@@ -43,12 +43,12 @@
                     <li>@Html.ActionLink("News", "Index", "News")</li>
 
                     <li>@Html.ActionLink("All Courses", "Index", "Coursename")</li>
-                    <li>@Html.ActionLink("All Students", "Index", "Signup")</li>
+                    <li>@Html.ActionLink("All Students", "Index", "Student")</li>
 
 
 
-                    <li>@Html.ActionLink("Add Grades", "Index", "Signup")</li>
-                    <li>@Html.ActionLink("Add Courses", "Index", "Signup")</li>
+                    <li>@Html.ActionLink("Add Grades", "Index", "Grade")</li>
+                    <li>@Html.ActionLink("Add Courses", "Create", "Course")</li>
 
 
                     <li style="float:right">@Html.ActionLink("My Profile", "Index", "Profile", new { id = @ViewBag.teacherid }, null)</li>
@@ -62,7 +62,7 @@
                     <li>@Html.ActionLink("News", "Index", "News")</li>
 
                     <li>@Html.ActionLink("All Courses", "Index", "Coursename")</li>
-                    <li>@Html.ActionLink("All Students", "Index", "Signup")</li>
+
 
 
 
@@ -74,15 +74,15 @@
                 }
 
 
-                else
+                @if (ViewBag.positionid == null)
                 {
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("News", "Index", "News")</li>
                     <li>@Html.ActionLink("Courses", "Index", "Coursename")</li>
                     <li>@Html.ActionLink("Donate", "Index", "Donate")</li>
-                    <li style="float:right">@Html.ActionLink("Student Login", "Index", "Signin")</li>
-                    <li style="float:right">@Html.ActionLink("Teacher Login", "Index", "Signin")</li>
-                    <li style="float:right">@Html.ActionLink("Admin Login", "Index", "Signin")</li>
+                    <li style="float:right">@Html.ActionLink("Login", "Index", "Signin")</li>
+                    <li style="float:right">@Html.ActionLink("Register", "Index", "Signup")</li>
+
 
 
                 }
@@ -91,10 +91,32 @@
             </ul>
         </nav>
     </header>
+    <p>Welcome @ViewBag.firstname</p>
     <div class="container">
         <div class="containerImgHolder"><img src="~/images/homepageimageofkids.jpg" /></div>
         <main role="main" class="pb-3">
-            <p>Welcome @ViewBag.firstname</p>
+
+
+            <h1>Welcome To School of Programming!</h1>
+
+            <p>
+                <div class="colorfulTexts">
+                    We supply colourful, fun and affordable Android Tablet PCs pre-loaded with educational software, games and story books.
+                    Because of our desire to educate our children responsibly in this digital era, we strive to be the largest supplier of educational tablets to schools in South Africa.
+                </div>
+                <div class="noncolorfulTexts">
+                    Bubblegum Tablets caters for a wide range in age, starting from as young as 3 years. We also provide MP4 players and a tablet aimed at Teens, which comes with a micro SD and bluetooth.
+
+                    Our company was established back in 2010 after realising how vitally important it is to have a product that can be serviced locally at a reasonable price, especially when your product is aimed at kids, because lets face it, when it comes to kids, accidents happen and nobody wants to have to buy a new tablet each time an accident happens.
+                    That’s why we have a number of service centres to make it easier for our customers to fix all those inevitable little accidents. Our company was established back in 2010 after realising how vitally important it is to have a product that can be serviced locally at a reasonable price, especially when your product is aimed at kids, because lets face it, when it comes to kids, accidents happen and nobody wants to have to buy a new tablet each time an accident happens.
+                    That’s why we have a number of service centres to make it easier for our customers to fix all those inevitable little accidents. Our company was established back in 2010 after realising how vitally important it is to have a product that can be serviced locally at a reasonable price, especially when your product is aimed at kids, because lets face it, when it comes to kids, accidents happen and nobody wants to have to buy a new tablet each time an accident happens.
+                    That’s why we have a number of service centres to make it easier for our customers to fix all those inevitable little accidents.
+                    Our company was established back in 2010 after realising how vitally important it is to have a product that can be serviced locally at a reasonable price, especially when your product is aimed at kids, because lets face it, when it comes to kids, accidents happen and nobody wants to have to buy a new tablet each time an accident happens.
+                    That’s why we have a number of service centres to make it easier for our customers to fix all those inevitable little accidents.accidents.
+                    Our company was established back in 2010 after realising how vitally important it is to have a product that can be serviced locally at a reasonable price, especially when your product is aimed at kids, because lets face it, when it comes to kids, accidents happen and nobody wants to have to buy a new tablet each time an accident happens.
+                    That’s why we have a number of service centres to make it easier for our customers to fix all those inevitable little accidents.
+                </div>
+            </p>
             @RenderBody()
         </main>
     </div>
