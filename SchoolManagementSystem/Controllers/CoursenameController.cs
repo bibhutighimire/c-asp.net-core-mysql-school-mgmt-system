@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SchoolManagementSystem.Models;
 
@@ -21,7 +22,8 @@ namespace SchoolManagementSystem.Controllers
             //var myModel = new MultipleData();
             //myModel.teachers = _context.tblTeacher.ToList();
             //myModel.coursenames = _context.tblCoursename.ToList();
-
+            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             List<Teacher> ListOfTeachers= _context.tblTeacher.ToList();
             //ViewBag.Listofteacher = ListOfTeachers;
             List<Coursename> listofcoursename = _context.tblCoursename.ToList();

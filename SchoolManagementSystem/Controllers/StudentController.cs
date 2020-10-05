@@ -23,5 +23,7 @@ namespace SchoolManagementSystem.Controllers
             ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             return View(_context.tblStudent.ToList());
         }
+
+
     }
 }
