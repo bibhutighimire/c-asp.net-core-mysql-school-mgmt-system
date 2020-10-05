@@ -15,7 +15,7 @@
 
         <nav>
             <ul>
-                @if (@ViewBag.positionid == 2)
+                @if (ViewBag.positionid == "2")
                 {
 
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -36,7 +36,7 @@
                     <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
                 }
 
-                @if (@ViewBag.positionid == 3)
+                @if (ViewBag.positionid == "3")
                 {
 
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -55,7 +55,7 @@
                     <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
                 }
 
-                @if (@ViewBag.positionid == 4)
+                @if (ViewBag.positionid == "4")
                 {
 
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -74,7 +74,7 @@
                 }
 
 
-                else
+                @if (ViewBag.positionid == null)
                 {
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("News", "Index", "News")</li>

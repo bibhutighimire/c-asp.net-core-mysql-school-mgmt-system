@@ -15,21 +15,86 @@
         
         <nav>
             <ul>
+                @if (ViewBag.positionid == "2")
+                {
+
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("News", "Index", "News")</li>
+
+                    <li>@Html.ActionLink("All Courses", "Index", "Coursename")</li>
+                    <li>@Html.ActionLink("All Students", "Index", "Signup")</li>
+                    <li>@Html.ActionLink("All Admins", "Index", "Signup")</li>
+                    <li>@Html.ActionLink("All Teachers", "Index", "Signup")</li>
+
+                    <li>@Html.ActionLink("Add Students", "Index", "Signup")</li>
+                    <li>@Html.ActionLink("Add Admins", "Index", "Signup")</li>
+                    <li>@Html.ActionLink("Add Teachers", "Index", "Signup")</li>
+                    <li>@Html.ActionLink("Add Courses", "Index", "Signup")</li>
+
+
+                    <li style="float:right">@Html.ActionLink("My Profile", "Index", "Profile", new { id = @ViewBag.teacherid }, null)</li>
+                    <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
+                }
+
+                @if (ViewBag.positionid == "3")
+                {
+
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("News", "Index", "News")</li>
+
+                    <li>@Html.ActionLink("All Courses", "Index", "Coursename")</li>
+                    <li>@Html.ActionLink("All Students", "Index", "Signup")</li>
 
 
 
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("News", "Index", "News")</li>
-                <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
-                <li>@Html.ActionLink("Donate", "Index", "Donate")</li>
-                <li style="float:right">@Html.ActionLink("Login", "Index", "Login")</li>
-                <li style="float:right">@Html.ActionLink("Register", "Index", "Register")</li>
+                    <li>@Html.ActionLink("Add Grades", "Index", "Signup")</li>
+                    <li>@Html.ActionLink("Add Courses", "Index", "Signup")</li>
+
+
+                    <li style="float:right">@Html.ActionLink("My Profile", "Index", "Profile", new { id = @ViewBag.teacherid }, null)</li>
+                    <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
+                }
+
+                @if (ViewBag.positionid == "4")
+                {
+
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("News", "Index", "News")</li>
+
+                    <li>@Html.ActionLink("All Courses", "Index", "Coursename")</li>
+                    <li>@Html.ActionLink("All Students", "Index", "Signup")</li>
+
+
+
+                    <li>@Html.ActionLink("My Grade", "Index", "Profile", new { id = @ViewBag.teacherid }, null)</li>
+
+
+                    <li style="float:right">@Html.ActionLink("My Profile", "Index", "Profile", new { id = @ViewBag.teacherid }, null)</li>
+                    <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
+                }
+
+
+                else
+                {
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("News", "Index", "News")</li>
+                    <li>@Html.ActionLink("Courses", "Index", "Coursename")</li>
+                    <li>@Html.ActionLink("Donate", "Index", "Donate")</li>
+                    <li style="float:right">@Html.ActionLink("Student Login", "Index", "Signin")</li>
+                    <li style="float:right">@Html.ActionLink("Teacher Login", "Index", "Signin")</li>
+                    <li style="float:right">@Html.ActionLink("Admin Login", "Index", "Signin")</li>
+
+
+                }
+
+
             </ul>
         </nav>
     </header>
     <div class="container">
         <div class="containerImgHolder"><img src="~/images/homepageimageofkids.jpg" /></div>
         <main role="main" class="pb-3">
+            <p>Welcome @ViewBag.firstname</p>
             @RenderBody()
         </main>
     </div>
