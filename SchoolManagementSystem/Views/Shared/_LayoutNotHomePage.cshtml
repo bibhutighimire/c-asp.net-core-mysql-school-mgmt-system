@@ -21,19 +21,19 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("News", "Index", "News")</li>
 
-                    <li>@Html.ActionLink("All Courses", "Index", "Coursename")</li>
-                    <li>@Html.ActionLink("All Students", "Index", "Student")</li>
-                    <li>@Html.ActionLink("All Admins", "Index", "Admin")</li>
-                    <li>@Html.ActionLink("All Teachers", "Index", "Teacher")</li>
+                    <li>@Html.ActionLink("Courses", "Index", "Coursename")</li>
+                    <li>@Html.ActionLink("Students", "Index", "Student")</li>
+                    <li>@Html.ActionLink("Admins", "Index", "Admin")</li>
+                    <li>@Html.ActionLink("Teachers", "Index", "Teacher")</li>
 
                     <li>@Html.ActionLink("Add Students", "Create", "Student")</li>
                     <li>@Html.ActionLink("Add Admins", "Create", "Admin")</li>
-                    <li>@Html.ActionLink("Add Teachers", "Create", "Teacher")</li>
+                    <li>@Html.ActionLink("Add Teachers", "SignupTeacher", "Signup")</li>
                     <li>@Html.ActionLink("Add Courses", "Create", "Course")</li>
 
-
-                    <li style="float:right">@Html.ActionLink("My Profile", "Index", "Profile", new { id = @ViewBag.teacherid }, null)</li>
                     <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
+                    <li style="float:right">@Html.ActionLink("My Profile", "Profile", "Student", new { id = @ViewBag.teacherid }, null)</li>
+                    <li style="float:right; color:red; font-weight:bold"> @Html.ActionLink("Welcome " + (string)@ViewBag.firstname, "Signout", "Signin")</li>
                 }
 
                 @if (ViewBag.positionid == "3")
@@ -42,8 +42,8 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("News", "Index", "News")</li>
 
-                    <li>@Html.ActionLink("All Courses", "Index", "Coursename")</li>
-                    <li>@Html.ActionLink("All Students", "Index", "Student")</li>
+                    <li>@Html.ActionLink("Courses", "Index", "Coursename")</li>
+                    <li>@Html.ActionLink("Students", "Index", "Student")</li>
 
 
 
@@ -51,8 +51,9 @@
                     <li>@Html.ActionLink("Add Courses", "Create", "Course")</li>
 
 
-                    <li style="float:right">@Html.ActionLink("My Profile", "Index", "Profile", new { id = @ViewBag.teacherid }, null)</li>
                     <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
+                    <li style="float:right">@Html.ActionLink("My Profile", "Profile", "Student", new { id = @ViewBag.teacherid }, null)</li>
+                    <li style="float:right; color:red; font-weight:bold"> @Html.ActionLink("Welcome " + (string)@ViewBag.firstname, "Signout", "Signin")</li>
                 }
 
                 @if (ViewBag.positionid == "4")
@@ -61,16 +62,18 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("News", "Index", "News")</li>
 
-                    <li>@Html.ActionLink("All Courses", "Index", "Coursename")</li>
+                    <li>@Html.ActionLink("Courses", "Index", "Coursename")</li>
 
 
 
 
-                    <li>@Html.ActionLink("My Grade", "Index", "Profile", new { id = @ViewBag.teacherid }, null)</li>
+                    <li>@Html.ActionLink("My Grade", "Profile", "Student", new { id = @ViewBag.teacherid }, null)</li>
 
 
-                    <li style="float:right">@Html.ActionLink("My Profile", "Index", "Profile", new { id = @ViewBag.teacherid }, null)</li>
                     <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
+                    <li style="float:right">@Html.ActionLink("My Profile", "Profile", "Student", new { id = @ViewBag.teacherid }, null)</li>
+                    <li style="float:right">@Html.ActionLink("My Profile", "Profile", "Student", new { id = @ViewBag.teacherid }, null)</li>
+                    <li style="float:right; color:red; font-weight:bold"> @Html.ActionLink("Welcome " + (string)@ViewBag.firstname, "Signout", "Signin")</li>
                 }
 
 
@@ -81,7 +84,7 @@
                     <li>@Html.ActionLink("Courses", "Index", "Coursename")</li>
                     <li>@Html.ActionLink("Donate", "Index", "Donate")</li>
                     <li style="float:right">@Html.ActionLink("Login", "Index", "Signin")</li>
-                   
+
 
 
 
@@ -90,6 +93,7 @@
 
             </ul>
         </nav>
+
     </header>
     <p>Welcome @ViewBag.firstname</p>
     <div class="container">

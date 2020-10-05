@@ -9,16 +9,16 @@ using SchoolManagementSystem.Models;
 
 namespace SchoolManagementSystem.Controllers
 {
-    public class SignupTeacherController : Controller
+    public class SignupController : Controller
     {
         private readonly ConnectionDB _context;
 
-        public SignupTeacherController(ConnectionDB context)
+        public SignupController(ConnectionDB context)
         {
             _context = context;
         }
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult SignUpTeacher()
         {
             ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
             ViewBag.firstname = HttpContext.Session.GetString("FNAME");
@@ -35,7 +35,7 @@ namespace SchoolManagementSystem.Controllers
             return View(joinedtable);
         }
         [HttpPost]
-        public IActionResult Index(Teacher teacher)
+        public IActionResult SignUpTeacher(Teacher teacher)
         {
             Teacher t = new Teacher();
             // string newcoursename = teacher.coursename;

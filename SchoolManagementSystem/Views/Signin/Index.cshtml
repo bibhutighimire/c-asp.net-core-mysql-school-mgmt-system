@@ -1,8 +1,10 @@
 ﻿@model SchoolManagementSystem.Models.Signin
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="~/css/signin.css" />
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 }
 
 
@@ -10,21 +12,29 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post" asp-action="Login">
+
+        <form method="post" action="Signin/Login" style="max-width:500px;margin:auto">
+            <h2>Log In Here</h2>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Username" class="control-label"></label>
-                <input asp-for="Username" class="form-control" />
+            <div class="input-container">
+                <i class="fa fa-user icon"></i>
+                <input class="input-field" asp-for="Username" />
                 <span asp-validation-for="Username" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
+
+
+            <div class="input-container">
+                <i class="fa fa-key icon"></i>
+                <input class="input-field" asp-for="Password"  />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+
+            <button type="submit" class="btn">Login</button>
         </form>
+
+
+      
     </div>
 </div>
+
+

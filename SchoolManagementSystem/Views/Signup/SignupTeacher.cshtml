@@ -12,7 +12,7 @@
 <div class="row">
     <div class="col-md-4">
 
-        <form method="post" action="/SignupTeacher/Index">
+        <form method="post" action="/Signup/SignupTeacher">
             <div class="container">
                 <h1>Register a new Teacher Here!</h1>
                 <p>Please fill in this form to create an account.</p>
@@ -38,7 +38,7 @@
                     {
 
                         <option name="coursenameid" id="coursenameid" value="@item.listofcoursename.coursenameid">
-                            @item.listofcoursename.coursenameid
+                            @item.listofcoursename.coursename
                         </option>
 
                     }
@@ -46,8 +46,8 @@
                 <br />
                 <br />
                 <br />
-                <label for="coursenameid"><b>Coursename ID</b></label>
-                <input type="text" name="coursenameid" id="coursenameid" required />
+                @*<label for="coursenameid"><b>Coursename ID</b></label>
+                <input type="text" name="coursenameid" id="coursenameid" required />*@
 
                 <label for="username"><b>Username</b></label>
                 <input type="text" name="username" id="username" required />
