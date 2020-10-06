@@ -11,8 +11,10 @@ ul {
 }
 
 li {
+    display: block;
     float: left;
     border-right: 3px solid #bbb;
+   
 }
 
     li:last-child {

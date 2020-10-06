@@ -37,6 +37,10 @@ namespace SchoolManagementSystem.Controllers
         [HttpPost]
         public IActionResult SignUpTeacher(Teacher teacher)
         {
+            if(teacher.firstname=="")
+            {
+                ViewBag.firstnameblackerror("Firstname can not be blank");
+            }
             Teacher t = new Teacher();
             // string newcoursename = teacher.coursename;
             t.firstname = teacher.firstname;

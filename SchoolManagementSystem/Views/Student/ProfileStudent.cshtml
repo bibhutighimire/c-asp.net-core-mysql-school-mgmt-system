@@ -1,0 +1,47 @@
+﻿@model SchoolManagementSystem.Models.Student
+    <link rel="stylesheet" href="~/css/details.css" />
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
+}
+
+
+    <div>
+        <h4>@ViewBag.firstname's Profile </h4>
+        <hr />
+        <table id="customer">
+            <tr>
+                <th> @Html.DisplayNameFor(model => model.firstname)</th>
+                <td>@Html.DisplayFor(model => model.firstname)</td>
+            </tr>
+            <tr>
+                <th>  @Html.DisplayNameFor(model => model.lastname)</th>
+                <td>@Html.DisplayFor(model => model.lastname)</td>
+            </tr>
+            <tr>
+                <th>  @Html.DisplayNameFor(model => model.dob)</th>
+                <td>@Html.DisplayFor(model => model.dob)</td>
+            </tr>
+            <tr>
+                <th>  @Html.DisplayNameFor(model => model.email)</th>
+                <td>@Html.DisplayFor(model => model.email)</td>
+            </tr>
+            <tr>
+                <th>    @Html.DisplayNameFor(model => model.username)</th>
+                <td>@Html.DisplayFor(model => model.username)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.grade)</th>
+                <td>@Html.DisplayFor(model => model.grade)</td>
+            </tr>
+            <tr>
+                <th> @Html.DisplayNameFor(model => model.classname)</th>
+                <td>@Html.DisplayFor(model => model.classname)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.teachername)</th>
+                <td>@Html.DisplayFor(model => model.teachername)</td>
+            </tr>
+
+        </table>
+    </div>

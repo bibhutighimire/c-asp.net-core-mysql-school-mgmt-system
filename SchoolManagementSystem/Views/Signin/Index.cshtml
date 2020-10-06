@@ -8,6 +8,7 @@
 }
 
 
+
 <h4>Signin</h4>
 <hr />
 <div class="row">
@@ -16,24 +17,47 @@
         <form method="post" action="Signin/Login" style="max-width:500px;margin:auto">
             <h2>Log In Here</h2>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                @if (ViewBag.usernameempty != null)
+                {
+                    <span>@ViewBag.usernameempty</span>
+                }
+            </div>
+
             <div class="input-container">
                 <i class="fa fa-user icon"></i>
                 <input class="input-field" asp-for="Username" />
                 <span asp-validation-for="Username" class="text-danger"></span>
             </div>
-
+            <div>
+                @if (ViewBag.passwordempty != null)
+                {
+                    <span>@ViewBag.passwordempty</span>
+                }
+            </div>
 
             <div class="input-container">
                 <i class="fa fa-key icon"></i>
-                <input class="input-field" asp-for="Password"  />
+                <input class="input-field" asp-for="Password" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-
+            <div>
+                @if (ViewBag.wrongusernameorpassworderror != null)
+                {
+                    <span>@ViewBag.wrongusernameorpassworderror</span>
+                }
+            </div>
+            <div>
+                @if (ViewBag.bothempty != null)
+                {
+                    <span>@ViewBag.bothempty</span>
+                }
+            </div>
             <button type="submit" class="btn">Login</button>
         </form>
 
 
-      
+
     </div>
 </div>
 

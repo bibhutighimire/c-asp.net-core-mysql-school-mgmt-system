@@ -1,0 +1,78 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Teacher>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
+}
+
+<h1>List of all the teachers below:</h1>
+
+<p>
+    <a asp-action="Create">Add New Teacher Here</a>
+</p>
+<table id="customers">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.positionid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.coursenameid)
+        </th>
+        <th></th>
+    </tr>
+    
+ 
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dob)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.positionid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.coursenameid)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.teacherid">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.teacherid">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.teacherid">Delete</a>
+                </td>
+            </tr>
+        }
+
+</table>
