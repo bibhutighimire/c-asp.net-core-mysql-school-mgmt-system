@@ -10,11 +10,11 @@
     <table id="customer">
         
         <tr>
-            <th>  @Html.DisplayNameFor(model => model.firstname)</th>
+            <th>@Html.DisplayNameFor(model => model.firstname)</th>
             <td>@Html.DisplayFor(model => model.firstname)</td>
         </tr>
         <tr>
-            <th>    @Html.DisplayNameFor(model => model.lastname)</th>
+            <th>@Html.DisplayNameFor(model => model.lastname)</th>
             <td>@Html.DisplayFor(model => model.lastname)</td>
         </tr>
         <tr>
@@ -33,6 +33,6 @@
     </table>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.adminid">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a>>@Html.ActionLink("Edit My Profile", "Edit", "Profile", new { id = @ViewBag.adminid }, null)</a> |
+    <a>@Html.ActionLink("Back to Home Page", "Index", "Home")</a>
 </div>

@@ -20,22 +20,27 @@ namespace SchoolManagementSystem.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+           
             if (TempData["bothempty"] != null)
             {
                 ViewBag.bothempty = TempData["bothempty"].ToString();
 
             }
-            if (TempData["wrongusernameorpassworderror"] !=null)
+            if (TempData["wrongusernameorpassworderror"] != null)
             {
                 ViewBag.wrongusernameorpassworderror = TempData["wrongusernameorpassworderror"].ToString();
             }
-            
+
             if (TempData["usernameempty"] != null)
             {
+               
+                HttpContext.Session.GetString("password");
                 ViewBag.usernameempty = TempData["usernameempty"].ToString();
             }
             if (TempData["passwordempty"] != null)
             {
+                HttpContext.Session.GetString("username");
+              
                 ViewBag.passwordempty = TempData["passwordempty"].ToString();
             }
             return View();
@@ -45,8 +50,12 @@ namespace SchoolManagementSystem.Controllers
         [HttpPost]
         public IActionResult Login(Signin signin)
         {
-            //ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-            //ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+            HttpContext.Session.SetString("username", "signin.Username");
+            ViewBag.username = HttpContext.Session.GetString("username");
+
+            HttpContext.Session.SetString("username", "signin.Password");
+            ViewBag.username = HttpContext.Session.GetString("password");
+
             ViewBag.Message = null;
             if (string.IsNullOrWhiteSpace(signin.Username) && (string.IsNullOrWhiteSpace(signin.Password)))
             {
@@ -135,30 +144,10 @@ namespace SchoolManagementSystem.Controllers
                 }
                 else
                 {
-                    //if (string.IsNullOrWhiteSpace(signin.Username))
-                    //{
-                    //    TempData["usernameempty"] = "Username can not be blank!";
-                    //}
-                    //if (string.IsNullOrWhiteSpace(signin.Password))
-                    //{
-                    //    TempData["passwordnameempty"] = "Password can not be blank!";
-                    //}
-                    //if ((string.IsNullOrWhiteSpace(signin.Username)) && (string.IsNullOrWhiteSpace(signin.Password)))
-                    //{ 
-                    //    TempData["bothempty"] = " Username or Password can not be blank!"; 
-                    //}
-                    //else
-                    //{
-                        TempData["wrongusernameorpassworderror"] = " Wrong username or password";
-                    //}
-
-                    return RedirectToAction("Index");
+                TempData["wrongusernameorpassworderror"] = " Wrong username or password";
+                return RedirectToAction("Index");
                 }
             }
-
-            
-   
-  
         }
         
         public IActionResult Signout()

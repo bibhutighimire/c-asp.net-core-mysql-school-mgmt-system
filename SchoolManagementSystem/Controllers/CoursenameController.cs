@@ -19,6 +19,14 @@ namespace SchoolManagementSystem.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+
+            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+            ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+            ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+
             //var myModel = new MultipleData();
             //myModel.teachers = _context.tblTeacher.ToList();
             //myModel.coursenames = _context.tblCoursename.ToList();
@@ -28,16 +36,6 @@ namespace SchoolManagementSystem.Controllers
             //ViewBag.Listofteacher = ListOfTeachers;
             List<Coursename> listofcoursename = _context.tblCoursename.ToList();
 
-            //ViewData["jointables"] = from t in ListOfTeachers
-            //                         join c in listofcoursename on t.teacherid equals c.coursenameid ;
-
-            //                         //into table1 from c in table1.DefaultIfEmpty()
-            //                         select new  { listofcoursename = c, listofteachers = t };
-
-
-            //ViewData["jointables"] =  from t.firstname, c.coursename, t.coursenameid
-            //                        FROM Orders
-            //                        INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
 
             var joinedtable = from t in ListOfTeachers
                                      join c in listofcoursename on t.teacherid equals c.teacherid

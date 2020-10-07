@@ -21,6 +21,14 @@ namespace SchoolManagementSystem.Controllers
         public IActionResult SignUpTeacher()
         {
             ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+
+            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+            ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+            ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+
+            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
             ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             var fromDatabaseEF = new SelectList(_context.tblCoursename.ToList(), "Coursename");
             ViewData["Coursename"] = fromDatabaseEF;
@@ -37,7 +45,15 @@ namespace SchoolManagementSystem.Controllers
         [HttpPost]
         public IActionResult SignUpTeacher(Teacher teacher)
         {
-            if(teacher.firstname=="")
+            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+
+            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+            ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+            ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+
+            if (teacher.firstname=="")
             {
                 ViewBag.firstnameblackerror("Firstname can not be blank");
             }

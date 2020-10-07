@@ -34,6 +34,6 @@
     </table>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.teacherid">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a>>@Html.ActionLink("Edit My Profile", "Edit", "Profile", new { id = @ViewBag.teacherid }, null)</a> |
+    <a>@Html.ActionLink("Back to Home Page", "Index", "Home")</a>
 </div>

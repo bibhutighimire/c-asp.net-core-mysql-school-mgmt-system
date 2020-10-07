@@ -13,6 +13,14 @@ namespace SchoolManagementSystem.Controllers
         {
             ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
             ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+
+            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+            ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+            ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+
+
             return View();
         }
     }

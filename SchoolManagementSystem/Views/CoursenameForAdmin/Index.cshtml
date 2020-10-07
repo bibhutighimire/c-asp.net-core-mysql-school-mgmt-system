@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.NewVM>
+    <link rel="stylesheet" href="~/css/form.css" />
+    @{
+        ViewData["Title"] = "Index";
+        Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
+    }
+
+    <h1>List of Courses are below</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table id="customers">
+     
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.listofcoursename.coursename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListOfTeachers.firstname)
+            </th>
+            <th></th>
+        </tr>
+       
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.listofcoursename.coursename)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ListOfTeachers.firstname)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.listofcoursename.coursenameid">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.listofcoursename.coursenameid">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.listofcoursename.coursenameid">Delete</a>
+                    </td>
+                </tr>
+            }
+     
+    </table>

@@ -10,90 +10,86 @@ using SchoolManagementSystem.Models;
 
 namespace SchoolManagementSystem.Controllers
 {
-    public class TeacherController : Controller
+    public class AdminController : Controller
     {
         private readonly ConnectionDB _context;
 
-        public TeacherController(ConnectionDB context)
+        public AdminController(ConnectionDB context)
         {
-           
-
-           
             _context = context;
         }
 
-        // GET: Teacher
+        // GET: Admin
         public async Task<IActionResult> Index()
         {
-            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
             ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
             ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
-            return View(await _context.tblTeacher.ToListAsync());
+            return View(await _context.tblAdmin.ToListAsync());
         }
 
-        // GET: Teacher/Details/5
+        // GET: Admin/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
             ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
             ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
-
             if (id == null)
             {
                 return NotFound();
             }
 
-            var teacher = await _context.tblTeacher
-                .FirstOrDefaultAsync(m => m.teacherid == id);
-            if (teacher == null)
+            var admin = await _context.tblAdmin
+                .FirstOrDefaultAsync(m => m.adminid == id);
+            if (admin == null)
             {
                 return NotFound();
             }
 
-            return View(teacher);
+            return View(admin);
         }
 
-        // GET: Teacher/Create
+        // GET: Admin/Create
         public IActionResult Create()
         {
-            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
             ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
             ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
             return View();
         }
 
-        // POST: Teacher/Create
+        // POST: Admin/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("teacherid,firstname,lastname,dob,email,positionid,username,password,coursenameid")] Teacher teacher)
+        public async Task<IActionResult> Create([Bind("adminid,firstname,lastname,dob,email,positionid,username,password")] Admin admin)
         {
-            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
             ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
             ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
             if (ModelState.IsValid)
             {
-                _context.Add(teacher);
+                _context.Add(admin);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(teacher);
+            return View(admin);
         }
 
-        // GET: Teacher/Edit/5
+        // GET: Admin/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
             ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
             ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
@@ -102,27 +98,27 @@ namespace SchoolManagementSystem.Controllers
                 return NotFound();
             }
 
-            var teacher = await _context.tblTeacher.FindAsync(id);
-            if (teacher == null)
+            var admin = await _context.tblAdmin.FindAsync(id);
+            if (admin == null)
             {
                 return NotFound();
             }
-            return View(teacher);
+            return View(admin);
         }
 
-        // POST: Teacher/Edit/5
+        // POST: Admin/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("teacherid,firstname,lastname,dob,email,positionid,username,password,coursenameid")] Teacher teacher)
+        public async Task<IActionResult> Edit(int id, [Bind("adminid,firstname,lastname,dob,email,positionid,username,password")] Admin admin)
         {
-            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
             ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
             ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
-            if (id != teacher.teacherid)
+            if (id != admin.adminid)
             {
                 return NotFound();
             }
@@ -131,12 +127,12 @@ namespace SchoolManagementSystem.Controllers
             {
                 try
                 {
-                    _context.Update(teacher);
+                    _context.Update(admin);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TeacherExists(teacher.teacherid))
+                    if (!AdminExists(admin.adminid))
                     {
                         return NotFound();
                     }
@@ -147,14 +143,14 @@ namespace SchoolManagementSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(teacher);
+            return View(admin);
         }
 
-        // GET: Teacher/Delete/5
+        // GET: Admin/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
             ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
             ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
@@ -163,35 +159,35 @@ namespace SchoolManagementSystem.Controllers
                 return NotFound();
             }
 
-            var teacher = await _context.tblTeacher
-                .FirstOrDefaultAsync(m => m.teacherid == id);
-            if (teacher == null)
+            var admin = await _context.tblAdmin
+                .FirstOrDefaultAsync(m => m.adminid == id);
+            if (admin == null)
             {
                 return NotFound();
             }
 
-            return View(teacher);
+            return View(admin);
         }
 
-        // POST: Teacher/Delete/5
+        // POST: Admin/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
             ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
             ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
             ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
-            var teacher = await _context.tblTeacher.FindAsync(id);
-            _context.tblTeacher.Remove(teacher);
+            var admin = await _context.tblAdmin.FindAsync(id);
+            _context.tblAdmin.Remove(admin);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TeacherExists(int id)
+        private bool AdminExists(int id)
         {
-            return _context.tblTeacher.Any(e => e.teacherid == id);
+            return _context.tblAdmin.Any(e => e.adminid == id);
         }
     }
 }
