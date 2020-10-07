@@ -35,6 +35,7 @@
                     <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
                     <li style="float:right">@Html.ActionLink("My Profile", "ProfileAdmin", "Student", new { id = @ViewBag.adminid }, null)</li>
                     <li style="float:right; color:red; font-weight:bold; padding: 14px 16px">Hello @ViewBag.firstname</li>
+
                 }
 
                 @if (ViewBag.positionid == "3")
@@ -64,16 +65,13 @@
                     <li>@Html.ActionLink("News", "Index", "News")</li>
 
                     <li>@Html.ActionLink("Courses", "Index", "Coursename")</li>
-
-
-
-
                     <li>@Html.ActionLink("My Grade", "Index", "Profile", new { id = @ViewBag.teacherid }, null)</li>
 
 
                     <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
                     <li style="float:right">@Html.ActionLink("My Profile", "ProfileStudent", "Student", new { id = @ViewBag.studentid }, null)</li>
                     <li style="float:right; color:red; font-weight:bold; padding: 14px 16px">Hello @ViewBag.firstname</li>
+
                 }
 
 
@@ -84,7 +82,6 @@
                     <li>@Html.ActionLink("Courses", "Index", "Coursename")</li>
                     <li>@Html.ActionLink("Donate", "Index", "Donate")</li>
                     <li style="float:right">@Html.ActionLink("Login", "Index", "Signin")</li>
-
 
 
 

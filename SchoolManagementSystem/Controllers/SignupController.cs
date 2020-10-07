@@ -57,19 +57,27 @@ namespace SchoolManagementSystem.Controllers
             {
                 ViewBag.firstnameblackerror("Firstname can not be blank");
             }
-            Teacher t = new Teacher();
+            Teacher newTeacher = new Teacher();
             // string newcoursename = teacher.coursename;
-            t.firstname = teacher.firstname;
-            t.lastname = teacher.lastname;
-            t.dob = teacher.dob;
-            t.email = teacher.email;
-            t.positionid = 3;
-            t.username = teacher.username;
-            t.password = teacher.password;
-            t.coursenameid = teacher.coursenameid;
-            _context.tblTeacher.Add(t);
+            List<Teacher> ListOfTeachers = _context.tblTeacher.ToList();
+            //ViewBag.Listofteacher = ListOfTeachers;
+            List<Coursename> listofcoursename = _context.tblCoursename.ToList();
+            newTeacher.firstname = teacher.firstname;
+            newTeacher.lastname = teacher.lastname;
+            newTeacher.dob = teacher.dob;
+            newTeacher.email = teacher.email;
+            newTeacher.positionid = 3;
+            newTeacher.username = teacher.username;
+            newTeacher.password = teacher.password;
+            newTeacher.coursenameid = teacher.coursenameid;
+            _context.tblTeacher.Add(newTeacher);
             _context.SaveChanges();
-            return View();
+            var joinedtable = from t in ListOfTeachers
+                              join c in listofcoursename on t.teacherid equals c.teacherid
+                              select new NewVM { listofcoursename = c, ListOfTeachers = t };
+
+            return View(joinedtable);
+        
         }
     }
 }

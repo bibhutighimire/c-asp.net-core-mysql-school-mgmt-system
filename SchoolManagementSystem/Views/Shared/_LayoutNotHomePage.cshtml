@@ -54,6 +54,7 @@
                     <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
                     <li style="float:right">@Html.ActionLink("My Profile", "ProfileTeacher", "Student", new { id = @ViewBag.teacherid }, null)</li>
                     <li style="float:right; color:red; font-weight:bold; padding: 14px 16px">Hello @ViewBag.firstname</li>
+
                 }
 
                 @if (ViewBag.positionid == "4")
@@ -72,8 +73,8 @@
 
                     <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
                     <li style="float:right">@Html.ActionLink("My Profile", "ProfileStudent", "Student", new { id = @ViewBag.studentid }, null)</li>
-            <li style="float:right; color:red; font-weight:bold; padding: 14px 16px">Hello @ViewBag.firstname</li>
-        }
+                    <li style="float:right; color:red; font-weight:bold; padding: 14px 16px">Hello @ViewBag.firstname</li>
+                }
 
 
                 @if (ViewBag.positionid == null)

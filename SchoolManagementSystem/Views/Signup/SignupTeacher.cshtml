@@ -33,16 +33,17 @@
                 <label for="coursename"><b>Course Name</b></label>
 
 
-                <select>
+                <select name="coursenameid" id="coursenameid">
                     @foreach (var item in Model)
                     {
 
-                        <option name="coursenameid" id="coursenameid" value="@item.listofcoursename.coursenameid">
+                        <option  value="@item.listofcoursename.coursenameid">
                             @item.listofcoursename.coursename
                         </option>
 
                     }
                 </select>
+             
                 <br />
                 <br />
                 <br />

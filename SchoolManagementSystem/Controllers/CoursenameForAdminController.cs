@@ -12,8 +12,6 @@ namespace SchoolManagementSystem.Controllers
 {
     public class CoursenameForAdminController : Controller
     {
-        
-
         private readonly ConnectionDB _context;
 
         public CoursenameForAdminController(ConnectionDB context)

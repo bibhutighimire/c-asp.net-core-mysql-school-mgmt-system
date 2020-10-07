@@ -20,7 +20,8 @@ namespace SchoolManagementSystem.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-           
+            ViewBag.username = HttpContext.Session.GetString("username");
+            ViewBag.password = HttpContext.Session.GetString("password");
             if (TempData["bothempty"] != null)
             {
                 ViewBag.bothempty = TempData["bothempty"].ToString();
@@ -33,14 +34,13 @@ namespace SchoolManagementSystem.Controllers
 
             if (TempData["usernameempty"] != null)
             {
-               
                 HttpContext.Session.GetString("password");
                 ViewBag.usernameempty = TempData["usernameempty"].ToString();
             }
             if (TempData["passwordempty"] != null)
             {
                 HttpContext.Session.GetString("username");
-              
+
                 ViewBag.passwordempty = TempData["passwordempty"].ToString();
             }
             return View();
@@ -50,11 +50,7 @@ namespace SchoolManagementSystem.Controllers
         [HttpPost]
         public IActionResult Login(Signin signin)
         {
-            HttpContext.Session.SetString("username", "signin.Username");
-            ViewBag.username = HttpContext.Session.GetString("username");
-
-            HttpContext.Session.SetString("username", "signin.Password");
-            ViewBag.username = HttpContext.Session.GetString("password");
+           
 
             ViewBag.Message = null;
             if (string.IsNullOrWhiteSpace(signin.Username) && (string.IsNullOrWhiteSpace(signin.Password)))
@@ -64,17 +60,23 @@ namespace SchoolManagementSystem.Controllers
             }
             if (string.IsNullOrWhiteSpace(signin.Username) || (string.IsNullOrWhiteSpace(signin.Password)))
             {
-               
-                if (string.IsNullOrWhiteSpace(signin.Username)) 
+               if (string.IsNullOrWhiteSpace(signin.Username)) 
                 {
+                   
+                    HttpContext.Session.SetString("password", signin.Password);
+                    ViewBag.password = HttpContext.Session.GetString("password");
                     TempData["usernameempty"] = "Username  can not be blank!";
+                    return RedirectToAction("Index");
                 }
                 if (string.IsNullOrWhiteSpace(signin.Password))
                 {
+                    HttpContext.Session.SetString("username", signin.Username);
+                    ViewBag.username = HttpContext.Session.GetString("username");
+
                     TempData["passwordempty"] = "Password  can not be blank!";
-                }
-               
                     return RedirectToAction("Index");
+                }
+                return RedirectToAction("Index");
             }
           else
             {
