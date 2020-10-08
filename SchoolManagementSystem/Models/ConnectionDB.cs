@@ -20,6 +20,8 @@ namespace SchoolManagementSystem.Models
         public DbSet<Student> tblStudent { get; set; }
 
         public DbSet<Admin> tblAdmin { get; set; }
+        public DbSet<Transcript> tblTranscript { get; set; }
+
         //public DbSet<SchoolManagementSystem.Models.Signin> Signin { get; set; }
 
     }

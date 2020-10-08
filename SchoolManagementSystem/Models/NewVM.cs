@@ -9,5 +9,8 @@ namespace SchoolManagementSystem.Models
     {
         public Teacher ListOfTeachers { get; set; }
         public Coursename listofcoursename { get; set; }
+        public Student listofstudent { get; set; }
+        public Transcript listoftranscript { get; set; }
+
     }
 }

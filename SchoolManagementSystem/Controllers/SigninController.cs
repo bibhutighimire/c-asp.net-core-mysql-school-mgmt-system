@@ -50,8 +50,6 @@ namespace SchoolManagementSystem.Controllers
         [HttpPost]
         public IActionResult Login(Signin signin)
         {
-           
-
             ViewBag.Message = null;
             if (string.IsNullOrWhiteSpace(signin.Username) && (string.IsNullOrWhiteSpace(signin.Password)))
             {
