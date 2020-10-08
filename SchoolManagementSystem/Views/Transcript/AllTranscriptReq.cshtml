@@ -50,9 +50,19 @@
                 </td>
 
                 <td>
-                    <a asp-action="Complete" asp-route-id="@item.listoftranscript.transcriptid" >Complete</a> |
-                    <a asp-action="Incomplete" asp-route-id="@item.listoftranscript.transcriptid" >Incomplete</a> |
-                    <a asp-action="Delete" asp-route-id="@item.listoftranscript.transcriptid">Delete</a>
+                    @if (item.listoftranscript.status == "Complete")
+                    {
+                        <a asp-action="Incomplete" asp-route-id="@item.listoftranscript.transcriptid">Incomplete</a>
+                        <a asp-action="Delete" asp-route-id="@item.listoftranscript.transcriptid">Delete</a>
+                    }
+
+                    @if (item.listoftranscript.status == "Incomplete")
+                    {
+                        <a asp-action="Complete" asp-route-id="@item.listoftranscript.transcriptid">Complete</a>
+
+                        <a asp-action="Delete" asp-route-id="@item.listoftranscript.transcriptid">Delete</a>
+                    }
+
                 </td>
             </tr>
         }
