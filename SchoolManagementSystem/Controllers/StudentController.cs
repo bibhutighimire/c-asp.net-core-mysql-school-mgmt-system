@@ -44,6 +44,7 @@ namespace SchoolManagementSystem.Controllers
 
            // List<Coursename> listofcoursename = _context.tblCoursename.ToList();
             List<Coursename> listofcoursename = _context.tblCoursename.ToList();
+            ViewBag.listofcoursename = listofcoursename;
             //ViewBag.Listofteacher = ListOfTeachers;
             List<Student> listofstudent = _context.tblStudent.ToList();
             List<MultipleCourseStudent> listofmultiplecoursestudent = _context.tblMultipleCourseStudent.ToList();

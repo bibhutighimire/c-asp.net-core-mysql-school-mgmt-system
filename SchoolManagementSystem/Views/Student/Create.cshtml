@@ -31,31 +31,26 @@
 
                 <label for="coursename"><b>Course Name</b></label>
 
-                 @foreach (var item in Model)
+
+                @foreach (var item in ViewBag.listofcoursename)
                 {
 
-                    @Html.CheckBoxFor(modelItem => item.listofcoursename.coursename)
-
-                    @Html.HiddenFor(modelItem => item.listofcoursename.coursenameid)
-
+                    <input type="checkbox" name="coursename" id="coursename" required />
+                    <label for="coursename"><b>@item.coursename</b></label>
                 }
 
+                <label for="username"><b>Username</b></label>
+                <input type="text" name="username" id="username" required />
+
+                <label for="password"><b>Password</b></label>
+                <input type="password" name="password" id="password" required />
 
 
+                <hr>
+                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" name="username" id="username" required />
-
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" name="password" id="password" required />
-
-
-                    <hr>
-                    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-
-                    <button type="submit" class="registerbtn">Register</button>
-                </div>
+                <button type="submit" class="registerbtn">Register</button>
+            </div>
 
         </form>
     </div>

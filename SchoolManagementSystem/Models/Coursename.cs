@@ -18,12 +18,13 @@ namespace SchoolManagementSystem.Models
         //[DataType(DataType.EmailAddress)]
         public string coursename { get; set; }
         public int teacherid { get; set; }
+        //public bool isChecked { get; set; }
 
         //public virtual Teacher Teacher { get; set; }
         //public Teacher firstname { get; set; }
         //public Teacher lastname { get; set; }
 
         //public Teacher email { get; set; }
-        
+
     }
 }
