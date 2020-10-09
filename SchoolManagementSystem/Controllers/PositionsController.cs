@@ -22,7 +22,9 @@ namespace SchoolManagementSystem.Controllers
         // GET: Positions
         public ActionResult Index()
         {
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            if (HttpContext.Session.GetString("FNAME") != null)
+            {
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
             ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
 
             ViewBag.firstname = HttpContext.Session.GetString("FNAME");
@@ -32,7 +34,9 @@ namespace SchoolManagementSystem.Controllers
             ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
             return View(_context.tblPosition.ToList());
         }
+            else
+                return RedirectToAction("Index", "Signin");
+        }
 
-        
     }
 }

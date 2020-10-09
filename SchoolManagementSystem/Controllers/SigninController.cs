@@ -152,7 +152,21 @@ namespace SchoolManagementSystem.Controllers
         
         public IActionResult Signout()
         {
-            HttpContext.Session.Clear(); 
+            HttpContext.Session.Clear();
+            
+            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            ViewBag.positionid = null;
+            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+            ViewBag.firstname = null;
+            ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+            ViewBag.teacherid = null;
+            ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+            ViewBag.adminid = null;
+            ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+            ViewBag.studentid = null;
+            
+
+
             return RedirectToAction("Index");
         }
     }

@@ -19,6 +19,7 @@ namespace SchoolManagementSystem.Controllers
 
         public ActionResult Index()
         {
+
             ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
 
             ViewBag.firstname = HttpContext.Session.GetString("FNAME");
@@ -32,17 +33,16 @@ namespace SchoolManagementSystem.Controllers
             //myModel.coursenames = _context.tblCoursename.ToList();
             ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
             ViewBag.firstname = HttpContext.Session.GetString("FNAME");
-            List<Teacher> ListOfTeachers= _context.tblTeacher.ToList();
+            List<Teacher> ListOfTeachers = _context.tblTeacher.ToList();
             //ViewBag.Listofteacher = ListOfTeachers;
             List<Coursename> listofcoursename = _context.tblCoursename.ToList();
 
 
             var joinedtable = from t in ListOfTeachers
-                                     join c in listofcoursename on t.teacherid equals c.teacherid
-                              select new NewVM{ listofcoursename = c, ListOfTeachers = t };
-
-
+                              join c in listofcoursename on t.teacherid equals c.teacherid
+                              select new NewVM { listofcoursename = c, ListOfTeachers = t };
             return View(joinedtable);
         }
+
     }
 }

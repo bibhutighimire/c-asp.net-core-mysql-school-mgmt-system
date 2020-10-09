@@ -22,64 +22,77 @@ namespace SchoolManagementSystem.Controllers
         // GET: CoursenameForAdmin
         public async Task<IActionResult> Index()
         {
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            if (HttpContext.Session.GetString("FNAME") != null)
+            {
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
 
-            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-            ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
-            ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
-            ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
-            List<Teacher> ListOfTeachers = _context.tblTeacher.ToList();
-            //ViewBag.Listofteacher = ListOfTeachers;
-            List<Coursename> listofcoursename = _context.tblCoursename.ToList();
-
-
-            var joinedtable = from t in ListOfTeachers
-                              join c in listofcoursename on t.teacherid equals c.teacherid
-                              select new NewVM { listofcoursename = c, ListOfTeachers = t };
+                ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+                ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+                ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                List<Teacher> ListOfTeachers = _context.tblTeacher.ToList();
+                //ViewBag.Listofteacher = ListOfTeachers;
+                List<Coursename> listofcoursename = _context.tblCoursename.ToList();
 
 
-            return View(joinedtable);
+                var joinedtable = from t in ListOfTeachers
+                                  join c in listofcoursename on t.teacherid equals c.teacherid
+                                  select new NewVM { listofcoursename = c, ListOfTeachers = t };
+
+
+                return View(joinedtable);
+
+            }
+            else
+                return RedirectToAction("Index", "Signin");
         }
-
         // GET: CoursenameForAdmin/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-
-            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-            ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
-            ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
-            ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
-            if (id == null)
+            if (HttpContext.Session.GetString("FNAME") != null)
             {
-                return NotFound();
-            }
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
 
-            var coursename = await _context.tblCoursename
-                .FirstOrDefaultAsync(m => m.coursenameid == id);
-            if (coursename == null)
-            {
-                return NotFound();
-            }
+                ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+                ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+                ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            return View(coursename);
+                var coursename = await _context.tblCoursename
+                    .FirstOrDefaultAsync(m => m.coursenameid == id);
+                if (coursename == null)
+                {
+                    return NotFound();
+                }
+
+                return View(coursename);
+            }
+            else
+                return RedirectToAction("Index", "Signin");
         }
-
         // GET: CoursenameForAdmin/Create
         public IActionResult Create()
         {
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            if (HttpContext.Session.GetString("FNAME") != null)
+            {
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
 
-            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-            ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
-            ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
-            ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
-            return View();
+                ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+                ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+                ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                return View();
+            }
+            else
+                return RedirectToAction("Index", "Signin");
         }
-
         // POST: CoursenameForAdmin/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -87,45 +100,53 @@ namespace SchoolManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("coursenameid,coursename,teacherid")] Coursename coursenames)
         {
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-
-            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-            ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
-            ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
-            ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
-            if (ModelState.IsValid)
+            if (HttpContext.Session.GetString("FNAME") != null)
             {
-                _context.Add(coursenames);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(coursenames);
-        }
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
 
+                ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+                ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+                ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                if (ModelState.IsValid)
+                {
+                    _context.Add(coursenames);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(coursenames);
+            }
+            else
+                return RedirectToAction("Index", "Signin");
+        }
         // GET: CoursenameForAdmin/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-
-            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-            ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
-            ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
-            ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
-            if (id == null)
+            if (HttpContext.Session.GetString("FNAME") != null)
             {
-                return NotFound();
-            }
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
 
-            var coursename = await _context.tblCoursename.FindAsync(id);
-            if (coursename == null)
-            {
-                return NotFound();
+                ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+                ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+                ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                var coursename = await _context.tblCoursename.FindAsync(id);
+                if (coursename == null)
+                {
+                    return NotFound();
+                }
+                return View(coursename);
             }
-            return View(coursename);
+            else
+                return RedirectToAction("Index", "Signin");
         }
-
         // POST: CoursenameForAdmin/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -133,87 +154,100 @@ namespace SchoolManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("coursenameid,coursename,teacherid")] Coursename coursenames)
         {
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-
-            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-            ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
-            ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
-            ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
-            if (id != coursenames.coursenameid)
+            if (HttpContext.Session.GetString("FNAME") != null)
             {
-                return NotFound();
-            }
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
 
-            if (ModelState.IsValid)
-            {
-                try
+                ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+                ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+                ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                if (id != coursenames.coursenameid)
                 {
-                    _context.Update(coursenames);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+
+                if (ModelState.IsValid)
                 {
-                    if (!CoursenameExists(coursenames.coursenameid))
+                    try
                     {
-                        return NotFound();
+                        _context.Update(coursenames);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!CoursenameExists(coursenames.coursenameid))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
+                    return RedirectToAction(nameof(Index));
                 }
-                return RedirectToAction(nameof(Index));
+                return View(coursenames);
             }
-            return View(coursenames);
+            else
+                return RedirectToAction("Index", "Signin");
         }
-
         // GET: CoursenameForAdmin/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-
-            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-            ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
-            ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
-            ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
-            if (id == null)
+            if (HttpContext.Session.GetString("FNAME") != null)
             {
-                return NotFound();
-            }
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
 
-            var coursename = await _context.tblCoursename
-                .FirstOrDefaultAsync(m => m.coursenameid == id);
-            if (coursename == null)
-            {
-                return NotFound();
-            }
+                ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+                ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+                ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-            return View(coursename);
+                var coursename = await _context.tblCoursename
+                    .FirstOrDefaultAsync(m => m.coursenameid == id);
+                if (coursename == null)
+                {
+                    return NotFound();
+                }
+
+                return View(coursename);
+            }
+            else
+                return RedirectToAction("Index", "Signin");
         }
-
         // POST: CoursenameForAdmin/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            if (HttpContext.Session.GetString("FNAME") != null)
+            {
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
 
-            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
-            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-            ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
-            ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
-            ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
-            var coursename = await _context.tblCoursename.FindAsync(id);
-            _context.tblCoursename.Remove(coursename);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+                ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+                ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+                ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                var coursename = await _context.tblCoursename.FindAsync(id);
+                _context.tblCoursename.Remove(coursename);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            else
+                return RedirectToAction("Index", "Signin");
         }
-
         private bool CoursenameExists(int id)
         {
             return _context.tblCoursename.Any(e => e.coursenameid == id);
         }
+
     }
 }
