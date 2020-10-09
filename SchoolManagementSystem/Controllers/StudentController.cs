@@ -33,6 +33,55 @@ namespace SchoolManagementSystem.Controllers
             
         }
 
+        public IActionResult Create()
+        {
+           
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+                ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+                ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+
+           // List<Coursename> listofcoursename = _context.tblCoursename.ToList();
+            List<Coursename> listofcoursename = _context.tblCoursename.ToList();
+            //ViewBag.Listofteacher = ListOfTeachers;
+            List<Student> listofstudent = _context.tblStudent.ToList();
+            List<MultipleCourseStudent> listofmultiplecoursestudent = _context.tblMultipleCourseStudent.ToList();
+
+            var joinedtable = from c in listofcoursename
+                             
+                              join mcs in listofmultiplecoursestudent on c.coursenameid equals mcs.coursenameid
+                              join s in listofstudent on mcs.studentid equals s.studentid
+                              select new NewVM { listofcoursename = c, listofstudent = s , listofmultiplecoursestudent=mcs};
+
+            return View(joinedtable);
+
+        }
+        [HttpPost]
+        public IActionResult Create(MultipleCourseStudent multipleCourseStudent)
+        {
+
+            ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+            ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+            ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+            ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+            ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+
+            List<Teacher> ListOfTeachers = _context.tblTeacher.ToList();
+            //ViewBag.Listofteacher = ListOfTeachers;
+            List<Coursename> listofcoursename = _context.tblCoursename.ToList();
+
+
+            var joinedtable = from t in ListOfTeachers
+                              join c in listofcoursename on t.teacherid equals c.teacherid
+                              select new NewVM { listofcoursename = c, ListOfTeachers = t };
+
+
+          
+            return RedirectToAction("Index");
+
+        }
+
         public IActionResult ProfileStudent(int id)
         {
             ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
