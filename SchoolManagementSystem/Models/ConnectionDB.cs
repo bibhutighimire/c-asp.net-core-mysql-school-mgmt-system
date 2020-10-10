@@ -23,6 +23,8 @@ namespace SchoolManagementSystem.Models
         public DbSet<Transcript> tblTranscript { get; set; }
 
         public DbSet<MultipleCourseStudent> tblMultipleCourseStudent { get; set; }
+        public DbSet<Meeting> tblMeeting { get; set; }
+        public DbSet<MeetingTime> tblMeetingTime { get; set; }
 
         //public DbSet<SchoolManagementSystem.Models.Signin> Signin { get; set; }
 

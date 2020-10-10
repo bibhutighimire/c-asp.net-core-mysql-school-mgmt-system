@@ -19,7 +19,7 @@
                 {
 
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Transcript Req", "AllTranscriptReq", "Transcript")</li>
+
 
                     <li>@Html.ActionLink("Courses", "Index", "CoursenameForAdmin")</li>
                     <li>@Html.ActionLink("Students", "Index", "Student")</li>
@@ -30,8 +30,8 @@
                     <li>@Html.ActionLink("Add Admins", "Create", "Admin")</li>
                     <li>@Html.ActionLink("Add Teachers", "SignupTeacher", "Signup")</li>
                     <li>@Html.ActionLink("Add Courses", "Create", "CoursenameForAdmin")</li>
-
-
+                    <li>@Html.ActionLink("Transcript Req", "AllTranscriptReq", "Transcript")</li>
+                    <li>@Html.ActionLink("Meeting Req", "Index", "Meeting")</li>
                     <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
                     <li style="float:right">@Html.ActionLink("My Profile", "ProfileAdmin", "Student", new { id = @ViewBag.adminid }, null)</li>
                     <li style="float:right; color:red; font-weight:bold; padding: 14px 16px">Hello @ViewBag.firstname</li>
@@ -51,7 +51,7 @@
 
                     <li>@Html.ActionLink("Add Grades", "Index", "Grade")</li>
                     <li>@Html.ActionLink("Add Courses", "Create", "CoursenameForAdmin")</li>
-
+                    <li>@Html.ActionLink("Meeting Req", "TeacherMeetingReq", "Meeting", new { id = @ViewBag.teacherid }, null)</li>
 
                     <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
                     <li style="float:right">@Html.ActionLink("My Profile", "ProfileTeacher", "Student", new { id = @ViewBag.teacherid }, null)</li>
@@ -67,7 +67,7 @@
                     <li>@Html.ActionLink("Courses", "Index", "Coursename")</li>
                     <li>@Html.ActionLink("My Grade", "Index", "Profile", new { id = @ViewBag.studentid }, null)</li>
                     <li>@Html.ActionLink("Request Transcript", "Index", "Transcript", new { id = @ViewBag.studentid }, null)</li>
-
+                    <li>@Html.ActionLink("Request Meeting", "Create", "Meeting")</li>
 
                     <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
                     <li style="float:right">@Html.ActionLink("My Profile", "ProfileStudent", "Student", new { id = @ViewBag.studentid }, null)</li>

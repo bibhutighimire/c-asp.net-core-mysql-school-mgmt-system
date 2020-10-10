@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.NewVM>
+@{
+    ViewData["Title"] = "TeacherMeetingReq";
+    Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
+}
+
+<h1>List of all the Meeting Schedule</h1>
+
+
+<table id="customers">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.listofmeeting.requestedtime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.listofstudent.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.listofstudent.lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.listofmeeting.dateofmeeting)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.listofmeetingtime.timeslot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.listofmeeting.about)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ListOfTeachers.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ListOfTeachers.lastname)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.listofmeeting.requestedtime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.listofstudent.firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.listofstudent.lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.listofmeeting.dateofmeeting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.listofmeetingtime.timeslot)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.listofmeeting.about)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListOfTeachers.firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListOfTeachers.lastname)
+            </td>
+
+        </tr>
+    }
+
+</table>

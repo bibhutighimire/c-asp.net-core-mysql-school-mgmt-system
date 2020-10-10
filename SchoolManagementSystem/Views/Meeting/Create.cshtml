@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.NewVM>
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Meeting</h4>
+<hr />
+@if (ViewBag.success != null)
+{
+    <h2>@ViewBag.success</h2>
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" action="/Meeting/AddMeeting">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <label for="dateofmeeting"><b>Meeting Date</b></label><br />
+            <input type="date" name="dateofmeeting" id="dateofmeeting" required /><br /><br /><br />
+
+
+            <label for="meetingtime"><b>Meeting Time</b></label><br />
+
+
+            <select name="meetingtimeid" id="meetingtimeid">
+                @foreach (MeetingTime meetingtime in ViewBag.listofmeetingtime)
+                {
+                    <option value="@meetingtime.meetingtimeid">
+                        @meetingtime.timeslot
+                    </option>
+                }
+            </select><br /><br />
+
+            <label for="teachername"><b>Teacher Name</b></label><br />
+            <select name="teacherid" id="teacherid">
+                @foreach (Teacher teacher in ViewBag.ListOfTeachers)
+                {
+
+                    <option value="@teacher.teacherid">
+                        @teacher.firstname @teacher.lastname
+                    </option>
+                }
+            </select><br /><br />
+            <label for="about"><b>Reason of Meeting:</b></label><br /><br />
+            <input type="text" name="about" id="about" required /><br /><br />
+
+
+            <div class="form-group">
+                <input type="submit" value="Schedule a meeting" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

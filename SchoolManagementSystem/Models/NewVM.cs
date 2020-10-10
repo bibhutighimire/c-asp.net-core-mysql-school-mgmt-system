@@ -12,7 +12,8 @@ namespace SchoolManagementSystem.Models
         public Student listofstudent { get; set; }
         public Transcript listoftranscript { get; set; }
         public MultipleCourseStudent listofmultiplecoursestudent { get; set; }
-
+        public Meeting listofmeeting { get; set; }
+        public MeetingTime listofmeetingtime { get; set; }
 
     }
 }
