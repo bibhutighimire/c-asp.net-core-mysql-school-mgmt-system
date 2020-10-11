@@ -34,7 +34,8 @@ namespace SchoolManagementSystem.Models
 		[Display(Name = "Password")]
 		[DataType(DataType.Password)]
 		public string password { get; set; }
-	
+		[Required(ErrorMessage = "Grade Required")]
+		[Display(Name = "Grade")]
 		public string grade { get; set; }
 		
 	}

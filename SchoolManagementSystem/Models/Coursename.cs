@@ -17,6 +17,8 @@ namespace SchoolManagementSystem.Models
         [Display(Name = "Course Name")]
         //[DataType(DataType.EmailAddress)]
         public string coursename { get; set; }
+        [Required(ErrorMessage = "Teacher ID Required")]
+        [Display(Name = "Teacher ID")]
         public int teacherid { get; set; }
         //public bool isChecked { get; set; }
 

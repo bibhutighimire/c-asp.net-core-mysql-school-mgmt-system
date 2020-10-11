@@ -38,6 +38,7 @@ namespace SchoolManagementSystem.Controllers
                                   join s in listofstudent on m.studentid equals s.studentid
                                   join mt in listofmeetingtime on m.meetingtimeid equals mt.meetingtimeid
                                   join t in ListOfTeachers on m.teacherid equals t.teacherid
+                                  orderby m.requestedtime
                                   select new NewVM { listofstudent = s, listofmeeting = m, listofmeetingtime = mt, ListOfTeachers = t };
 
                 return View(joinedtable);
@@ -100,6 +101,7 @@ namespace SchoolManagementSystem.Controllers
                                   join s in listofstudent on me.studentid equals s.studentid
                                   join mt in listofmeetingtime on me.meetingtimeid equals mt.meetingtimeid
                                   join t in ListOfTeachers on me.teacherid equals t.teacherid
+                                  
                                   select new NewVM { listofstudent = s, listofmeeting = me, listofmeetingtime = mt, ListOfTeachers = t };
 
             Meeting m = new Meeting();
@@ -150,6 +152,7 @@ namespace SchoolManagementSystem.Controllers
                                   join s in listofstudent on m.studentid equals s.studentid
                                   join mt in listofmeetingtime on m.meetingtimeid equals mt.meetingtimeid
                                   join t in ListOfTeachers on m.teacherid equals t.teacherid
+                                  orderby m.requestedtime
                                   select new NewVM { listofstudent = s, listofmeeting = m, listofmeetingtime = mt, ListOfTeachers = t };
                 var filteredmsgview = joinedtable.Where(x => x.ListOfTeachers.teacherid == id).ToList();
                 return View(filteredmsgview);

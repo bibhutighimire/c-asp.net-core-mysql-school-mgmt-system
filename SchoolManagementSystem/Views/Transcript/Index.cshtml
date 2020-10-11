@@ -1,57 +1,45 @@
 ﻿@model SchoolManagementSystem.Models.Student
-<link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/details.css" />
 
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
-}
+    @{
+        ViewData["Title"] = "Index";
+        Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
+    }
 
-<div>
-    <h4>Request for Transcript Details</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.firstname)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.firstname)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.lastname)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.lastname)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.dob)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.dob)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.email)
-        </dd>
+    <div>
+        <h4>Request for Transcript Details</h4>
+        <hr />
+        <table id="customer">
 
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.username)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.username)
-        </dd>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.firstname)
+                </th>
+                <td> @Html.DisplayFor(model => model.firstname)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.lastname)</th>
+                <td>@Html.DisplayFor(model => model.lastname)</td>
+            </tr>
+            <tr>
+                <th> @Html.DisplayNameFor(model => model.dob)</th>
+                <td> @Html.DisplayFor(model => model.dob)</td>
+            </tr>
+            <tr>
+                <th> @Html.DisplayNameFor(model => model.email)</th>
+                <td> @Html.DisplayFor(model => model.email)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.username)</th>
+                <td> @Html.DisplayFor(model => model.username)</td>
+            </tr>
 
+            <tr>
+                <th> @Html.DisplayNameFor(model => model.grade)</th>
+                <td> @Html.DisplayFor(model => model.grade)</td>
+            </tr>
+        </table>
 
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.grade)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.grade)
-        </dd>
-       
+    </div>
 
-    </dl>
-</div>
-
-    <a  asp-action="ReqForTranscript" asp-route-id="@Model.studentid">Click Here To Request Your Transcript</a>
+    <div class="treqBtn"> <a asp-action="ReqForTranscript" asp-route-id="@Model.studentid">Click Here To Request Your Transcript</a></div>

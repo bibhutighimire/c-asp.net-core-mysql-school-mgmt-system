@@ -1,12 +1,15 @@
 ﻿#customer {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
- width:100%;
+ width:50%;
+ margin-bottom:34px;
 }
 
     #customer td {
         border: 1px solid #ddd;
         padding: 8px;
-        width:70%
+        width: 70%;
+        border: 1px solid gray;
+        margin-bottom: 25px;
     }
     #customer th {
         border: 1px solid #ddd;
@@ -27,5 +30,5 @@
         text-align: left;
         background-color: lightblue;
         color: black;
-       
+        border: 1px solid gray;
     }

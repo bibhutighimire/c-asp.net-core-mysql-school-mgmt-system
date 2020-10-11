@@ -1,36 +1,38 @@
-﻿@model SchoolManagementSystem.Models.Coursename
-
+﻿@model IEnumerable<SchoolManagementSystem.Models.NewVM>
+<link rel="stylesheet" href="~/css/form.css" />
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
 }
-
-<h1>Create</h1>
-
-<h4>Coursename</h4>
+<h4>Create Coursename</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="coursename" class="control-label"></label>
-                <input asp-for="coursename" class="form-control" />
-                <span asp-validation-for="coursename" class="text-danger"></span>
+<div class="container">
+    <form method="post" action="Created">
+        <div class="row">
+            <div class="col-50">
+                <label for="coursename">Course Name</label>
             </div>
-            <div class="form-group">
-                <label asp-for="teacherid" class="control-label"></label>
-                <input asp-for="teacherid" class="form-control" />
-                <span asp-validation-for="teacherid" class="text-danger"></span>
+            <div class="col-75">
+                <input type="text" id="coursename" name="coursename" placeholder="Name of Course..">
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+        <div class="row">
+            <div class="col-50">
+                <label for="teachername">Teacher Name</label>
             </div>
-        </form>
-    </div>
+            <div class="col-75">
+                <select id="teacherid" name="teacherid">
+                    @foreach (Teacher teacher in ViewBag.Listofteacher)
+                    {
+                    <option value="@teacher.teacherid">
+                        @teacher.firstname @teacher.lastname
+                    </option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Add a Course" class="btn btn-primary" />
+        </div>
+    </form>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-

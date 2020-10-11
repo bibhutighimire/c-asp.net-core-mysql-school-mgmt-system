@@ -35,7 +35,7 @@ body {
     background-color: lightblue;
     width: 98%;
     height: 30px;
-    margin: 20px auto;
+    margin: 40px auto;
     padding: 15px;
 }
 
@@ -43,10 +43,11 @@ body {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    margin-bottom:25px;
 }
 
     #customers td, #customers th {
-        border: 1px solid #ddd;
+        border: 1px solid gray;
         padding: 8px;
     }
 
@@ -62,6 +63,15 @@ body {
         padding-top: 12px;
         padding-bottom: 12px;
         text-align: left;
-        background-color: #4CAF50;
+        background-color: lightblue;
         color: white;
+        border: 1px solid gray;
     }
+.treqBtn a {
+    background-color: lightblue;
+    padding: 20px;
+    border-radius: 12px;
+    color: black;
+    text-decoration: none;
+    border: 1px solid gray;
+}
