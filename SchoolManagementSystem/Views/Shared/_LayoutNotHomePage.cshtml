@@ -47,7 +47,7 @@
 
 
                     <li>@Html.ActionLink("Add Grades", "Index", "Grade")</li>
-                    <li>@Html.ActionLink("Add Courses", "Create", "Course")</li>
+                    <li>@Html.ActionLink("Add Courses", "Create", "CoursenameForAdmin")</li>
 
 
                     <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
@@ -70,6 +70,7 @@
                     <li>@Html.ActionLink("My Grade", "Profile", "Student", new { id = @ViewBag.teacherid }, null)</li>
                     <li>@Html.ActionLink("Request Transcript", "Index", "Transcript", new { id = @ViewBag.studentid }, null)</li>
                     <li>@Html.ActionLink("Request Meeting", "Create", "Meeting")</li>
+                    <li>@Html.ActionLink("My Fee", "Index", "Fee", new { id = @ViewBag.studentid }, null)</li>
                     <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
                     <li style="float:right">@Html.ActionLink("My Profile", "ProfileStudent", "Student", new { id = @ViewBag.studentid }, null)</li>
                     <li style="float:right; color:red; font-weight:bold; padding: 14px 16px">Hello @ViewBag.firstname</li>

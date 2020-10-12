@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.NewVM>
+<link rel="stylesheet" href="~/css/form.css" />
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
+}
+
+<h1>Logs of Fee Payment</h1>
+
+<table id="customers">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.listoffee.datepaid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.listofstudent.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.listofstudent.lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.listoffee.paidfee)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.listoffee.datepaid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.listofstudent.firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.listofstudent.lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.listoffee.paidfee)
+            </td>
+
+        </tr>
+
+    }
+
+</table>
+<p>Total Course Fee: $@ViewBag.totalfee</p>
+<p>Total Fee Paid until today: $@ViewBag.paidamount </p>
+<p>Remaining Payment Amount: $@ViewBag.remainintfee </p>
+<div class="treqBtn">   <a asp-action="PaymentPage">Make a Payment</a></div>

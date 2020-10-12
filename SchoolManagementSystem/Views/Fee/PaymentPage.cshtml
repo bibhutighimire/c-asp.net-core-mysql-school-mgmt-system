@@ -1,0 +1,29 @@
+﻿@model SchoolManagementSystem.Models.Fee
+    <link rel="stylesheet" href="~/css/form.css" />
+    @{
+        ViewData["Title"] = "PaymentPage";
+        Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
+    }
+    <h4>Welcome to Payment Center</h4>
+    <hr />
+    <div class="container">
+        <form method="post" action="AfterPayment">
+            <div class="row">
+                <div class="col-50">
+                    <label for="paidfee">Enter the Amount($) </label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="paidfee" name="paidfee" placeholder="Enter the amount ..">
+
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" value="Make a Payment" class="btn btn-primary" />
+            </div>
+        </form>
+           
+
+
+
+           
+
