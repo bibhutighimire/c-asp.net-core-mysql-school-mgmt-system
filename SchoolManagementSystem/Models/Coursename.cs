@@ -10,23 +10,15 @@ namespace SchoolManagementSystem.Models
     [Table("tblCoursename")]
     public class Coursename
     {
-    [Key]
-        [Display(Name = "Course ID")]
+   
         public int coursenameid { get; set; }
-        [Required(ErrorMessage = "Course Name Required")]
-        [Display(Name = "Course Name")]
-        //[DataType(DataType.EmailAddress)]
+
+        [Required(ErrorMessage = "Student ID Required")]
         public string coursename { get; set; }
-        [Required(ErrorMessage = "Teacher ID Required")]
-        [Display(Name = "Teacher ID")]
+      
         public int teacherid { get; set; }
         //public bool isChecked { get; set; }
 
-        //public virtual Teacher Teacher { get; set; }
-        //public Teacher firstname { get; set; }
-        //public Teacher lastname { get; set; }
-
-        //public Teacher email { get; set; }
-
+     
     }
 }
