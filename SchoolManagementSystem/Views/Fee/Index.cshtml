@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<SchoolManagementSystem.Models.NewVM>
-<link rel="stylesheet" href="~/css/form.css" />
+<link rel="stylesheet" href="~/css/site.css" />
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
@@ -46,7 +46,11 @@
     }
 
 </table>
-<p>Total Course Fee: $@ViewBag.totalfee</p>
-<p>Total Fee Paid until today: $@ViewBag.paidamount </p>
-<p>Remaining Payment Amount: $@ViewBag.remainintfee </p>
+<div class="calculationBtn">
+    <p>Total Course Fee: $@ViewBag.totalfee</p>
+    <p>Total Fee Paid until today: $@ViewBag.paidamount </p>
+    <p>Remaining Payment Amount: $@ViewBag.remainintfee </p>
+
+</div>
+
 <div class="treqBtn">   <a asp-action="PaymentPage">Make a Payment</a></div>
