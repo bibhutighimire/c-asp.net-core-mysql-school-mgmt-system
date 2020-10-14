@@ -38,7 +38,7 @@ namespace SchoolManagementSystem.Controllers
                                   join s in listofstudent on m.studentid equals s.studentid
                                   join mt in listofmeetingtime on m.meetingtimeid equals mt.meetingtimeid
                                   join t in ListOfTeachers on m.teacherid equals t.teacherid
-                                  orderby m.requestedtime
+                                  orderby m.meetingid
                                   select new NewVM { listofstudent = s, listofmeeting = m, listofmeetingtime = mt, ListOfTeachers = t };
 
                 return View(joinedtable);
@@ -49,8 +49,17 @@ namespace SchoolManagementSystem.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+
+            if (TempData["duprecord"] != null)
+            {
+                ViewBag.duprecord = TempData["duprecord"].ToString();
+
+            }
+
             if (HttpContext.Session.GetString("FNAME") != null)
             {
+               
+                
                 ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
                 ViewBag.firstname = HttpContext.Session.GetString("FNAME");
                 ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
@@ -104,27 +113,36 @@ namespace SchoolManagementSystem.Controllers
                                   
                                   select new NewVM { listofstudent = s, listofmeeting = me, listofmeetingtime = mt, ListOfTeachers = t };
 
-            Meeting m = new Meeting();
-                m.studentid =Convert.ToInt32(ViewBag.studentid);
-                m.requestedtime = DateTime.Now;
+                Meeting m = new Meeting();
+                var checker = joinedtable.Where(x => x.ListOfTeachers.teacherid == meeting.teacherid && x.listofmeeting.dateofmeeting == meeting.dateofmeeting && x.listofmeetingtime.meetingtimeid == meeting.meetingtimeid).FirstOrDefault();
+                if(checker==null)
 
-                String input =Convert.ToString(meeting.dateofmeeting);
-                String output = input.Substring(0, 10);
+                {
 
+                    m.studentid = Convert.ToInt32(ViewBag.studentid);
+                    m.requestedtime = DateTime.Now;
 
-                m.dateofmeeting =Convert.ToDateTime(output);
-                m.meetingtimeid = meeting.meetingtimeid;
-                m.teacherid = meeting.teacherid;
-                m.about = meeting.about;
-                _context.Add(m);
-                _context.SaveChanges();
+                    DateTime dateofmeeting = meeting.dateofmeeting.Date;
+                    m.dateofmeeting = dateofmeeting;
+                    m.meetingtimeid = meeting.meetingtimeid;
+                    m.teacherid = meeting.teacherid;
+                    m.about = meeting.about;
+                    _context.Add(m);
+                    _context.SaveChanges();
 
-                //HttpContext.Session.SetString("TEACHERID", strtid);
-                //ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
-
-                ViewBag.success = "Your appointment scheduled successfully";
-                //ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-                return RedirectToAction("Create");
+                    ViewBag.success = "Your appointment scheduled successfully";
+                    
+                    //ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                    return RedirectToAction("Create");
+                    
+                    
+                }
+                else
+                {
+                    TempData["duprecord"] = "This time slot is already booked. Try Again!";
+                    return RedirectToAction("Create");
+                }
+               
             }
             else
                 return RedirectToAction("Index", "Signin");
@@ -152,7 +170,9 @@ namespace SchoolManagementSystem.Controllers
                                   join s in listofstudent on m.studentid equals s.studentid
                                   join mt in listofmeetingtime on m.meetingtimeid equals mt.meetingtimeid
                                   join t in ListOfTeachers on m.teacherid equals t.teacherid
-                                  orderby m.requestedtime
+                                  orderby 
+                                  
+                                  m.requestedtime
                                   select new NewVM { listofstudent = s, listofmeeting = m, listofmeetingtime = mt, ListOfTeachers = t };
                 var filteredmsgview = joinedtable.Where(x => x.ListOfTeachers.teacherid == id).ToList();
                 return View(filteredmsgview);

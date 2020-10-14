@@ -10,8 +10,8 @@ namespace SchoolManagementSystem.Models
     [Table("tblTeacher")]
     public class Teacher
     {
-
-        public int teacherid { get; set; }
+		[Required(ErrorMessage = "Student ID Required")]
+		public int teacherid { get; set; }
 	
 		public string firstname { get; set; }
 		

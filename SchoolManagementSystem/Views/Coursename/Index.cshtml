@@ -12,8 +12,7 @@
         <tr>
             <th> @Html.DisplayNameFor(model => model.listofcoursename.coursenameid)</th>
             <th> @Html.DisplayNameFor(model => model.listofcoursename.coursename)</th>
-            <th> @Html.DisplayNameFor(model => model.ListOfTeachers.firstname)</th>
-            <th> @Html.DisplayNameFor(model => model.ListOfTeachers.lastname)</th>
+            <th> Full Name</th>
             <th> @Html.DisplayNameFor(model => model.ListOfTeachers.email)</th>
 
         </tr>
@@ -22,8 +21,7 @@
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.listofcoursename.coursenameid)</td>
                 <td>@Html.DisplayFor(modelItem => item.listofcoursename.coursename)</td>
-                <td>@Html.DisplayFor(modelItem => item.ListOfTeachers.firstname)</td>
-                <td>@Html.DisplayFor(modelItem => item.ListOfTeachers.lastname)</td>
+                <td>@Html.DisplayFor(modelItem => item.ListOfTeachers.firstname) @Html.DisplayFor(modelItem => item.ListOfTeachers.lastname)</td>
                 <td>@Html.DisplayFor(modelItem => item.ListOfTeachers.email)</td>
             </tr>
         }

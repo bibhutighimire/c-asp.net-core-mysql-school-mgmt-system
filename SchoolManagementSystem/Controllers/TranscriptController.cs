@@ -78,7 +78,7 @@ namespace SchoolManagementSystem.Controllers
 
                 var joinedtable = from s in listofstudent
                                   join t in listoftranscript on s.studentid equals t.studentid
-                                  select new NewVM { listofstudent = s, listoftranscript = t };
+                                  orderby t.daterequested select new NewVM { listofstudent = s, listoftranscript = t };
                 //var newtable = joinedtable.ToList();
 
                 return View(joinedtable);

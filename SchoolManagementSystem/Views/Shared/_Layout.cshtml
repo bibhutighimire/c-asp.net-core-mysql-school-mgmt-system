@@ -42,7 +42,7 @@
                 {
 
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("News", "Index", "News")</li>
+                    <li>@Html.ActionLink("News", "NewsAPI", "NewsAPI")</li>
                     <li>@Html.ActionLink("Transcript Req", "AllTranscriptReq", "Transcript")</li>
                     <li>@Html.ActionLink("Courses", "Index", "CoursenameForAdmin")</li>
                     <li>@Html.ActionLink("Students", "Index", "Student")</li>
@@ -62,7 +62,7 @@
                 {
 
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("News", "Index", "News")</li>
+                    <li>@Html.ActionLink("News", "NewsAPI", "NewsAPI")</li>
 
                     <li>@Html.ActionLink("Courses", "Index", "Coursename")</li>
                     <li>@Html.ActionLink("My Grade", "Index", "Profile", new { id = @ViewBag.studentid }, null)</li>
@@ -79,7 +79,7 @@
                 @if (ViewBag.positionid == null)
                 {
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("News", "Index", "News")</li>
+                    <li>@Html.ActionLink("News", "NewsAPI", "NewsAPI")</li>
                     <li>@Html.ActionLink("Courses", "Index", "Coursename")</li>
                     <li>@Html.ActionLink("Donate", "Index", "Donate")</li>
                     <li style="float:right">@Html.ActionLink("Login", "Index", "Signin")</li>
@@ -118,9 +118,9 @@
     </div>
 
     <footer class="footer-box">
-        <div class="container">
+      
             &copy; 2020 - SchoolManagementSystem - <a href="#">Designed and Developed by Bibu</a>
-        </div>
+    
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

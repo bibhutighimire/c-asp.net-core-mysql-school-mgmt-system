@@ -145,7 +145,7 @@ namespace SchoolManagementSystem.Controllers
                   
                     TempData["password"] = "Password can not be blank!";
                 }
-                if (string.IsNullOrWhiteSpace(Convert.ToString(teacher.coursenameid)))
+                if (string.IsNullOrWhiteSpace(Convert.ToString(teacher.coursenameid))&& teacher.coursenameid==0)
                 {
                    
                     TempData["coursenameid"] = "Course Name can not be blank!";

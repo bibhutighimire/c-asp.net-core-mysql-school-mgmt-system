@@ -36,6 +36,7 @@ namespace SchoolManagementSystem.Controllers
             {
                 HttpContext.Session.GetString("password");
                 ViewBag.usernameempty = TempData["usernameempty"].ToString();
+               
             }
             if (TempData["passwordempty"] != null)
             {

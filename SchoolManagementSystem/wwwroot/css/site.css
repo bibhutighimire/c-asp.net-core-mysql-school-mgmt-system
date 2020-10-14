@@ -14,11 +14,13 @@ body {
     width: 100px;
     height: 100px;
 }
-.containerImgHolder img{
+.container {
+    min-height:600px;
+}
+.containerImgHolder img {
     width: 100%;
     height: auto;
     margin: 15px auto;
-
 }
 .colorfulTexts {
     color:darkgreen;
@@ -34,9 +36,8 @@ body {
 .footer-box {
     background-color: lightblue;
     width: 98%;
-    height: 30px;
     margin: 40px auto;
-    padding: 15px;
+    padding: 45px;
 }
 
 #customers {
