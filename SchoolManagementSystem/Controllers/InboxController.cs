@@ -27,12 +27,26 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
-                int id = Convert.ToInt32(ViewBag.studentid);
                 int ids = Convert.ToInt32(ViewBag.studentid);
                 int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
                 HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
                 ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
-                return View(_context.tblInbox.Where(x=>x.studentid==id).ToList());
+
+                List<Student> listofstudent = _context.tblStudent.ToList();
+                //ViewBag.Listofteacher = ListOfTeachers;
+                List<Transcript> listoftranscript = _context.tblTranscript.ToList();
+                List<Teacher> ListOfTeachers = _context.tblTeacher.ToList();
+                List<Inbox> listofinbox = _context.tblInbox.ToList();
+
+                var joinedtable = from i in listofinbox
+                                  join s in listofstudent on i.studentid equals s.studentid
+                                 
+                                  join teac in ListOfTeachers on i.teacherid equals teac.teacherid
+                                  //orderby t.daterequested descending
+                                  select new NewVM { listofstudent = s, ListOfTeachers = teac, listofinbox = i };
+
+
+                return View(joinedtable);
             }
             else
                 return RedirectToAction("Index", "Signin");
