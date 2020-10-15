@@ -28,5 +28,6 @@ namespace SchoolManagementSystem.Models
         [Display(Name = "Reason for Meeting")]
 
         public string about { get; set; }
+        public string status { get; set; }
     }
 }

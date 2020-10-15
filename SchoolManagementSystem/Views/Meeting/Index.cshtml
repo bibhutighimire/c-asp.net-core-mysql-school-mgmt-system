@@ -23,8 +23,11 @@
         <th>
             @Html.DisplayNameFor(model => model.listofmeeting.about)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.listofmeeting.status)
+        </th>
         <th>Full Name</th>
-   
+
     </tr>
  
         @foreach (var item in Model)
@@ -48,7 +51,32 @@
     <td>
         @Html.DisplayFor(modelItem => item.ListOfTeachers.firstname) @Html.DisplayFor(modelItem => item.ListOfTeachers.lastname)
     </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.listofmeeting.status)
+    </td>
+    <td>
+        @if (item.listofmeeting.status == "Complete")
+        {
 
+            <a asp-action="Delete" asp-route-id="@item.listofmeeting.meetingid">Delete</a>
+            <a asp-action="Notify" asp-route-id="@item.listofmeeting.meetingid">Notify</a>
+        }
+
+        @if (item.listofmeeting.status == "Incomplete")
+        {
+            <a asp-action="Complete" asp-route-id="@item.listofmeeting.meetingid">Complete</a>
+
+            <a asp-action="Delete" asp-route-id="@item.listofmeeting.meetingid">Delete</a>
+        }
+
+        @if (item.listofmeeting.status == "Notified")
+        {
+            <a asp-action="Incomplete" asp-route-id="@item.listofmeeting.meetingid">Incomplete</a>
+            <a asp-action="Delete" asp-route-id="@item.listofmeeting.meetingid">Delete</a>
+
+        }
+
+    </td>
 </tr>
         }
    

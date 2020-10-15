@@ -142,6 +142,7 @@ namespace SchoolManagementSystem.Controllers
                     m.dateofmeeting = dateofmeeting;
                     m.meetingtimeid = meeting.meetingtimeid;
                     m.teacherid = meeting.teacherid;
+                    m.status = "Incomplete";
                     m.about = meeting.about;
                     _context.Add(m);
                     _context.SaveChanges();
@@ -200,5 +201,187 @@ namespace SchoolManagementSystem.Controllers
                 return RedirectToAction("Index", "Signin");
         }
 
+        public IActionResult Confirm(int id)
+        {
+            if (HttpContext.Session.GetString("FNAME") != null)
+            {
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+                ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+                ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                int ids = Convert.ToInt32(ViewBag.studentid);
+                int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
+                HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
+                List<Meeting> listofmeeting = _context.tblMeeting.ToList();
+                //ViewBag.Listofteacher = ListOfTeachers;
+                List<Student> listofstudent = _context.tblStudent.ToList();
+                List<MeetingTime> listofmeetingtime = _context.tblMeetingTime.ToList();
+                List<Teacher> ListOfTeachers = _context.tblTeacher.ToList();
+                ViewBag.ListOfTeachers = ListOfTeachers;
+                ViewBag.listofmeetingtime = listofmeetingtime;
+                var joinedtable = from me in listofmeeting
+                                  join s in listofstudent on me.studentid equals s.studentid
+                                  join mt in listofmeetingtime on me.meetingtimeid equals mt.meetingtimeid
+                                  join t in ListOfTeachers on me.teacherid equals t.teacherid
+
+                                  select new NewVM { listofstudent = s, listofmeeting = me, listofmeetingtime = mt, ListOfTeachers = t };
+
+                Meeting m = new Meeting();
+                var target = _context.tblMeeting.Where(x => x.meetingid == id).FirstOrDefault();
+                target.status = "Confirm";
+                   
+                    _context.SaveChanges();
+
+                 return RedirectToAction("TeacherMeetingReq", new { id = target.teacherid});
+               }
+            else
+                return RedirectToAction("Index", "Signin");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            if (HttpContext.Session.GetString("FNAME") != null)
+            {
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+                ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+                ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                int ids = Convert.ToInt32(ViewBag.studentid);
+                int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
+                HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
+                List<Meeting> listofmeeting = _context.tblMeeting.ToList();
+                //ViewBag.Listofteacher = ListOfTeachers;
+                List<Student> listofstudent = _context.tblStudent.ToList();
+                List<MeetingTime> listofmeetingtime = _context.tblMeetingTime.ToList();
+                List<Teacher> ListOfTeachers = _context.tblTeacher.ToList();
+                ViewBag.ListOfTeachers = ListOfTeachers;
+                ViewBag.listofmeetingtime = listofmeetingtime;
+                var joinedtable = from me in listofmeeting
+                                  join s in listofstudent on me.studentid equals s.studentid
+                                  join mt in listofmeetingtime on me.meetingtimeid equals mt.meetingtimeid
+                                  join t in ListOfTeachers on me.teacherid equals t.teacherid
+
+                                  select new NewVM { listofstudent = s, listofmeeting = me, listofmeetingtime = mt, ListOfTeachers = t };
+
+                Meeting m = new Meeting();
+                var target = _context.tblMeeting.Where(x => x.meetingid == id).FirstOrDefault();
+                _context.tblMeeting.Remove(target);
+
+                _context.SaveChanges();
+                return RedirectToAction("TeacherMeetingReq", new { id = target.teacherid });
+            }
+            else
+                return RedirectToAction("Index", "Signin");
+        }
+
+        public IActionResult Notify(int id)
+        {
+            if (HttpContext.Session.GetString("FNAME") != null)
+            {
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+
+                ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+                ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+                ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                int ids = Convert.ToInt32(ViewBag.studentid);
+                int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
+                HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
+
+                List<Student> listofstudent = _context.tblStudent.ToList();
+                //ViewBag.Listofteacher = ListOfTeachers;
+                List<Transcript> listoftranscript = _context.tblTranscript.ToList();
+                List<Teacher> ListOfTeachers = _context.tblTeacher.ToList();
+                List<Inbox> listofinbox = _context.tblInbox.ToList();
+
+                var joinedtable = from i in listofinbox
+
+                                  join s in listofstudent on i.studentid equals s.studentid
+                                  join teac in ListOfTeachers on i.teacherid equals teac.teacherid
+                                  //orderby t.daterequested descending
+                                  select new NewVM { listofstudent = s, ListOfTeachers = teac, listofinbox = i };
+
+                
+                var target = _context.tblMeeting.Where(x => x.meetingid == id).FirstOrDefault();
+                //int sid = selectedstudent.studentid;
+                //var joinforinbox = joinedtable.Where(x => x.listofstudent.studentid == transcript.studentid).FirstOrDefault();
+                Inbox inb = new Inbox();
+                inb.studentid = target.studentid;
+
+                inb.subject = "Your meeting has been confirmed! See You Soon";
+                inb.datesent = DateTime.Now.Date;
+                inb.teacherid = Convert.ToInt32(ViewBag.teacherid);
+                _context.tblInbox.Add(inb);
+
+                _context.SaveChanges();
+                var selected = _context.tblMeeting.Where(x => x.meetingid == id).FirstOrDefault();
+                selected.status = "Notified";
+
+                _context.SaveChanges();
+
+                return RedirectToAction("TeacherMeetingReq", new { id = target.teacherid });
+            }
+            else
+                return RedirectToAction("Index", "Signin");
+        }
+
+        public IActionResult Cancel(int id)
+        {
+            if (HttpContext.Session.GetString("FNAME") != null)
+            {
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+
+                ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+                ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+                ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                int ids = Convert.ToInt32(ViewBag.studentid);
+                int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
+                HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
+
+                List<Student> listofstudent = _context.tblStudent.ToList();
+                //ViewBag.Listofteacher = ListOfTeachers;
+                List<Transcript> listoftranscript = _context.tblTranscript.ToList();
+                List<Teacher> ListOfTeachers = _context.tblTeacher.ToList();
+                List<Inbox> listofinbox = _context.tblInbox.ToList();
+
+                var joinedtable = from i in listofinbox
+
+                                  join s in listofstudent on i.studentid equals s.studentid
+                                  join teac in ListOfTeachers on i.teacherid equals teac.teacherid
+                                  //orderby t.daterequested descending
+                                  select new NewVM { listofstudent = s, ListOfTeachers = teac, listofinbox = i };
+
+
+                var target = _context.tblMeeting.Where(x => x.meetingid == id).FirstOrDefault();
+                //int sid = selectedstudent.studentid;
+                //var joinforinbox = joinedtable.Where(x => x.listofstudent.studentid == transcript.studentid).FirstOrDefault();
+                Inbox inb = new Inbox();
+                inb.studentid = target.studentid;
+
+                inb.subject = "Your meeting has been canceled! SORRY";
+                inb.datesent = DateTime.Now.Date;
+                inb.teacherid = Convert.ToInt32(ViewBag.teacherid);
+                _context.tblInbox.Add(inb);
+
+                _context.SaveChanges();
+                var selected = _context.tblMeeting.Where(x => x.meetingid == id).FirstOrDefault();
+                selected.status = "Canceled";
+
+                _context.SaveChanges();
+
+                return RedirectToAction("TeacherMeetingReq", new { id = target.teacherid });
+            }
+            else
+                return RedirectToAction("Index", "Signin");
+        }
     }
 }
