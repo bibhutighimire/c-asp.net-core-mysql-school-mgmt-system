@@ -29,7 +29,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
                 int sid =Convert.ToInt32(ViewBag.studentid);
                 ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
-
+                int ids = Convert.ToInt32(ViewBag.studentid);
+                int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
+                HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
                 List<Student> listofstudent = _context.tblStudent.ToList();
                 List<Fee> listoffee = _context.tblFee.Where(x => x.studentid == sid).ToList();
                 ViewBag.listoffee = listoffee;
@@ -66,6 +69,7 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
                 ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
                 List<Fee> listoffee = _context.tblFee.ToList();
                 ViewBag.listoffee = listoffee;
                 List<Student> listofstudent = _context.tblStudent.ToList();
@@ -92,6 +96,7 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
                 int sid = Convert.ToInt32(ViewBag.studentid);
                 ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
                 List<Fee> listoffee = _context.tblFee.Where(x => x.studentid == sid).ToList();

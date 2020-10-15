@@ -12,12 +12,7 @@
         <th>
             @Html.DisplayNameFor(model => model.listofmeeting.requestedtime)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.listofstudent.firstname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.listofstudent.lastname)
-        </th>
+        <th>Student Full Name</th>
         <th>
             @Html.DisplayNameFor(model => model.listofmeeting.dateofmeeting)
         </th>
@@ -27,12 +22,7 @@
         <th>
             @Html.DisplayNameFor(model => model.listofmeeting.about)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ListOfTeachers.firstname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ListOfTeachers.lastname)
-        </th>
+        <th>Teacher Full Name</th>
      
     </tr>
 
@@ -43,10 +33,7 @@
                 @Html.DisplayFor(modelItem => item.listofmeeting.requestedtime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.listofstudent.firstname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.listofstudent.lastname)
+                @Html.DisplayFor(modelItem => item.listofstudent.firstname) @Html.DisplayFor(modelItem => item.listofstudent.lastname)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.listofmeeting.dateofmeeting)
@@ -58,10 +45,7 @@
                 @Html.DisplayFor(modelItem => item.listofmeeting.about)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ListOfTeachers.firstname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ListOfTeachers.lastname)
+                @Html.DisplayFor(modelItem => item.ListOfTeachers.firstname) @Html.DisplayFor(modelItem => item.ListOfTeachers.lastname)
             </td>
 
         </tr>

@@ -35,8 +35,7 @@ namespace SchoolManagementSystem.Controllers
             if (TempData["usernameempty"] != null)
             {
                 HttpContext.Session.GetString("password");
-                ViewBag.usernameempty = TempData["usernameempty"].ToString();
-               
+                ViewBag.usernameempty = TempData["usernameempty"].ToString();               
             }
             if (TempData["passwordempty"] != null)
             {
@@ -80,7 +79,7 @@ namespace SchoolManagementSystem.Controllers
           else
             {
                 var record = _context.tblTeacher.Where(x => x.username.ToLower() == signin.Username.ToLower() && x.password.ToLower() == signin.Password.ToLower()).FirstOrDefault();
-
+               
                 if (record != null)
                 {
                     // Session["positionid"]= record.positionid; 
@@ -97,7 +96,6 @@ namespace SchoolManagementSystem.Controllers
                     ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
                     HttpContext.Session.SetString("TEACHERID", strtid);
                     ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
-
                     return View();
                 }
 
@@ -118,6 +116,13 @@ namespace SchoolManagementSystem.Controllers
                     ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
                     HttpContext.Session.SetString("STUDENTID", strsid);
                     ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+
+                    int id = Convert.ToInt32(ViewBag.studentid);
+                    int countMsg = _context.tblInbox.Count(x => x.studentid == id);
+                    HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+                    ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
+
+                    
 
                     return View();
                 }

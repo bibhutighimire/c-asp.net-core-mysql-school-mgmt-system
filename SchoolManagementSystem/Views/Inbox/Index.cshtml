@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Inbox>
+    <link rel="stylesheet" href="~/css/form.css" />
+    @{
+        ViewData["Title"] = "Index";
+        Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
+    }
+
+    <h1>Inbox Messages</h1>
+
+   
+    <table id="customers">
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.datesent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.studentid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.teacherid)
+            </th>
+            
+        </tr>
+      
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.subject)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.datesent)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.studentid)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.teacherid)
+                    </td>
+                    <td>
+                      
+                        <a asp-action="Delete" asp-route-id="@item.inboxid">Delete Message</a>
+                    </td>
+                </tr>
+            }
+       
+    </table>

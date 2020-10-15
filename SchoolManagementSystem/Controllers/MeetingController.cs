@@ -25,7 +25,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
-
+                int ids = Convert.ToInt32(ViewBag.studentid);
+                int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
+                HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
                 List<Meeting> listofmeeting = _context.tblMeeting.ToList();
                 //ViewBag.Listofteacher = ListOfTeachers;
                 List<Student> listofstudent = _context.tblStudent.ToList();
@@ -38,7 +41,7 @@ namespace SchoolManagementSystem.Controllers
                                   join s in listofstudent on m.studentid equals s.studentid
                                   join mt in listofmeetingtime on m.meetingtimeid equals mt.meetingtimeid
                                   join t in ListOfTeachers on m.teacherid equals t.teacherid
-                                  orderby m.meetingid
+                                  orderby m.meetingid descending
                                   select new NewVM { listofstudent = s, listofmeeting = m, listofmeetingtime = mt, ListOfTeachers = t };
 
                 return View(joinedtable);
@@ -55,6 +58,11 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.duprecord = TempData["duprecord"].ToString();
 
             }
+            if (TempData["success"] != null)
+            {
+                ViewBag.success = TempData["success"].ToString();
+
+            }
 
             if (HttpContext.Session.GetString("FNAME") != null)
             {
@@ -65,6 +73,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                int ids = Convert.ToInt32(ViewBag.studentid);
+                int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
+                HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
                 List<Meeting> listofmeeting = _context.tblMeeting.ToList();
                 //ViewBag.Listofteacher = ListOfTeachers;
                 List<Student> listofstudent = _context.tblStudent.ToList();
@@ -99,6 +111,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                int ids = Convert.ToInt32(ViewBag.studentid);
+                int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
+                HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
                 List<Meeting> listofmeeting = _context.tblMeeting.ToList();
                 //ViewBag.Listofteacher = ListOfTeachers;
                 List<Student> listofstudent = _context.tblStudent.ToList();
@@ -130,8 +146,8 @@ namespace SchoolManagementSystem.Controllers
                     _context.Add(m);
                     _context.SaveChanges();
 
-                    ViewBag.success = "Your appointment scheduled successfully";
-                    
+                   
+                    TempData["success"] = "Your appointment scheduled successfully";
                     //ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
                     return RedirectToAction("Create");
                     
@@ -157,7 +173,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
-
+                int ids = Convert.ToInt32(ViewBag.studentid);
+                int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
+                HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
                 List<Meeting> listofmeeting = _context.tblMeeting.ToList();
                 //ViewBag.Listofteacher = ListOfTeachers;
                 List<Student> listofstudent = _context.tblStudent.ToList();
@@ -172,7 +191,7 @@ namespace SchoolManagementSystem.Controllers
                                   join t in ListOfTeachers on m.teacherid equals t.teacherid
                                   orderby 
                                   
-                                  m.requestedtime
+                                  m.requestedtime descending
                                   select new NewVM { listofstudent = s, listofmeeting = m, listofmeetingtime = mt, ListOfTeachers = t };
                 var filteredmsgview = joinedtable.Where(x => x.ListOfTeachers.teacherid == id).ToList();
                 return View(filteredmsgview);

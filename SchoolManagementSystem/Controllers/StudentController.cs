@@ -26,6 +26,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                int ids = Convert.ToInt32(ViewBag.studentid);
+                int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
+                HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
                 return View(_context.tblStudent.ToList());
             }
             else
@@ -43,6 +47,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                int ids = Convert.ToInt32(ViewBag.studentid);
+                int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
+                HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
                 // List<Coursename> listofcoursename = _context.tblCoursename.ToList();
                 List<Coursename> listofcoursename = _context.tblCoursename.ToList();
                 ViewBag.listofcoursename = listofcoursename;
@@ -68,6 +76,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                int ids = Convert.ToInt32(ViewBag.studentid);
+                int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
+                HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
                 List<Teacher> ListOfTeachers = _context.tblTeacher.ToList();
                 //ViewBag.Listofteacher = ListOfTeachers;
                 List<Coursename> listofcoursename = _context.tblCoursename.ToList();
@@ -105,6 +117,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
                 var selectedProfile = _context.tblStudent.Where(x => x.studentid == id).FirstOrDefault();
                 HttpContext.Session.SetString("FNAME", selectedProfile.firstname);
+                int ids = Convert.ToInt32(ViewBag.studentid);
+                int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
+                HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
                 ViewBag.firstname = HttpContext.Session.GetString("FNAME");
                 return View(selectedProfile);
             }
@@ -121,6 +137,10 @@ namespace SchoolManagementSystem.Controllers
                 var selectedProfile = _context.tblAdmin.Where(x => x.adminid == id).FirstOrDefault();
                 HttpContext.Session.SetString("FNAME", selectedProfile.firstname);
                 ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                int ids = Convert.ToInt32(ViewBag.studentid);
+                int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
+                HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
                 return View(selectedProfile);
             }
             else
@@ -137,7 +157,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.teacherid = selectedProfile.teacherid;
                 HttpContext.Session.SetString("FNAME", selectedProfile.firstname);
                 ViewBag.firstname = HttpContext.Session.GetString("FNAME");
-
+                int ids = Convert.ToInt32(ViewBag.studentid);
+                int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
+                HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+                ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
                 List<Teacher> ListOfTeachers = _context.tblTeacher.ToList();
 
                 List<Coursename> listofcoursename = _context.tblCoursename.ToList();

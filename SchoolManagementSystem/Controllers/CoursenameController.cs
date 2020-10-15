@@ -27,7 +27,10 @@ namespace SchoolManagementSystem.Controllers
             ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
             ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
             ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
-
+            int ids = Convert.ToInt32(ViewBag.studentid);
+            int countMsg = _context.tblInbox.Count(x => x.studentid == ids);
+            HttpContext.Session.SetString("countMsg", Convert.ToString(countMsg));
+            ViewBag.numberofmsg = HttpContext.Session.GetString("countMsg");
             //var myModel = new MultipleData();
             //myModel.teachers = _context.tblTeacher.ToList();
             //myModel.coursenames = _context.tblCoursename.ToList();

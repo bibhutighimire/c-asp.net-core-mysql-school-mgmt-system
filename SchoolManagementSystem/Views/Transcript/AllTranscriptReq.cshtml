@@ -1,71 +1,80 @@
 ﻿@model IEnumerable<SchoolManagementSystem.Models.NewVM>
-    <link rel="stylesheet" href="~/css/site.css" />
-    @{
-        ViewData["Title"] = "AllTranscriptReq";
-        Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
-    }
+<link rel="stylesheet" href="~/css/site.css" />
+@{
+    ViewData["Title"] = "AllTranscriptReq";
+    Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
+}
 
-    <h1>All Transcript Requests are listed below</h1>
-
-   
-    <table id="customers">
-
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.listofstudent.studentid)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.listofstudent.firstname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.listofstudent.lastname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.listoftranscript.daterequested)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.listoftranscript.status)
-            </th>
-            <th></th>
-        </tr>
+<h1>All Transcript Requests are listed below</h1>
 
 
-        @foreach (var item in Model)
+<table id="customers">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.listofstudent.studentid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.listofstudent.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.listofstudent.lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.listoftranscript.daterequested)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.listoftranscript.status)
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.listofstudent.studentid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.listofstudent.firstname)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.listofstudent.lastname)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.listoftranscript.daterequested)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.listoftranscript.status)
+    </td>
+
+    <td>
+        @if (item.listoftranscript.status == "Complete")
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.listofstudent.studentid)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.listofstudent.firstname)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.listofstudent.lastname)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.listoftranscript.daterequested)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.listoftranscript.status)
-                </td>
-
-                <td>
-                    @if (item.listoftranscript.status == "Complete")
-                    {
-                        <a asp-action="Incomplete" asp-route-id="@item.listoftranscript.transcriptid">Incomplete</a>
-                        <a asp-action="Delete" asp-route-id="@item.listoftranscript.transcriptid">Delete</a>
-                    }
-
-                    @if (item.listoftranscript.status == "Incomplete")
-                    {
-                        <a asp-action="Complete" asp-route-id="@item.listoftranscript.transcriptid">Complete</a>
-
-                        <a asp-action="Delete" asp-route-id="@item.listoftranscript.transcriptid">Delete</a>
-                    }
-
-                </td>
-            </tr>
+            <a asp-action="Incomplete" asp-route-id="@item.listoftranscript.transcriptid">Incomplete</a>
+            <a asp-action="Delete" asp-route-id="@item.listoftranscript.transcriptid">Delete</a>
+            <a asp-action="Notify" asp-route-id="@item.listoftranscript.transcriptid">Notify</a>
         }
 
-    </table>
-    @*https://docs.microsoft.com/en-us/azure/azure-app-configuration/use-feature-flags-dotnet-core*@
+        @if (item.listoftranscript.status == "Incomplete")
+        {
+            <a asp-action="Complete" asp-route-id="@item.listoftranscript.transcriptid">Complete</a>
+
+            <a asp-action="Delete" asp-route-id="@item.listoftranscript.transcriptid">Delete</a>
+        }
+  
+        @if (item.listoftranscript.status == "Notified")
+        {
+            <a asp-action="Incomplete" asp-route-id="@item.listoftranscript.transcriptid">Incomplete</a>
+            <a asp-action="Delete" asp-route-id="@item.listoftranscript.transcriptid">Delete</a>
+        
+        }
+
+    </td>
+</tr>
+    }
+
+</table>
+@*https://docs.microsoft.com/en-us/azure/azure-app-configuration/use-feature-flags-dotnet-core*@
+

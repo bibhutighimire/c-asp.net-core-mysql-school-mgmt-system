@@ -1,72 +1,75 @@
 ﻿@model IEnumerable<SchoolManagementSystem.Models.NewVM>
-    <link rel="stylesheet" href="~/css/form.css" />
-    @{
-        ViewData["Title"] = "Create";
-        Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
-    }
+<link rel="stylesheet" href="~/css/form.css" />
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
+}
 
-    <h1>Schedule your meeting with teacher below</h1>
+<h1>Schedule your meeting with teacher below</h1>
 
-    <hr />
-    @if (ViewBag.duprecord != null)
-    {
-        <h2>@ViewBag.duprecord</h2>
-    }
-
+<hr />
+@if (ViewBag.duprecord != null)
+{
+    <h2 style="color:red">@ViewBag.duprecord</h2>
+}
+@if (ViewBag.success != null)
+{
+    <h2 style="color:red">@ViewBag.success</h2>
+}
 <div class="container">
-        <form method="post" action="/Meeting/AddMeeting">
-            <div class="row">
-                <div class="col-50">
-                    <label for="teachername">Teacher Name</label>
-                </div>
-                <div class="col-75">
-                    <select id="teacherid" name="teacherid">
-                        @foreach (Teacher teacher in ViewBag.ListOfTeachers)
-                        {
+    <form method="post" action="/Meeting/AddMeeting">
+        <div class="row">
+            <div class="col-50">
+                <label for="teachername">Teacher Name</label>
+            </div>
+            <div class="col-75">
+                <select id="teacherid" name="teacherid">
+                    @foreach (Teacher teacher in ViewBag.ListOfTeachers)
+                    {
 
-                            <option value="@teacher.teacherid">
-                                @teacher.firstname @teacher.lastname
-                            </option>
-                        }
-                    </select>
-                </div>
-
+                        <option value="@teacher.teacherid">
+                            @teacher.firstname @teacher.lastname
+                        </option>
+                    }
+                </select>
             </div>
 
-            <div class="row">
-                <div class="col-50">
-                    <label for="dateofmeeting">Meeting Date</label>
-                </div>
-                <div class="col-75">
-                    <input type="date" id="dateofmeeting" name="dateofmeeting" placeholder="Date of meeting..">
-                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-50">
+                <label for="dateofmeeting">Meeting Date</label>
             </div>
-            <div class="row">
-                <div class="col-50">
-                    <label for="meetingtime">Meeting Time</label>
-                </div>
-                <div class="col-75">
-                    <select id="meetingtimeid" name="meetingtimeid">
-                        @foreach (MeetingTime meetingtime in ViewBag.listofmeetingtime)
-                        {
-                            <option value="@meetingtime.meetingtimeid">
-                                @meetingtime.timeslot
-                            </option>
-                        }
-                    </select>
-                </div>
+            <div class="col-75">
+                <input type="date" id="dateofmeeting" name="dateofmeeting" placeholder="Date of meeting..">
             </div>
-            <div class="row">
-                <div class="col-50">
-                    <label for="about">Reason of Meeting:</label>
-                </div>
-                <div class="col-75">
-                    <textarea id="about" name="about" placeholder="Write something.." style="height:200px"></textarea>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-50">
+                <label for="meetingtime">Meeting Time</label>
             </div>
-            <div class="row">
-                <input type="submit" value="Schedule a meeting" class="btn btn-primary" />
+            <div class="col-75">
+                <select id="meetingtimeid" name="meetingtimeid">
+                    @foreach (MeetingTime meetingtime in ViewBag.listofmeetingtime)
+                    {
+                        <option value="@meetingtime.meetingtimeid">
+                            @meetingtime.timeslot
+                        </option>
+                    }
+                </select>
             </div>
-        </form>
-    </div>
- 
+        </div>
+        <div class="row">
+            <div class="col-50">
+                <label for="about">Reason of Meeting:</label>
+            </div>
+            <div class="col-75">
+                <textarea id="about" name="about" placeholder="Write something.." style="height:200px"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Schedule a meeting" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+

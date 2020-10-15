@@ -16,5 +16,7 @@ namespace SchoolManagementSystem.Models
         public MeetingTime listofmeetingtime { get; set; }
         public Fee listoffee { get; set; }
 
-    }
+        public Inbox listofinbox { get; set; }
+
+}
 }
