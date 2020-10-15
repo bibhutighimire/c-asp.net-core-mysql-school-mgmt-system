@@ -1,6 +1,6 @@
 USE [SchoolManagementSystem]
 GO
-/****** Object:  Table [dbo].[tblAddNewMember]    Script Date: 10/11/2020 9:00:26 PM ******/
+/****** Object:  Table [dbo].[tblAddNewMember]    Script Date: 10/14/2020 10:42:22 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -20,7 +20,7 @@ CREATE TABLE [dbo].[tblAddNewMember](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblAdmin]    Script Date: 10/11/2020 9:00:27 PM ******/
+/****** Object:  Table [dbo].[tblAdmin]    Script Date: 10/14/2020 10:42:23 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -40,7 +40,7 @@ CREATE TABLE [dbo].[tblAdmin](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblCoursename]    Script Date: 10/11/2020 9:00:27 PM ******/
+/****** Object:  Table [dbo].[tblCoursename]    Script Date: 10/14/2020 10:42:23 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -55,7 +55,41 @@ CREATE TABLE [dbo].[tblCoursename](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblMeeting]    Script Date: 10/11/2020 9:00:27 PM ******/
+/****** Object:  Table [dbo].[tblFee]    Script Date: 10/14/2020 10:42:23 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblFee](
+	[feeid] [int] IDENTITY(1,1) NOT NULL,
+	[datepaid] [date] NOT NULL,
+	[studentid] [int] NOT NULL,
+	[totalfee] [money] NOT NULL,
+	[paidfee] [money] NOT NULL,
+ CONSTRAINT [PK_tblFee] PRIMARY KEY CLUSTERED 
+(
+	[feeid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblInbox]    Script Date: 10/14/2020 10:42:23 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblInbox](
+	[inboxid] [int] IDENTITY(1,1) NOT NULL,
+	[subject] [varchar](50) NULL,
+	[datesent] [date] NULL,
+	[studentid] [int] NULL,
+	[teacherid] [int] NULL,
+ CONSTRAINT [PK_tblInbox] PRIMARY KEY CLUSTERED 
+(
+	[inboxid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblMeeting]    Script Date: 10/14/2020 10:42:23 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -68,13 +102,14 @@ CREATE TABLE [dbo].[tblMeeting](
 	[about] [text] NULL,
 	[requestedtime] [datetime] NULL,
 	[teacherid] [int] NULL,
+	[status] [varchar](50) NULL,
  CONSTRAINT [PK_tblMeeting] PRIMARY KEY CLUSTERED 
 (
 	[meetingid] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblMeetingTime]    Script Date: 10/11/2020 9:00:27 PM ******/
+/****** Object:  Table [dbo].[tblMeetingTime]    Script Date: 10/14/2020 10:42:23 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -88,7 +123,7 @@ CREATE TABLE [dbo].[tblMeetingTime](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblMultipleCourseStudent]    Script Date: 10/11/2020 9:00:27 PM ******/
+/****** Object:  Table [dbo].[tblMultipleCourseStudent]    Script Date: 10/14/2020 10:42:23 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -103,7 +138,7 @@ CREATE TABLE [dbo].[tblMultipleCourseStudent](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblPosition]    Script Date: 10/11/2020 9:00:27 PM ******/
+/****** Object:  Table [dbo].[tblPosition]    Script Date: 10/14/2020 10:42:23 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -117,7 +152,7 @@ CREATE TABLE [dbo].[tblPosition](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblStudent]    Script Date: 10/11/2020 9:00:27 PM ******/
+/****** Object:  Table [dbo].[tblStudent]    Script Date: 10/14/2020 10:42:23 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -138,7 +173,7 @@ CREATE TABLE [dbo].[tblStudent](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblTeacher]    Script Date: 10/11/2020 9:00:27 PM ******/
+/****** Object:  Table [dbo].[tblTeacher]    Script Date: 10/14/2020 10:42:23 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -159,7 +194,7 @@ CREATE TABLE [dbo].[tblTeacher](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblTranscript]    Script Date: 10/11/2020 9:00:27 PM ******/
+/****** Object:  Table [dbo].[tblTranscript]    Script Date: 10/14/2020 10:42:23 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -211,21 +246,7 @@ SET IDENTITY_INSERT [dbo].[tblCoursename] OFF
 GO
 SET IDENTITY_INSERT [dbo].[tblMeeting] ON 
 GO
-INSERT [dbo].[tblMeeting] ([meetingid], [studentid], [dateofmeeting], [meetingtimeid], [about], [requestedtime], [teacherid]) VALUES (1, 2, CAST(N'2020-10-10' AS Date), 3, N'discuss', CAST(N'2020-10-09T19:43:55.130' AS DateTime), 3)
-GO
-INSERT [dbo].[tblMeeting] ([meetingid], [studentid], [dateofmeeting], [meetingtimeid], [about], [requestedtime], [teacherid]) VALUES (2, 4, CAST(N'2020-10-13' AS Date), 5, N'project enhancement', CAST(N'2020-10-09T19:56:52.960' AS DateTime), 3)
-GO
-INSERT [dbo].[tblMeeting] ([meetingid], [studentid], [dateofmeeting], [meetingtimeid], [about], [requestedtime], [teacherid]) VALUES (3, 3, CAST(N'2020-10-18' AS Date), 6, N'birthday celebration', CAST(N'2020-10-09T20:04:08.513' AS DateTime), 3)
-GO
-INSERT [dbo].[tblMeeting] ([meetingid], [studentid], [dateofmeeting], [meetingtimeid], [about], [requestedtime], [teacherid]) VALUES (4, 1, CAST(N'2020-10-18' AS Date), 5, N'happy bday yayy', CAST(N'2020-10-09T20:12:40.527' AS DateTime), 3)
-GO
-INSERT [dbo].[tblMeeting] ([meetingid], [studentid], [dateofmeeting], [meetingtimeid], [about], [requestedtime], [teacherid]) VALUES (5, 2, CAST(N'2021-02-14' AS Date), 1, N'birthday celebration', CAST(N'2020-10-09T20:30:08.077' AS DateTime), 3)
-GO
-INSERT [dbo].[tblMeeting] ([meetingid], [studentid], [dateofmeeting], [meetingtimeid], [about], [requestedtime], [teacherid]) VALUES (6, 2, CAST(N'2020-10-09' AS Date), 2, N'ddasadasdasdfadfa', CAST(N'2020-10-09T20:40:43.543' AS DateTime), 3)
-GO
-INSERT [dbo].[tblMeeting] ([meetingid], [studentid], [dateofmeeting], [meetingtimeid], [about], [requestedtime], [teacherid]) VALUES (7, 1, CAST(N'2020-10-17' AS Date), 2, N'capstone', CAST(N'2020-10-09T21:10:55.780' AS DateTime), 5)
-GO
-INSERT [dbo].[tblMeeting] ([meetingid], [studentid], [dateofmeeting], [meetingtimeid], [about], [requestedtime], [teacherid]) VALUES (8, 1, CAST(N'2020-10-31' AS Date), 6, N'tammy meeting ', CAST(N'2020-10-09T21:42:28.380' AS DateTime), 4)
+INSERT [dbo].[tblMeeting] ([meetingid], [studentid], [dateofmeeting], [meetingtimeid], [about], [requestedtime], [teacherid], [status]) VALUES (39, 2, CAST(N'2020-10-28' AS Date), 4, N'meeting plz', CAST(N'2020-10-14T22:24:25.147' AS DateTime), 3, N'Canceled')
 GO
 SET IDENTITY_INSERT [dbo].[tblMeeting] OFF
 GO
@@ -295,18 +316,11 @@ INSERT [dbo].[tblTeacher] ([teacherid], [firstname], [lastname], [dob], [email],
 GO
 INSERT [dbo].[tblTeacher] ([teacherid], [firstname], [lastname], [dob], [email], [positionid], [username], [password], [coursenameid]) VALUES (5, N'Bo', N'Cen', CAST(N'1687-05-04' AS Date), N'bo@ualberta.ca', 3, N'bo', N'passbo', 6)
 GO
-
+INSERT [dbo].[tblTeacher] ([teacherid], [firstname], [lastname], [dob], [email], [positionid], [username], [password], [coursenameid]) VALUES (8, N'teacherone', N'teacheronelastname', CAST(N'0001-01-01' AS Date), N'teacher@gmail.com', 3, N'teacherone', N'teacherone', 3)
+GO
+INSERT [dbo].[tblTeacher] ([teacherid], [firstname], [lastname], [dob], [email], [positionid], [username], [password], [coursenameid]) VALUES (16, N'dwedwedw', N'ddwedw', CAST(N'2020-09-30' AS Date), N'dwddw', 3, N'dewd', N'dwedww', 0)
+GO
+INSERT [dbo].[tblTeacher] ([teacherid], [firstname], [lastname], [dob], [email], [positionid], [username], [password], [coursenameid]) VALUES (17, N'mike', N'mike', CAST(N'0001-01-01' AS Date), N'rareram@hotmail.com', 3, N'mike', N'mike', 0)
+GO
 SET IDENTITY_INSERT [dbo].[tblTeacher] OFF
-GO
-SET IDENTITY_INSERT [dbo].[tblTranscript] ON 
-GO
-INSERT [dbo].[tblTranscript] ([transcriptid], [studentid], [daterequested], [status]) VALUES (10, 4, CAST(N'2020-10-08T13:23:31.527' AS DateTime), N'Complete')
-GO
-INSERT [dbo].[tblTranscript] ([transcriptid], [studentid], [daterequested], [status]) VALUES (11, 2, CAST(N'2020-10-08T14:06:49.547' AS DateTime), N'Complete')
-GO
-INSERT [dbo].[tblTranscript] ([transcriptid], [studentid], [daterequested], [status]) VALUES (13, 1, CAST(N'2020-10-09T14:29:10.560' AS DateTime), N'Complete')
-GO
-INSERT [dbo].[tblTranscript] ([transcriptid], [studentid], [daterequested], [status]) VALUES (15, 1, CAST(N'2020-10-09T21:42:03.240' AS DateTime), N'Complete')
-GO
-SET IDENTITY_INSERT [dbo].[tblTranscript] OFF
 GO
