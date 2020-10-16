@@ -10,9 +10,10 @@ namespace SchoolManagementSystem.Models
     public class Product
     {
         public int productid { get; set; }
-        public int pname { get; set; }
+        public string pname { get; set; }
         public string description { get; set; }
         public int pcategoryid { get; set; }
+        public int price { get; set; }
         public int availableqty { get; set; }
         public string imagename { get; set; }
         [NotMapped]
