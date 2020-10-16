@@ -17,6 +17,9 @@ namespace SchoolManagementSystem.Models
         public Fee listoffee { get; set; }
 
         public Inbox listofinbox { get; set; }
+        public ProductCategory listofproductcategory { get; set; }
 
-}
+        public Product listofproduct { get; set; }
+
+    }
 }

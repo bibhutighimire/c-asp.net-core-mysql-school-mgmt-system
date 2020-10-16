@@ -11,23 +11,23 @@
 <table id="customers">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.listofmeeting.requestedtime)
+            Requested Time
         </th>
-        <th>Full Name</th>
+        <th>Student's Full Name</th>
         <th>
-            @Html.DisplayNameFor(model => model.listofmeeting.dateofmeeting)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.listofmeetingtime.timeslot)
+            Meeting Date
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.listofmeeting.about)
+            Time
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.listofmeeting.status)
+            Subject
         </th>
-        <th>Full Name</th>
 
+        <th>Teacher's Full Name</th>
+        <th>
+            Status
+        </th>
     </tr>
  
         @foreach (var item in Model)
@@ -54,29 +54,7 @@
     <td>
         @Html.DisplayFor(modelItem => item.listofmeeting.status)
     </td>
-    <td>
-        @if (item.listofmeeting.status == "Complete")
-        {
-
-            <a asp-action="Delete" asp-route-id="@item.listofmeeting.meetingid">Delete</a>
-            <a asp-action="Notify" asp-route-id="@item.listofmeeting.meetingid">Notify</a>
-        }
-
-        @if (item.listofmeeting.status == "Incomplete")
-        {
-            <a asp-action="Complete" asp-route-id="@item.listofmeeting.meetingid">Complete</a>
-
-            <a asp-action="Delete" asp-route-id="@item.listofmeeting.meetingid">Delete</a>
-        }
-
-        @if (item.listofmeeting.status == "Notified")
-        {
-            <a asp-action="Incomplete" asp-route-id="@item.listofmeeting.meetingid">Incomplete</a>
-            <a asp-action="Delete" asp-route-id="@item.listofmeeting.meetingid">Delete</a>
-
-        }
-
-    </td>
+    
 </tr>
         }
    

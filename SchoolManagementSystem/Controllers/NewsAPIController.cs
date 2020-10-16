@@ -9,6 +9,12 @@ using SchoolManagementSystem.Models;
 using Newtonsoft.Json;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
+using Nancy.Json;
+using System.Text.Json;
+using JsonSerializer = Newtonsoft.Json.JsonSerializer;
+using System.Xml.Linq;
+
+using System.Text.Json.Serialization;
 
 namespace SchoolManagementSystem.Controllers
 {
@@ -22,28 +28,13 @@ namespace SchoolManagementSystem.Controllers
 
         public async Task<IActionResult> NewsAPI()
         {
-            List<NewsAPI> news = new List<NewsAPI>();
-            using (var httpClient = new HttpClient())
-            {
-                using (var response = await httpClient.GetAsync("http://newsapi.org/v2/top-headlines?country=ca&category=technology&apiKey=9c3bc0733617451fbff5f91e151dbd87&totalResults=30"))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    //string output = JsonConvert.SerializeObject(apiResponse, Formatting.Indented);
-                     news = JsonConvert.DeserializeObject<List<NewsAPI>>(apiResponse);
-                }
-            }
-            return View(news);
+            using var httpClient = new HttpClient();
+            using var response = await httpClient.GetAsync("http://newsapi.org/v2/top-headlines?country=ca&category=technology&apiKey=9c3bc0733617451fbff5f91e151dbd87&totalResults=30");
+            string apiResponse = await response.Content.ReadAsStringAsync();
+            var output = JsonConvert.SerializeObject(apiResponse);
+            List<Root> deserialized = JsonConvert.DeserializeObject<List<Root>>(output);
+            //Root root = (Root)deserialized;
+            return View(deserialized);
         }
-
-        //public ActionResult NewsAPI()
-        //{
-        //    List<NewsAPI> news = new List<NewsAPI>();
-        //    var client = new WebClient();
-        //    var text = client.DownloadString("http://newsapi.org/v2/top-headlines?country=ca&category=technology&apiKey=9c3bc0733617451fbff5f91e151dbd87&totalResults=30");
-
-        //    news = JsonConvert.DeserializeObject<List<NewsAPI>>(text);
-
-        //    return View(news);
-        //}
     }
 }

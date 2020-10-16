@@ -27,6 +27,9 @@ namespace SchoolManagementSystem.Models
         public DbSet<MeetingTime> tblMeetingTime { get; set; }
         public DbSet<Fee> tblFee { get; set; }
         public DbSet<Inbox> tblInbox { get; set; }
+
+        public DbSet<ProductCategory> tblPCategory { get; set; }
+        public DbSet<Product> tblProduct { get; set; }
         //public DbSet<SchoolManagementSystem.Models.Signin> Signin { get; set; }
 
     }
