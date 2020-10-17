@@ -1,0 +1,91 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Product>
+    <link rel="stylesheet" href="~/css/products.css" />
+    @{
+        ViewData["Title"] = "Index";
+        Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
+    }
+
+<section class="products">
+
+    @foreach (var item in Model)
+    {
+        <div class="product-card">
+            <div class="product-image">
+                <img src="@("~/image/" + item.imagename)" runat="server" asp-append-version="true" />
+            </div>
+            <div class="product-info">
+                <h5>@Html.DisplayFor(modelItem => item.pname)</h5>
+                <h6>$@Html.DisplayFor(modelItem => item.price)</h6>
+                <h6> <a asp-action="Details" asp-route-id="@item.productid">Click Here for Details</a></h6>
+            </div>
+        </div>
+    }
+   
+</section>
+
+    @*<h1>Index</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.pname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.pcategoryid)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.availableqty)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.imagename)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.isavailable)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pcategoryid)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.availableqty)
+                    </td>
+                    <td>
+                        <img src="@("~/image/"+item.imagename)" runat="server" asp-append-version="true" style="width:250px; height:250px" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.isavailable)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.productid">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.productid">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.productid">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@

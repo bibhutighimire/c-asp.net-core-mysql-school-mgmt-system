@@ -1,0 +1,65 @@
+﻿.products {
+    display: flex;
+    flex-wrap: wrap;
+    margin:35px 0 0 5px;
+}
+h5 {
+    font-size:14px;
+    text-align:center;
+}
+h6 {
+    font-size: 15px;
+    text-align: center;
+}
+/*.product-card {
+    padding: 2%;
+    flex-grow: 1;
+    flex-basis: 16%;
+    display: flex;*/ /* so child elements can use flexbox stuff too! */
+/*}*/
+
+.product-image img {
+    width:350px;
+    height:350px;
+    
+}
+.product-info {
+    margin-top: auto;
+}
+.product-card {
+    padding:15px;
+}
+* {
+    box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+   
+}
+.btnLink  {
+    margin:35px 35px 35px 0;
+}
+.btnLink a{
+    background-color:lightblue;
+    color:black;
+    font-weight:bold;
+    padding:20px;
+    border:1px solid black;
+    margin-right:35px;
+   
+}
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+@media (max-width: 920px) {
+    .product-card {
+        flex: 1 21%;
+    }
+}
