@@ -20,32 +20,39 @@
     </div>
     @foreach (var item in Model)
     {
-<div class="item">
-    <div class="buttons">
-        <span class="delete-btn"></span>
-        <span class="like-btn"></span>
-    </div>
+        <div class="item">
+            <div class="buttons">
+                <span class="delete-btn"><a asp-action="Delete" asp-route-id="@item.listofcart.cartid">Delete</a></span>
 
-    <div class="imagebox">
-        <img src="@("~/image/" + item.listofproduct.imagename)" runat="server" asp-append-version="true" />
-    </div>
+            </div>
 
-    <div class="description">
-        <span> @Html.DisplayFor(modelItem => item.listofproduct.pname)</span>
-        <span> @Html.DisplayFor(modelItem => item.listofcart.price)</span>
+            <div class="imagebox">
+                <img src="@("~/image/" + item.listofproduct.imagename)" runat="server" asp-append-version="true" />
+            </div>
 
-    </div>
-    <div>
-        <input id=demoInput class="qty" type=number min=1 max=10>
-        <button class="qty" onclick="increment()">+</button>
-        <button class="qty" onclick="decrement()">-</button>
-    </div>
+            <div class="description">
+                <span> @Html.DisplayFor(modelItem => item.listofproduct.pname)</span>
+                <span> $@Html.DisplayFor(modelItem => item.listofcart.price)</span>
 
-    <div class="total-price">$@Html.DisplayFor(modelItem => item.listofcart.total)</div>
-</div>
+            </div>
+            <div>
+                <input id=demoInput class="qty" type=number min=1 max=10>
+                <button class="qty" onclick="increment()">+</button>
+                <button class="qty" onclick="decrement()">-</button>
+            </div>
+
+            <div class="total-price">$@Html.DisplayFor(modelItem => item.listofcart.total)</div>
+        </div>
+
+
     }
-    <div class="subtotal"><h2>Sub Total: $@ViewBag.subtotal</h2></div>
+    <div class="subtotal">
+        <h3>Sub Total: $@ViewBag.subtotal</h3>
+    </div>
+    
 </div>
+
+<div class="checkoutBtn"><a asp-action="Checkout">CheckOut</a></div>
 <script>
     function increment() {
         document.getElementById('demoInput').stepUp();

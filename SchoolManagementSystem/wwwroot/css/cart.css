@@ -43,21 +43,38 @@
     height: 85px;
 }
 .subtotal {
-    background-color:lightblue;
-    width:746px;
-    height:40px;
-    padding:20px;
-
+    background-color: lightblue;
+    width: 750px;
+    height: 52px;
+    padding: 6px;
 }
-    .subtotal h2 {
+    .subtotal h3 {
         color: black;
+        float:right;
 
     }
-    .buttons {
-        position: relative;
-        padding-top: 30px;
-        margin-right: 60px;
+.checkoutBtn {
+   
+    width: 40px;
+    height: 40px;
+    margin:0 auto;
+}
+    .checkoutBtn a {
+        background-color: lightblue;
+        padding: 35px;
+        font-size: large;
+        border-radius: 15px;
+        margin-top: 40px auto;
+        text-decoration:none;
+        color:black;
+        font-weight:bold;
     }
+
+.buttons {
+    position: relative;
+    padding-top: 30px;
+    margin-right: 60px;
+}
 
 .delete-btn,
 .like-btn {

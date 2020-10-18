@@ -55,5 +55,42 @@ namespace SchoolManagementSystem.Controllers
             else
                 return RedirectToAction("Index", "Signin");
         }
+        public IActionResult Delete(int id)
+        {
+            if (HttpContext.Session.GetString("FNAME") != null)
+            {
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+
+                ViewBag.firstname = HttpContext.Session.GetString("FNAME");
+                ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
+                ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
+                ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
+                ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+                int ids = Convert.ToInt32(ViewBag.studentid);
+                var target = _context.tblCart.Where(s => s.studentid == ids).ToList();
+                int countqty = target.Sum(x => x.quantity);
+                HttpContext.Session.SetString("countqty", Convert.ToString(countqty));
+                ViewBag.numberofqty = HttpContext.Session.GetString("countqty");
+                List<Cart> listofcart = _context.tblCart.ToList();
+                //ViewBag.Listofteacher = ListOfTeachers;
+                List<Product> listofproduct = _context.tblProduct.ToList();
+
+
+                var joinedtable = from c in listofcart
+                                  join p in listofproduct on c.productid equals p.productid
+                                  select new NewVM { listofcart = c, listofproduct = p };
+
+                int subtotal = target.Sum(x => x.total);
+                HttpContext.Session.SetString("subtotal", Convert.ToString(subtotal));
+                ViewBag.subtotal = HttpContext.Session.GetString("subtotal");
+
+                var toremove = _context.tblCart.Where(x => x.cartid == id).FirstOrDefault();
+                _context.tblCart.Remove(toremove);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+                return RedirectToAction("Index", "Signin");
+        }
     }
 }
