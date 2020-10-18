@@ -50,7 +50,9 @@ namespace SchoolManagementSystem.Controllers
                 int subtotal = target.Sum(x => x.total);
                 HttpContext.Session.SetString("subtotal", Convert.ToString(subtotal));
                 ViewBag.subtotal = HttpContext.Session.GetString("subtotal");
-                return View(joinedtable);
+
+                var joinbyid=joinedtable.Where(s => s.listofcart.studentid == ids).ToList();
+                return View(joinbyid);
             }
             else
                 return RedirectToAction("Index", "Signin");

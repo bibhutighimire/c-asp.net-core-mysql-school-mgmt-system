@@ -20,29 +20,27 @@
     </div>
     @foreach (var item in Model)
     {
-        <div class="item">
-            <div class="buttons">
-                <span class="delete-btn"><a asp-action="Delete" asp-route-id="@item.listofcart.cartid">Delete</a></span>
+<div class="item">
+    <div class="buttons">
+        <span class="delete-btn"><a asp-action="Delete" asp-route-id="@item.listofcart.cartid">Delete</a></span>
 
-            </div>
+    </div>
 
-            <div class="imagebox">
-                <img src="@("~/image/" + item.listofproduct.imagename)" runat="server" asp-append-version="true" />
-            </div>
+    <div class="imagebox">
+        <img src="@("~/image/" + item.listofproduct.imagename)" runat="server" asp-append-version="true" />
+    </div>
 
-            <div class="description">
-                <span> @Html.DisplayFor(modelItem => item.listofproduct.pname)</span>
-                <span> $@Html.DisplayFor(modelItem => item.listofcart.price)</span>
+    <div class="description">
+        <span> @Html.DisplayFor(modelItem => item.listofproduct.pname)</span>
+        <span> $@Html.DisplayFor(modelItem => item.listofcart.price)</span>
 
-            </div>
-            <div>
-                <input id=demoInput class="qty" type=number min=1 max=10>
-                <button class="qty" onclick="increment()">+</button>
-                <button class="qty" onclick="decrement()">-</button>
-            </div>
+    </div>
+    <a class="decrement_qty_<?php echo $_item->getId(); ?>" href="javascript:void(0)">-</a>
+    <input type="text" pattern="\d*" name="cart[<?php echo $_item->getId() ?>][qty]" value="<?php echo $this->getQty() ?>" size="4" data-cart-item-id="<?php echo $this->jsQuoteEscape($_item->getSku()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Qty')) ?>" class="input-text qty" maxlength="12" />
+    <a class="increment_qty_<?php echo $_item->getId(); ?>" href="javascript:void(0)">+</a>
 
-            <div class="total-price">$@Html.DisplayFor(modelItem => item.listofcart.total)</div>
-        </div>
+    <div class="total-price">$@Html.DisplayFor(modelItem => item.listofcart.total)</div>
+</div>
 
 
     }
@@ -53,13 +51,30 @@
 </div>
 
 <div class="checkoutBtn"><a asp-action="Checkout">CheckOut</a></div>
-<script>
-    function increment() {
-        document.getElementById('demoInput').stepUp();
-    }
-    function decrement() {
-        document.getElementById('demoInput').stepDown();
-    }
+<script type="text/javascript">
+    //<![CDATA[
+
+    jQuery(document).ready(function () {
+        var itemId = '<?php echo $_item->getId(); ?>';
+        jQuery('.increment_qty_' + itemId).click(function () {
+            jQuery('.btn-update').css('display', 'block');
+            var oldVal = jQuery(this).parent().find("input").val();
+            if (parseFloat(oldVal) >= 1) {
+                var newVal = parseFloat(oldVal) + 1;
+                jQuery(this).parent().find("input").val(newVal);
+            }
+        });
+
+        jQuery('.decrement_qty_' + itemId).click(function () {
+            jQuery('.btn-update').css('display', 'block');
+            var oldVal = jQuery(this).parent().find("input").val();
+            if (parseFloat(oldVal) >= 2) {
+                var newVal = parseFloat(oldVal) - 1;
+                jQuery(this).parent().find("input").val(newVal);
+            }
+        });
+    });
+    //]]>
 </script>
 @*<a asp-action="Edit" asp-route-id="@item.listofcart.cartid">Edit</a> |
     <a asp-action="Details" asp-route-id="@item.listofcart.cartid">Details</a> |
