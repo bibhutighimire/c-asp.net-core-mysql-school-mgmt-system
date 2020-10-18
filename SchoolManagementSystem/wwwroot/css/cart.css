@@ -2,17 +2,10 @@
     box-sizing: border-box;
 }
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    background-color: #7EC855;
-    font-family: 'Roboto', sans-serif;
-}
+
 .shopping-cart {
     width: 750px;
-    height: 423px;
+    height: auto;
     margin: 80px auto;
     background: #FFFFFF;
     box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
@@ -28,22 +21,43 @@ body {
     font-size: 18px;
     font-weight: 400;
 }
+.qty  {
+    width: 56px;
+}
 
 .item {
     padding: 20px 30px;
     height: 120px;
     display: flex;
+    border-top: 1px solid #E1E8EE;
+    border-bottom: 1px solid #E1E8EE;
+}
+.imagebox {
+    width: 100px;
+    height: 85px;
+    margin-right:35px;
 }
 
-    .item:nth-child(3) {
-        border-top: 1px solid #E1E8EE;
-        border-bottom: 1px solid #E1E8EE;
-    }
-.buttons {
-    position: relative;
-    padding-top: 30px;
-    margin-right: 60px;
+.imagebox img {
+    width: 100px;
+    height: 85px;
 }
+.subtotal {
+    background-color:lightblue;
+    width:746px;
+    height:40px;
+    padding:20px;
+
+}
+    .subtotal h2 {
+        color: black;
+
+    }
+    .buttons {
+        position: relative;
+        padding-top: 30px;
+        margin-right: 60px;
+    }
 
 .delete-btn,
 .like-btn {
@@ -88,11 +102,9 @@ body {
         background-position: right;
     }
 }
-.image {
-    margin-right: 50px;
-}
 
-Let’s add some basic style to product name and description.
+
+
 .description {
     padding-top: 10px;
     margin-right: 60px;
@@ -171,9 +183,14 @@ input:focus {
         flex-wrap: wrap;
         justify-content: center;
     }
+    .imagebox  {
+        width: 200px;
+        height: 200px;
+    }
 
     .image img {
-        width: 50%;
+        width: 200px;
+        height:200px;
     }
 
     .image,

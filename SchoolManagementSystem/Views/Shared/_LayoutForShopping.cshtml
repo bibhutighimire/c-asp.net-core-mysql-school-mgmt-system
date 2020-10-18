@@ -15,29 +15,31 @@
 
         <nav>
             <ul>
+
+
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("News", "Index", "News")</li>
-                <li>@Html.ActionLink("Courses", "Index", "Coursename")</li>
-                <li>@Html.ActionLink("Donate", "Index", "Donate")</li>
-                <li style="float:right">@Html.ActionLink("Login", "Index", "Login")</li>
-                <li style="float:right">@Html.ActionLink("Register", "Index", "Register")</li>
+
+                <li>@Html.ActionLink("Shop", "Index", "Product")</li>
+                <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
+                <li style="float: right; color: red;">@Html.ActionLink("(" + (string)@ViewBag.numberofqty + ") Cart Item", "Index", "Cart")</li>
+
+                <li style="float:right; color:red; font-weight:bold; padding: 14px 16px">Hello @ViewBag.firstname</li>
+
             </ul>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+ 
+    @RenderBody()
+       
 
     <footer class="footer-box">
-        <div class="container">
+      
             &copy; 2020 - SchoolManagementSystem - <a href="#">Designed and Developed by Bibu</a>
-        </div>
+    
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+   
 </body>
 </html>

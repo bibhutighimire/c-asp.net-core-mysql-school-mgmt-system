@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.NewVM>
+<link rel="stylesheet" href="~/css/cart.css" />
+<script src="~/js/site.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/4.7.0/css/font-awesome.min.css">
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutForShopping.cshtml";
+}
+
+<h1>Cart Items</h1>
+
+<div class="shopping-cart">
+    <!-- Title -->
+    <div class="title">
+        Shopping Bag
+    </div>
+    @foreach (var item in Model)
+    {
+<div class="item">
+    <div class="buttons">
+        <span class="delete-btn"></span>
+        <span class="like-btn"></span>
+    </div>
+
+    <div class="imagebox">
+        <img src="@("~/image/" + item.listofproduct.imagename)" runat="server" asp-append-version="true" />
+    </div>
+
+    <div class="description">
+        <span> @Html.DisplayFor(modelItem => item.listofproduct.pname)</span>
+        <span> @Html.DisplayFor(modelItem => item.listofcart.price)</span>
+
+    </div>
+    <div>
+        <input id=demoInput class="qty" type=number min=1 max=10>
+        <button class="qty" onclick="increment()">+</button>
+        <button class="qty" onclick="decrement()">-</button>
+    </div>
+
+    <div class="total-price">$@Html.DisplayFor(modelItem => item.listofcart.total)</div>
+</div>
+    }
+    <div class="subtotal"><h2>Sub Total: $@ViewBag.subtotal</h2></div>
+</div>
+<script>
+    function increment() {
+        document.getElementById('demoInput').stepUp();
+    }
+    function decrement() {
+        document.getElementById('demoInput').stepDown();
+    }
+</script>
+@*<a asp-action="Edit" asp-route-id="@item.listofcart.cartid">Edit</a> |
+    <a asp-action="Details" asp-route-id="@item.listofcart.cartid">Details</a> |
+    <a asp-action="Delete" asp-route-id="@item.listofcart.cartid">Delete</a>*@

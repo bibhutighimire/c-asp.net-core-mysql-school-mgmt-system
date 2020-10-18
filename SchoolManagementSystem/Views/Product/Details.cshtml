@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="~/css/products.css" />
 @{
     ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
+    Layout = "~/Views/Shared/_LayoutForShopping.cshtml";
 }
 
 <h2>@Html.DisplayFor(model => model.pname)</h2>
@@ -14,9 +14,10 @@
     <div class="column" >
         <h2>@Html.DisplayFor(model => model.pname)</h2>
         <p>@Html.DisplayFor(model => model.description)</p>
-        <h2>@Html.DisplayFor(model => model.price)</h2>
+        <h2>$@Html.DisplayFor(model => model.price)</h2>
+
         <div class="btnLink"><a asp-action="AddToCart" asp-route-id="@Model.productid">Add to Cart</a> 
-                             <a asp-action="Index">Back to Home Page</a>
+                             <a asp-action="Index">Back to Shop Page</a>
         </div>
         
     </div>

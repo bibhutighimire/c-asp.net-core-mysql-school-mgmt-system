@@ -20,6 +20,7 @@ namespace SchoolManagementSystem.Models
         public ProductCategory listofproductcategory { get; set; }
 
         public Product listofproduct { get; set; }
+        public Cart listofcart { get; set; }
 
     }
 }
