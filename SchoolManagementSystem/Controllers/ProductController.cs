@@ -262,7 +262,7 @@ namespace SchoolManagementSystem.Controllers
             else
                 return RedirectToAction("Index", "Signin");
         }
-        public ActionResult AddToCart(int id)
+        public ActionResult AddToCart(Cart cart)
         {
             if (HttpContext.Session.GetString("FNAME") != null)
             {
@@ -281,15 +281,15 @@ namespace SchoolManagementSystem.Controllers
                 int countqty = target.Sum(x => x.quantity);
                 HttpContext.Session.SetString("countqty", Convert.ToString(countqty));
                 ViewBag.numberofqty = HttpContext.Session.GetString("countqty");
-                string wwwRootPath = _hostenvironment.WebRootPath;
+                
 
 
-                var targetd = _context.tblProduct.Where(x => x.productid == id).FirstOrDefault();
+                var targetd = _context.tblProduct.Where(x => x.productid == cart.productid).FirstOrDefault();
 
 
                 Cart c = new Cart();
-                c.productid = targetd.productid;
-                c.quantity = Convert.ToInt32(1);
+                c.productid = cart.productid;
+                c.quantity = cart.quantity;
                 c.studentid = ids;
                 c.status = "addedtocart";
                 c.price = targetd.price;

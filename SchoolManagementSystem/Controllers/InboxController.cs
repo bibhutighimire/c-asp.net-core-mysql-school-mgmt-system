@@ -45,8 +45,8 @@ namespace SchoolManagementSystem.Controllers
                                   //orderby t.daterequested descending
                                   select new NewVM { listofstudent = s, ListOfTeachers = teac, listofinbox = i };
 
-
-                return View(joinedtable);
+                var joinedtabletarget = joinedtable.Where(x => x.listofinbox.studentid == ids).ToList();
+                return View(joinedtabletarget);
             }
             else
                 return RedirectToAction("Index", "Signin");

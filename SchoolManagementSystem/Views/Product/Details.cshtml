@@ -15,8 +15,20 @@
         <h2>@Html.DisplayFor(model => model.pname)</h2>
         <p>@Html.DisplayFor(model => model.description)</p>
         <h2>$@Html.DisplayFor(model => model.price)</h2>
-
-        <div class="btnLink"><a asp-action="AddToCart" asp-route-id="@Model.productid">Add to Cart</a> 
+        <form asp-action="AddToCart" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" id="productid" name="productid" value="@Model.productid"/>
+            </div>
+            <div class="checkoutBtn">
+                <input type="number" id="quantity"  name="quantity" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add to Cart" class="btn btn-primary" />
+            </div>
+        </form>
+       
+        <div class="btnLink">
                              <a asp-action="Index">Back to Shop Page</a>
         </div>
         
