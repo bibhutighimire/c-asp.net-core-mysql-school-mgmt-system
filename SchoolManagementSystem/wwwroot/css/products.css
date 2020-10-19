@@ -12,15 +12,12 @@ h6 {
     text-align: center;
 }
 /*.product-card {
-    padding: 2%;
-    flex-grow: 1;
-    flex-basis: 16%;
-    display: flex;*/ /* so child elements can use flexbox stuff too! */
+    
 /*}*/
 
 .product-image img {
-    width:350px;
-    height:350px;
+    width:400px;
+    height:400px;
     
 }
 .product-info {
@@ -28,6 +25,7 @@ h6 {
 }
 .product-card {
     padding:15px;
+    width:435px;
 }
 * {
     box-sizing: border-box;

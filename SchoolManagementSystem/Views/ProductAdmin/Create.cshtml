@@ -1,0 +1,46 @@
+﻿@model SchoolManagementSystem.Models.Product
+    <link rel="stylesheet" href="~/css/formtoaddproduct.css" />
+    @{
+        ViewData["Title"] = "Create";
+        Layout = "~/Views/Shared/_LayoutForShopping.cshtml";
+    }
+
+   
+    <hr />
+
+
+    <form asp-action="Create" enctype="multipart/form-data">
+        <div class="container">
+            <h1>Add a NEW Product</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+            <div>
+                <label for="pname"><b>Product Name</b></label>
+            </div>
+            <div><input type="text" placeholder="Enter Product Name" name="pname" id="pname" required></div>
+
+            <div><label for="description"><b>Password</b></label></div>
+            <div><input type="text" placeholder="Enter Description" name="description" id="description" required></div>
+
+            <div><label for="pcategoryid"><b>Category ID</b></label></div>
+            <div><input type="number" placeholder="Enter Category ID" name="pcategoryid" id="pcategoryid" required></div>
+
+            <div><label for="price"><b>Price</b></label></div>
+            <div><input type="number" placeholder="Enter Price" name="price" id="price" required></div>
+
+            <div><label for="availableqty"><b>Available Quantity</b></label></div>
+            <div><input type="number" placeholder="Enter Available Quantity" name="availableqty" id="availableqty" required></div>
+
+            <div><label for="imagefile"><b>Image</b></label></div>
+            <div><input type="text" placeholder="Upload Picture" name="imagefile" id="imagefile" required></div>
+
+           <div><label for="isavailable"><b>Is Available</b></label></div>
+            <div><input type="checkbox"  name="isavailable" id="isavailable" required></div>
+
+            <button type="submit" class="registerbtn">Add New Product</button>
+        </div>
+    </form>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>

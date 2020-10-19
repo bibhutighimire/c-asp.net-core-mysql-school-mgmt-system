@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Product>
+    <link rel="stylesheet" href="~/css/products.css" />
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutForShopping.cshtml";
+}
+    <a asp-action="Create" >Add Product</a>
+    <section class="products">
+
+        @foreach (var item in Model)
+        {
+        <div class="product-card">
+            <div class="product-image">
+                <img src="@("~/image/" + item.imagename)" runat="server" asp-append-version="true" style="width:400px; height:400px" />
+            </div>
+            <div class="product-info">
+                <h5>@Html.DisplayFor(modelItem => item.pname)</h5>
+                <h6>$@Html.DisplayFor(modelItem => item.price)</h6>
+                
+            </div>
+            <h6>
+                <a asp-action="Edit" asp-route-id="@item.productid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.productid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.productid">Delete</a>
+            </h6> 
+        </div>
+               
+        }
+
+    </section>
+               
+           
