@@ -13,66 +13,56 @@
 <table id="customers">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.firstname)
+            First Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.lastname)
+            Lastname
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.dob)
+            Date of Birth
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.email)
+            Email
         </th>
+        
         <th>
-            @Html.DisplayNameFor(model => model.positionid)
+            Username
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.username)
+            Course Name
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.password)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.coursenameid)
-        </th>
-    
+
     </tr>
-    
- 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.firstname)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.lastname)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.dob)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.positionid)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.username)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.password)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.coursenameid)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.teacherid">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.teacherid">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.teacherid">Delete</a>
-                </td>
-            </tr>
-        }
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.username)
+            </td>
+
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.teacherid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.teacherid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.teacherid">Delete</a>
+            </td>
+        </tr>
+    }
 
 </table>

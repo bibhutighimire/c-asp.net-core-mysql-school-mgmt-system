@@ -14,10 +14,10 @@
      
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.listofcoursename.coursename)
+                Course Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ListOfTeachers.firstname)
+                Teacher's Full Name'
             </th>
             <th></th>
         </tr>
@@ -29,7 +29,7 @@
                         @Html.DisplayFor(modelItem => item.listofcoursename.coursename)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ListOfTeachers.firstname)
+                        @Html.DisplayFor(modelItem => item.ListOfTeachers.firstname) @Html.DisplayFor(modelItem => item.ListOfTeachers.lastname)
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.listofcoursename.coursenameid">Edit</a> |

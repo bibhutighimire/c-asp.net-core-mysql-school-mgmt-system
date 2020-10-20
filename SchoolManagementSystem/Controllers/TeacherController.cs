@@ -23,7 +23,7 @@ namespace SchoolManagementSystem.Controllers
         }
 
         // GET: Teacher
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             if (HttpContext.Session.GetString("FNAME") != null)
             {
@@ -32,7 +32,9 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+
                 return View(_context.tblTeacher.ToList());
+               
             }
             else
                 return RedirectToAction("Index", "Signin");
@@ -116,6 +118,9 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.teacherid = HttpContext.Session.GetString("TEACHERID");
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
+
+
+
                 if (id == null)
                 {
                     return NotFound();

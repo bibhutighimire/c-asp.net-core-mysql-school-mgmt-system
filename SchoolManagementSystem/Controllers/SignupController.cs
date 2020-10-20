@@ -33,11 +33,7 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.positionid = HttpContext.Session.GetString("POSITIONID");
             
 
-                if (TempData["fstname"] != null)
-                {
-                    ViewBag.fstname = TempData["fstname"].ToString();
-                     //HttpContext.Session.GetString("fstname");
-                }
+               
                 if (TempData["lastname"] != null)
                 {
                     ViewBag.lastname = TempData["lastname"].ToString();
@@ -87,23 +83,9 @@ namespace SchoolManagementSystem.Controllers
         [HttpPost]
         public IActionResult SignUpTeacher(Teacher teacher)
         {
-            //HttpContext.Session.SetString("fstname", teacher.firstname);
-            //ViewBag.fstname = HttpContext.Session.GetString("fstname");
-            //HttpContext.Session.SetString("lastname", teacher.lastname);
+            
 
-            //ViewBag.lastname = HttpContext.Session.GetString("lastname");
-            //HttpContext.Session.SetString("dob", Convert.ToString(teacher.dob));
-            //ViewBag.dob = HttpContext.Session.GetString("dob");
-            //HttpContext.Session.SetString("email", teacher.email);
-            //ViewBag.email = HttpContext.Session.GetString("email");
-            //HttpContext.Session.SetString("username", teacher.username);
-            //ViewBag.username = HttpContext.Session.GetString("username");
-            //HttpContext.Session.SetString("password", teacher.password);
-            //ViewBag.password = HttpContext.Session.GetString("password");
-            //HttpContext.Session.SetString("coursenameid", Convert.ToString(teacher.coursenameid));
-            //ViewBag.coursenameid = HttpContext.Session.GetString("coursenameid");
-
-            if ((string.IsNullOrWhiteSpace(teacher.firstname))|| 
+            if (
                 (string.IsNullOrWhiteSpace(teacher.lastname))||
                 (string.IsNullOrWhiteSpace(Convert.ToString(teacher.dob)))||
                 (string.IsNullOrWhiteSpace(teacher.email))||
@@ -111,11 +93,7 @@ namespace SchoolManagementSystem.Controllers
                 (string.IsNullOrWhiteSpace(teacher.password))||
                 (string.IsNullOrWhiteSpace(Convert.ToString(teacher.coursenameid))))
             {
-                if (string.IsNullOrWhiteSpace(teacher.firstname))
-                {
-                   
-                    TempData["fstname"] = "First Name  can not be blank!";
-                }
+               
                 if (string.IsNullOrWhiteSpace(teacher.lastname))
                 {
                    
@@ -184,7 +162,7 @@ namespace SchoolManagementSystem.Controllers
                                       join c in listofcoursename on t.teacherid equals c.teacherid
                                       select new NewVM { listofcoursename = c, ListOfTeachers = t };
 
-                    return View(joinedtable);
+                    return RedirectToAction("Index", "Teacher");
 
                 }
                 else

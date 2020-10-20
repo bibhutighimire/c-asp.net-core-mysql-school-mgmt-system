@@ -7,7 +7,7 @@
     <h1>Register a NEW Student here!</h1>
     <hr />
     <div class="container">
-        <form method="post" action="/Meeting/AddMeeting">
+        <form method="post" action="/Student/Create">
             <div class="row">
                 <div class="col-50">
                     <label for="firstname"><b>First Name</b></label>
@@ -25,30 +25,38 @@
                     <label for="email"><b>Email</b></label>
                     <input type="text" name="email" id="email" required />
                 </div>
-                <div>
-                    <label for="coursename"><b>Course Name</b></label>
 
-
-                    @foreach (var item in ViewBag.listofcoursename)
-                    {
-
-                        <input type="checkbox" name="coursename" id="coursename" value="@item.coursenameid" />
-                        <label for="coursename"><b>@item.coursename</b></label>
-                    }
-                </div>
+               
                 <div>
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" name="username" id="username" required />
-                </div>
-                <div>
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" name="password" id="password" required />
-                </div>
-                <div>
-                    <button type="submit" class="registerbtn">Register</button>
-                </div>
+                    <label for="courseanme"><b>Course Name</b></label>
 
-            </div>
+                    <select id="coursenameid" name="coursenameid">
+                        @foreach (var coursename in ViewBag.listofcoursename)
+                        {
+
+                            <option value="@coursename.coursenameid">
+                                @coursename.coursename
+                            </option>
+                        }
+                    </select>
+                    <div>
+                        <label for="grade"><b>Grade</b></label>
+                        <input type="text" name="grade" id="grade" required />
+                    </div>
+
+                    <div>
+                        <label for="username"><b>Username</b></label>
+                        <input type="text" name="username" id="username" required />
+                    </div>
+                    <div>
+                        <label for="password"><b>Password</b></label>
+                        <input type="password" name="password" id="password" required />
+                    </div>
+                    <div>
+                        <button type="submit" class="registerbtn">Register</button>
+                    </div>
+
+                </div>
 
         </form>
     </div>

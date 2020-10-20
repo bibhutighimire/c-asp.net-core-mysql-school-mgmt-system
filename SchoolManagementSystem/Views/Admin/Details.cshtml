@@ -1,59 +1,38 @@
 ﻿@model SchoolManagementSystem.Models.Admin
-
+    <link rel="stylesheet" href="~/css/details.css" />
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
 }
 
-<h1>Details</h1>
+
 
 <div>
-    <h4>Admin</h4>
+    <h4>Admin Details</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.firstname)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.firstname)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.lastname)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.lastname)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.dob)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.dob)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.positionid)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.positionid)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.username)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.username)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.password)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.password)
-        </dd>
-    </dl>
+    <table id="customer">
+
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.firstname)</th>
+            <td>@Html.DisplayFor(model => model.firstname)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.lastname)</th>
+            <td>@Html.DisplayFor(model => model.lastname)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.dob)</th>
+            <td>@Html.DisplayFor(model => model.dob)</td>
+        </tr>
+        <tr>
+            <th> @Html.DisplayNameFor(model => model.email)</th>
+            <td>@Html.DisplayFor(model => model.email)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.username)</th>
+            <td>@Html.DisplayFor(model => model.username)</td>
+        </tr>
+    </table>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.adminid">Edit</a> |
