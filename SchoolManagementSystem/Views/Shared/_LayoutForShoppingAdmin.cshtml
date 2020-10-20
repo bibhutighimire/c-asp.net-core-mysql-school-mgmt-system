@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SchoolManagementSystem</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/nav.css" />
+</head>
+<body>
+    <header>
+        <div class="logoHolder"><img src="~/images/logo.jpg" /></div>
+
+        <nav>
+            <ul>
+
+
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+                <li>@Html.ActionLink("Shop", "Index", "ProductAdmin")</li>
+                <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
+                
+
+                <li style="float:right; color:red; font-weight:bold; padding: 14px 16px">Hello @ViewBag.firstname</li>
+
+            </ul>
+        </nav>
+    </header>
+ 
+    @RenderBody()
+       
+
+    <footer class="footer-box">
+      
+            &copy; 2020 - SchoolManagementSystem - <a href="#">Designed and Developed by Bibu</a>
+    
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+   
+</body>
+</html>

@@ -67,7 +67,7 @@ namespace SchoolManagementSystem.Controllers
                 return RedirectToAction("Index", "Signin");
         }
         [HttpPost]
-        public IActionResult Create(string firstname, string lastname, DateTime dob, string email, int coursename, string username, string password)
+        public IActionResult Create(string firstname, string lastname, DateTime dob,string grade, string email,  string username, string password)
         {
             if (HttpContext.Session.GetString("FNAME") != null)
             {
@@ -94,6 +94,9 @@ namespace SchoolManagementSystem.Controllers
                 s.email = email;
                 s.username = username;
                 s.password = password;
+                s.grade = grade;
+
+                
                 _context.tblStudent.Add(s);
                 _context.SaveChanges();
 
