@@ -34,6 +34,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
                 int ids = Convert.ToInt32(ViewBag.studentid);
 
+                var targetForWallet = _context.tblWallet.Where(x => x.studentid == ids).FirstOrDefault();
+                int walletqty = targetForWallet.cash;
+                HttpContext.Session.SetString("walletqty", Convert.ToString(walletqty));
+                ViewBag.walletqty = HttpContext.Session.GetString("walletqty");
 
                 var target = _context.tblCart.Where(s => s.studentid == ids).ToList();
 
@@ -59,7 +63,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
                 int ids = Convert.ToInt32(ViewBag.studentid);
-
+                var targetForWallet = _context.tblWallet.Where(x => x.studentid == ids).FirstOrDefault();
+                int walletqty = targetForWallet.cash;
+                HttpContext.Session.SetString("walletqty", Convert.ToString(walletqty));
+                ViewBag.walletqty = HttpContext.Session.GetString("walletqty");
 
                 var target = _context.tblCart.Where(s => s.studentid == ids).ToList();
 
@@ -87,7 +94,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
                 int ids = Convert.ToInt32(ViewBag.studentid);
 
-
+                var targetForWallet = _context.tblWallet.Where(x => x.studentid == ids).FirstOrDefault();
+                int walletqty = targetForWallet.cash;
+                HttpContext.Session.SetString("walletqty", Convert.ToString(walletqty));
+                ViewBag.walletqty = HttpContext.Session.GetString("walletqty");
                 var target = _context.tblCart.Where(s => s.studentid == ids).ToList();
 
                 int countqty = target.Sum(x => x.quantity);
@@ -126,7 +136,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
                 int ids = Convert.ToInt32(ViewBag.studentid);
 
-
+                var targetForWallet = _context.tblWallet.Where(x => x.studentid == ids).FirstOrDefault();
+                int walletqty = targetForWallet.cash;
+                HttpContext.Session.SetString("walletqty", Convert.ToString(walletqty));
+                ViewBag.walletqty = HttpContext.Session.GetString("walletqty");
                 var target = _context.tblCart.Where(s => s.studentid == ids).ToList();
 
                 int countqty = target.Sum(x => x.quantity);
@@ -151,7 +164,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
                 int ids = Convert.ToInt32(ViewBag.studentid);
-
+                var targetForWallet = _context.tblWallet.Where(x => x.studentid == ids).FirstOrDefault();
+                int walletqty = targetForWallet.cash;
+                HttpContext.Session.SetString("walletqty", Convert.ToString(walletqty));
+                ViewBag.walletqty = HttpContext.Session.GetString("walletqty");
 
                 var target = _context.tblCart.Where(s => s.studentid == ids).ToList();
 
@@ -185,7 +201,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
                 int ids = Convert.ToInt32(ViewBag.studentid);
-
+                var targetForWallet = _context.tblWallet.Where(x => x.studentid == ids).FirstOrDefault();
+                int walletqty = targetForWallet.cash;
+                HttpContext.Session.SetString("walletqty", Convert.ToString(walletqty));
+                ViewBag.walletqty = HttpContext.Session.GetString("walletqty");
 
                 var target = _context.tblCart.Where(s => s.studentid == ids).ToList();
 
@@ -210,7 +229,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
                 int ids = Convert.ToInt32(ViewBag.studentid);
-
+                var targetForWallet = _context.tblWallet.Where(x => x.studentid == ids).FirstOrDefault();
+                int walletqty = targetForWallet.cash;
+                HttpContext.Session.SetString("walletqty", Convert.ToString(walletqty));
+                ViewBag.walletqty = HttpContext.Session.GetString("walletqty");
 
                 var target = _context.tblCart.Where(s => s.studentid == ids).ToList();
 
@@ -248,7 +270,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.adminid = HttpContext.Session.GetString("ADMINID");
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
                 int ids = Convert.ToInt32(ViewBag.studentid);
-
+                var targetForWallet = _context.tblWallet.Where(x => x.studentid == ids).FirstOrDefault();
+                int walletqty = targetForWallet.cash;
+                HttpContext.Session.SetString("walletqty", Convert.ToString(walletqty));
+                ViewBag.walletqty = HttpContext.Session.GetString("walletqty");
 
                 var target = _context.tblCart.Where(s => s.studentid == ids).ToList();
 
@@ -275,7 +300,10 @@ namespace SchoolManagementSystem.Controllers
                 ViewBag.studentid = HttpContext.Session.GetString("STUDENTID");
                 int ids = Convert.ToInt32(ViewBag.studentid);
 
-
+                var targetForWallet = _context.tblWallet.Where(x => x.studentid == ids).FirstOrDefault();
+                int walletqty = targetForWallet.cash;
+                HttpContext.Session.SetString("walletqty", Convert.ToString(walletqty));
+                ViewBag.walletqty = HttpContext.Session.GetString("walletqty");
                 var target = _context.tblCart.Where(s => s.studentid == ids).ToList();
 
                 int countqty = target.Sum(x => x.quantity);

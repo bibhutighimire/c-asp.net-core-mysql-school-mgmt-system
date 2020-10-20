@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "ConfirmCheckout";
+    Layout = "~/Views/Shared/_LayoutForShopping.cshtml";
+}
+
+<h1>Confirm Your Payment with Wallet App</h1>
+
+<h2>The total amount of your purchased product is : $@ViewBag.subtotal</h2>
+<h2>The total balance on your Wallet App is : $@ViewBag.walletqty</h2>
+<h2>After the purchase, your Wallet App balance will be: $@ViewBag.newwalletqtyafterpurchase </h2>
+
+<div class="checkoutBtn"><a asp-action="Checkout">Process my Payment</a></div>

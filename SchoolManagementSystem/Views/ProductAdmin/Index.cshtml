@@ -1,32 +1,54 @@
 ﻿@model IEnumerable<SchoolManagementSystem.Models.Product>
-    <link rel="stylesheet" href="~/css/products.css" />
+<link rel="stylesheet" href="~/css/products.css" />
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LayoutForShopping.cshtml";
 }
-    <a asp-action="Create" >Add Product</a>
-    <section class="products">
+<a asp-action="Create">Add Product</a>
+<section class="products">
+    @*<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">*@
 
+    
         @foreach (var item in Model)
         {
-        <div class="product-card">
-            <div class="product-image">
-                <img src="@("~/image/" + item.imagename)" runat="server" asp-append-version="true" style="width:400px; height:400px" />
-            </div>
-            <div class="product-info">
-                <h5>@Html.DisplayFor(modelItem => item.pname)</h5>
-                <h6>$@Html.DisplayFor(modelItem => item.price)</h6>
-                
-            </div>
-            <h6>
-                <a asp-action="Edit" asp-route-id="@item.productid">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.productid">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.productid">Delete</a>
-            </h6> 
-        </div>
-               
-        }
+         
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="@("~/image/" + item.imagename)" runat="server" asp-append-version="true" style="width:400px; height:400px" />
+                    </div>
+                    <div class="product-info">
+                        <h5>@Html.DisplayFor(modelItem => item.pname)</h5>
+                        <h6>$@Html.DisplayFor(modelItem => item.price)</h6>
 
-    </section>
-               
-           
+                    </div>
+                    <h6>
+                        <a asp-action="Edit" asp-route-id="@item.productid">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.productid">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.productid">Delete</a>
+                    </h6>
+                </div>
+        }
+ 
+</section>
+
+@*<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById('myInput');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName('li');
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+</script>*@

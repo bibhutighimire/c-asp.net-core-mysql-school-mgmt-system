@@ -21,6 +21,7 @@ namespace SchoolManagementSystem.Models
 
         public Product listofproduct { get; set; }
         public Cart listofcart { get; set; }
+        public Wallet listofwallet { get; set; }
 
     }
 }

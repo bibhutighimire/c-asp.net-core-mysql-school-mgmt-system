@@ -14,12 +14,13 @@
             <h1>Add a NEW Product</h1>
             <p>Please fill in this form to create an account.</p>
             <hr>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div>
                 <label for="pname"><b>Product Name</b></label>
             </div>
             <div><input type="text" placeholder="Enter Product Name" name="pname" id="pname" required></div>
 
-            <div><label for="description"><b>Password</b></label></div>
+            <div><label for="description"><b>Description</b></label></div>
             <div><input type="text" placeholder="Enter Description" name="description" id="description" required></div>
 
             <div><label for="pcategoryid"><b>Category ID</b></label></div>
@@ -32,10 +33,13 @@
             <div><input type="number" placeholder="Enter Available Quantity" name="availableqty" id="availableqty" required></div>
 
             <div><label for="imagefile"><b>Image</b></label></div>
-            <div><input type="text" placeholder="Upload Picture" name="imagefile" id="imagefile" required></div>
-
-           <div><label for="isavailable"><b>Is Available</b></label></div>
-            <div><input type="checkbox"  name="isavailable" id="isavailable" required></div>
+            <div>
+                @*<input asp-for="imagefile" accept="image/*" />*@
+                <input asp-for="imagefile" accept="image/*"  placeholder="Upload Picture" name="imagefile" id="imagefile" required>
+            </div>
+            <br/>
+            <div><label for="isavailable"><b>Is Available</b></label></div>
+            <div><input type="checkbox" name="isavailable" id="isavailable" required></div>
 
             <button type="submit" class="registerbtn">Add New Product</button>
         </div>

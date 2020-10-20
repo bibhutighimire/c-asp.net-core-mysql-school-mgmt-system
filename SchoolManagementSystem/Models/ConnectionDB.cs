@@ -31,6 +31,7 @@ namespace SchoolManagementSystem.Models
         public DbSet<ProductCategory> tblPCategory { get; set; }
         public DbSet<Product> tblProduct { get; set; }
         public DbSet<Cart> tblCart { get; set; }
+        public DbSet<Wallet> tblWallet { get; set; }
 
         //public DbSet<SchoolManagementSystem.Models.Signin> Signin { get; set; }
 
