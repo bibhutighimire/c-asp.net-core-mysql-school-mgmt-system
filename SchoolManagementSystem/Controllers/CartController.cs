@@ -170,7 +170,6 @@ namespace SchoolManagementSystem.Controllers
                 //ViewBag.Listofteacher = ListOfTeachers;
                 List<Product> listofproduct = _context.tblProduct.ToList();
 
-
                 var joinedtable = from c in listofcart
                                   join p in listofproduct on c.productid equals p.productid
                                   select new NewVM { listofcart = c, listofproduct = p };

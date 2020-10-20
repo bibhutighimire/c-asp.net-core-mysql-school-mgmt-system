@@ -55,16 +55,15 @@
     }
 .checkoutBtn {
    
-    width: 40px;
-    height: 40px;
-    margin:0 auto;
+    
+    margin:60px auto;
 }
     .checkoutBtn a {
         background-color: lightblue;
         padding: 35px;
         font-size: large;
         border-radius: 15px;
-        margin-top: 40px auto;
+        
         text-decoration:none;
         color:black;
         font-weight:bold;
