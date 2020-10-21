@@ -57,6 +57,7 @@ Log in as Teacher
 5. View Teacher's Profile Details
 6. Complete/Notify/Delete Meeting Request
 7. Complete/Notify/Delete Transcript Request
+8. Reload Student's Wallet
 
 Help Links:
 https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-3.1

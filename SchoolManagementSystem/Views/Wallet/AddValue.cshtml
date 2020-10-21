@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.NewVM>
+    <link rel="stylesheet" href="~/css/form.css" />
+@{
+    ViewData["Title"] = "AddValue";
+    Layout = "~/Views/Shared/_LayoutNotHomePage.cshtml";
+}
+
+<h4>Reload Student's Wallet Center</h4>
+<hr />
+
+
+<div class="container">
+    <form asp-action="AddValue" method="post">
+        <div class="row">
+            <div class="col-50">
+                <label for="studentname">Student Name</label>
+            </div>
+            <div class="col-75">
+                <select id="studentid" name="studentid">
+                    @foreach (Student student in ViewBag.listofstudent)
+                    {
+                        <option value="@student.studentid">
+                            @student.firstname @student.lastname
+                        </option>
+                    }
+                </select>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-50">
+                <label for="cash">Reload Amount($)</label>
+            </div>
+            <div class="col-75">
+                <input type="number" id="cash" name="cash" placeholder="Reload Amount in $">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Reload the Wallet" class="btn btn-primary" />
+        </div>
+    </form>
+
+
+</div>

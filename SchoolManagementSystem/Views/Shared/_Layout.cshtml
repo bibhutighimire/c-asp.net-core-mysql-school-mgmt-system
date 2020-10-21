@@ -26,7 +26,7 @@
                     <li>@Html.ActionLink("Admins", "Index", "Admin")</li>
                     <li>@Html.ActionLink("Teachers", "Index", "Teacher")</li>
 
-                   // <li>@Html.ActionLink("Add Students", "Create", "Student")</li>
+                    // <li>@Html.ActionLink("Add Students", "Create", "Student")</li>
                     //<li>@Html.ActionLink("Add Admins", "Create", "Admin")</li>
                     <li>@Html.ActionLink("Add Teachers", "SignupTeacher", "Signup")</li>
                     //<li>@Html.ActionLink("Add Courses", "Create", "CoursenameForAdmin")</li>
@@ -55,6 +55,7 @@
                     <li>@Html.ActionLink("Add Courses", "Create", "CoursenameForAdmin")</li>
                     <li>@Html.ActionLink("Meeting Req", "TeacherMeetingReq", "Meeting", new { id = @ViewBag.teacherid }, null)</li>
                     <li>@Html.ActionLink("Transcript Req", "AllTranscriptReq", "Transcript")</li>
+                    <li>@Html.ActionLink("Reload Wallet", "AddValue", "Wallet")</li>
                     <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
                     <li style="float:right">@Html.ActionLink("My Profile", "ProfileTeacher", "Student", new { id = @ViewBag.teacherid }, null)</li>
                     <li style="float:right; color:red; font-weight:bold; padding: 14px 16px">Hello @ViewBag.firstname</li>
