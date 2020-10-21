@@ -26,6 +26,8 @@ osase		passosase
 
 Instruction:
 
+Do not enter NULL values anywhere because my app doesnot have null or white space validation; and will enter null value in database which will choke the program
+
 Log in as Admin
 1. Do CRUD operation with Student
 2. Do CRUD operation with Teacher
@@ -39,7 +41,7 @@ Log in as Admin
 Log in as Student
 1. View all list of Courses
 2. Request for Transcript 
-3. Request for Meeting with Teacher
+3. Request for Meeting with Teacher - Duplicate date and time slot will not be added(Date and time conflict resolved by error message)
 4. Pay Fee 
 5. View Student's Profile Details
 6. Go to Shop App and do Shopping using Wallet
