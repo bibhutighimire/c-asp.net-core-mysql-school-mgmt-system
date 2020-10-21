@@ -1,6 +1,6 @@
 USE [SchoolManagementSystem]
 GO
-/****** Object:  Table [dbo].[tblAddNewMember]    Script Date: 10/20/2020 12:08:14 AM ******/
+/****** Object:  Table [dbo].[tblAddNewMember]    Script Date: 10/20/2020 10:29:19 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -20,7 +20,7 @@ CREATE TABLE [dbo].[tblAddNewMember](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblAdmin]    Script Date: 10/20/2020 12:08:14 AM ******/
+/****** Object:  Table [dbo].[tblAdmin]    Script Date: 10/20/2020 10:29:19 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -40,7 +40,7 @@ CREATE TABLE [dbo].[tblAdmin](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblCart]    Script Date: 10/20/2020 12:08:14 AM ******/
+/****** Object:  Table [dbo].[tblCart]    Script Date: 10/20/2020 10:29:19 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -59,7 +59,7 @@ CREATE TABLE [dbo].[tblCart](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblCoursename]    Script Date: 10/20/2020 12:08:14 AM ******/
+/****** Object:  Table [dbo].[tblCoursename]    Script Date: 10/20/2020 10:29:19 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -74,7 +74,7 @@ CREATE TABLE [dbo].[tblCoursename](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblFee]    Script Date: 10/20/2020 12:08:14 AM ******/
+/****** Object:  Table [dbo].[tblFee]    Script Date: 10/20/2020 10:29:19 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -91,7 +91,7 @@ CREATE TABLE [dbo].[tblFee](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblInbox]    Script Date: 10/20/2020 12:08:14 AM ******/
+/****** Object:  Table [dbo].[tblInbox]    Script Date: 10/20/2020 10:29:19 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -108,7 +108,7 @@ CREATE TABLE [dbo].[tblInbox](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblMeeting]    Script Date: 10/20/2020 12:08:14 AM ******/
+/****** Object:  Table [dbo].[tblMeeting]    Script Date: 10/20/2020 10:29:19 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -128,7 +128,7 @@ CREATE TABLE [dbo].[tblMeeting](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblMeetingTime]    Script Date: 10/20/2020 12:08:14 AM ******/
+/****** Object:  Table [dbo].[tblMeetingTime]    Script Date: 10/20/2020 10:29:19 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -142,7 +142,7 @@ CREATE TABLE [dbo].[tblMeetingTime](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblMultipleCourseStudent]    Script Date: 10/20/2020 12:08:14 AM ******/
+/****** Object:  Table [dbo].[tblMultipleCourseStudent]    Script Date: 10/20/2020 10:29:19 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -157,7 +157,7 @@ CREATE TABLE [dbo].[tblMultipleCourseStudent](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblPCategory]    Script Date: 10/20/2020 12:08:14 AM ******/
+/****** Object:  Table [dbo].[tblPCategory]    Script Date: 10/20/2020 10:29:19 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -171,7 +171,7 @@ CREATE TABLE [dbo].[tblPCategory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblPosition]    Script Date: 10/20/2020 12:08:14 AM ******/
+/****** Object:  Table [dbo].[tblPosition]    Script Date: 10/20/2020 10:29:19 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -185,7 +185,7 @@ CREATE TABLE [dbo].[tblPosition](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblProduct]    Script Date: 10/20/2020 12:08:14 AM ******/
+/****** Object:  Table [dbo].[tblProduct]    Script Date: 10/20/2020 10:29:19 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -205,7 +205,7 @@ CREATE TABLE [dbo].[tblProduct](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblStudent]    Script Date: 10/20/2020 12:08:14 AM ******/
+/****** Object:  Table [dbo].[tblStudent]    Script Date: 10/20/2020 10:29:19 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -226,7 +226,7 @@ CREATE TABLE [dbo].[tblStudent](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblTeacher]    Script Date: 10/20/2020 12:08:14 AM ******/
+/****** Object:  Table [dbo].[tblTeacher]    Script Date: 10/20/2020 10:29:19 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -247,7 +247,7 @@ CREATE TABLE [dbo].[tblTeacher](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblTranscript]    Script Date: 10/20/2020 12:08:14 AM ******/
+/****** Object:  Table [dbo].[tblTranscript]    Script Date: 10/20/2020 10:29:19 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -263,7 +263,7 @@ CREATE TABLE [dbo].[tblTranscript](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblWallet]    Script Date: 10/20/2020 12:08:14 AM ******/
+/****** Object:  Table [dbo].[tblWallet]    Script Date: 10/20/2020 10:29:19 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -282,13 +282,11 @@ SET IDENTITY_INSERT [dbo].[tblAdmin] ON
 GO
 INSERT [dbo].[tblAdmin] ([adminid], [firstname], [lastname], [dob], [email], [positionid], [username], [password]) VALUES (1, N'AdminOneFirstName', N'AdminOneLastName', CAST(N'1987-05-01' AS Date), N'adminone@ualberta.ca', 2, N'adminone', N'adminone')
 GO
-INSERT [dbo].[tblAdmin] ([adminid], [firstname], [lastname], [dob], [email], [positionid], [username], [password]) VALUES (4, N'AdminTwoFirstName', N'AdminTwoLastName', CAST(N'1985-06-04' AS Date), N'admintwo@ualberta.ca', 2, N'admintwo', N'admintwo')
-GO
 SET IDENTITY_INSERT [dbo].[tblAdmin] OFF
 GO
 SET IDENTITY_INSERT [dbo].[tblCoursename] ON 
 GO
-INSERT [dbo].[tblCoursename] ([coursenameid], [coursename], [teacherid]) VALUES (1, N'C Sharp', 1)
+INSERT [dbo].[tblCoursename] ([coursenameid], [coursename], [teacherid]) VALUES (1, N'C Sharp ', 1)
 GO
 INSERT [dbo].[tblCoursename] ([coursenameid], [coursename], [teacherid]) VALUES (2, N'JavaScript', 2)
 GO
@@ -304,44 +302,11 @@ INSERT [dbo].[tblCoursename] ([coursenameid], [coursename], [teacherid]) VALUES 
 GO
 INSERT [dbo].[tblCoursename] ([coursenameid], [coursename], [teacherid]) VALUES (8, N'Web API', 2)
 GO
-INSERT [dbo].[tblCoursename] ([coursenameid], [coursename], [teacherid]) VALUES (9, N'Google Fu', 5)
-GO
 INSERT [dbo].[tblCoursename] ([coursenameid], [coursename], [teacherid]) VALUES (12, N'Angular JS', 1)
 GO
-INSERT [dbo].[tblCoursename] ([coursenameid], [coursename], [teacherid]) VALUES (13, N'Python', 3)
-GO
-INSERT [dbo].[tblCoursename] ([coursenameid], [coursename], [teacherid]) VALUES (17, N'capstone course NEWWWW', 3)
+INSERT [dbo].[tblCoursename] ([coursenameid], [coursename], [teacherid]) VALUES (20, N'Google Fu', 5)
 GO
 SET IDENTITY_INSERT [dbo].[tblCoursename] OFF
-GO
-SET IDENTITY_INSERT [dbo].[tblFee] ON 
-GO
-INSERT [dbo].[tblFee] ([feeid], [datepaid], [studentid], [totalfee], [paidfee]) VALUES (17, CAST(N'2020-10-15' AS Date), 2, 5000.0000, 1000.0000)
-GO
-INSERT [dbo].[tblFee] ([feeid], [datepaid], [studentid], [totalfee], [paidfee]) VALUES (18, CAST(N'2020-10-15' AS Date), 2, 5000.0000, 1500.0000)
-GO
-INSERT [dbo].[tblFee] ([feeid], [datepaid], [studentid], [totalfee], [paidfee]) VALUES (19, CAST(N'2020-10-16' AS Date), 2, 5000.0000, 500.0000)
-GO
-SET IDENTITY_INSERT [dbo].[tblFee] OFF
-GO
-SET IDENTITY_INSERT [dbo].[tblInbox] ON 
-GO
-INSERT [dbo].[tblInbox] ([inboxid], [subject], [datesent], [studentid], [teacherid]) VALUES (65, N'Your order from Shopping is in process.', CAST(N'2020-10-19' AS Date), 3, 1)
-GO
-INSERT [dbo].[tblInbox] ([inboxid], [subject], [datesent], [studentid], [teacherid]) VALUES (66, N'Your order from Shopping is in process.', CAST(N'2020-10-19' AS Date), 3, 1)
-GO
-SET IDENTITY_INSERT [dbo].[tblInbox] OFF
-GO
-SET IDENTITY_INSERT [dbo].[tblMeeting] ON 
-GO
-INSERT [dbo].[tblMeeting] ([meetingid], [studentid], [dateofmeeting], [meetingtimeid], [about], [requestedtime], [teacherid], [status]) VALUES (44, 1, CAST(N'2020-10-17' AS Date), 3, N'capstrone iscuss', CAST(N'2020-10-15T11:53:00.520' AS DateTime), 2, N'Notified')
-GO
-INSERT [dbo].[tblMeeting] ([meetingid], [studentid], [dateofmeeting], [meetingtimeid], [about], [requestedtime], [teacherid], [status]) VALUES (46, 2, CAST(N'2020-10-18' AS Date), 6, N'hi meeting for project
-', CAST(N'2020-10-18T18:34:43.523' AS DateTime), 2, N'Incomplete')
-GO
-INSERT [dbo].[tblMeeting] ([meetingid], [studentid], [dateofmeeting], [meetingtimeid], [about], [requestedtime], [teacherid], [status]) VALUES (47, 1, CAST(N'2020-10-18' AS Date), 5, N'for final project', CAST(N'2020-10-18T18:36:08.790' AS DateTime), 3, N'Notified')
-GO
-SET IDENTITY_INSERT [dbo].[tblMeeting] OFF
 GO
 SET IDENTITY_INSERT [dbo].[tblMeetingTime] ON 
 GO
@@ -399,8 +364,6 @@ INSERT [dbo].[tblProduct] ([productid], [pname], [description], [pcategoryid], [
 GO
 INSERT [dbo].[tblProduct] ([productid], [pname], [description], [pcategoryid], [availableqty], [imagename], [isavailable], [price]) VALUES (17, N'Tshirt ', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 1, 200, N'tshirt3205147172.jpg', 1, 25)
 GO
-INSERT [dbo].[tblProduct] ([productid], [pname], [description], [pcategoryid], [availableqty], [imagename], [isavailable], [price]) VALUES (19, N'Cotton Tshirt', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 1, 75, N'tshirt3202910774.jpg', 1, 50)
-GO
 INSERT [dbo].[tblProduct] ([productid], [pname], [description], [pcategoryid], [availableqty], [imagename], [isavailable], [price]) VALUES (20, N'U OF A SweatShirt', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 1, 30, N'tshirt2203024318.png', 1, 95)
 GO
 INSERT [dbo].[tblProduct] ([productid], [pname], [description], [pcategoryid], [availableqty], [imagename], [isavailable], [price]) VALUES (22, N'U OF A SweatShirt', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 1, 400, N'tshirt7203144121.png', 1, 30)
@@ -408,6 +371,12 @@ GO
 INSERT [dbo].[tblProduct] ([productid], [pname], [description], [pcategoryid], [availableqty], [imagename], [isavailable], [price]) VALUES (24, N'Flower Picture Frame', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 2, 99, N'i2204056939.jpg', 1, 50)
 GO
 INSERT [dbo].[tblProduct] ([productid], [pname], [description], [pcategoryid], [availableqty], [imagename], [isavailable], [price]) VALUES (25, N'Blue Sky Picture Frame', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 2, 20, N'i1204013461.jpg', 0, 80)
+GO
+INSERT [dbo].[tblProduct] ([productid], [pname], [description], [pcategoryid], [availableqty], [imagename], [isavailable], [price]) VALUES (27, N'Green SweatShirt', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 1, 200, N'tshirt6201744112.jpg', 0, 65)
+GO
+INSERT [dbo].[tblProduct] ([productid], [pname], [description], [pcategoryid], [availableqty], [imagename], [isavailable], [price]) VALUES (28, N'Tshirt', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 1, 300, N'bluetshirt201828078.jpg', 0, 45)
+GO
+INSERT [dbo].[tblProduct] ([productid], [pname], [description], [pcategoryid], [availableqty], [imagename], [isavailable], [price]) VALUES (29, N'Pencil Color Set', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 2, 100, N'green-1738220_960_720201738865.jpg', 1, 15)
 GO
 SET IDENTITY_INSERT [dbo].[tblProduct] OFF
 GO
@@ -433,21 +402,15 @@ INSERT [dbo].[tblTeacher] ([teacherid], [firstname], [lastname], [dob], [email],
 GO
 INSERT [dbo].[tblTeacher] ([teacherid], [firstname], [lastname], [dob], [email], [positionid], [username], [password], [coursenameid]) VALUES (4, N'Tammy', N'Valgardson', CAST(N'1989-04-06' AS Date), N'tammy@ualberta.ca', 3, N'tammy', N'passtammy', 4)
 GO
-INSERT [dbo].[tblTeacher] ([teacherid], [firstname], [lastname], [dob], [email], [positionid], [username], [password], [coursenameid]) VALUES (5, N'Bo', N'Cen', CAST(N'1687-05-04' AS Date), N'bo@ualberta.ca', 3, N'bo', N'passbo', 6)
+INSERT [dbo].[tblTeacher] ([teacherid], [firstname], [lastname], [dob], [email], [positionid], [username], [password], [coursenameid]) VALUES (5, N'Bo ', N'Cen', CAST(N'1687-05-04' AS Date), N'bo@ualberta.ca', 3, N'bo', N'passbo', 6)
+GO
+INSERT [dbo].[tblTeacher] ([teacherid], [firstname], [lastname], [dob], [email], [positionid], [username], [password], [coursenameid]) VALUES (21, N'teacherone', N'teacherone', CAST(N'2020-10-24' AS Date), N'teacherone@gmail.com', 3, N'teacherone', N'teacherone', 4)
 GO
 SET IDENTITY_INSERT [dbo].[tblTeacher] OFF
 GO
-SET IDENTITY_INSERT [dbo].[tblTranscript] ON 
-GO
-INSERT [dbo].[tblTranscript] ([transcriptid], [studentid], [daterequested], [status]) VALUES (50, 2, CAST(N'2020-10-18T18:34:49.313' AS DateTime), N'Notified')
-GO
-INSERT [dbo].[tblTranscript] ([transcriptid], [studentid], [daterequested], [status]) VALUES (51, 1, CAST(N'2020-10-18T18:35:43.730' AS DateTime), N'Complete')
-GO
-SET IDENTITY_INSERT [dbo].[tblTranscript] OFF
-GO
 SET IDENTITY_INSERT [dbo].[tblWallet] ON 
 GO
-INSERT [dbo].[tblWallet] ([walletid], [studentid], [cash]) VALUES (1, 1, 760)
+INSERT [dbo].[tblWallet] ([walletid], [studentid], [cash]) VALUES (1, 1, 1000)
 GO
 INSERT [dbo].[tblWallet] ([walletid], [studentid], [cash]) VALUES (2, 2, 1000)
 GO
