@@ -47,7 +47,7 @@ Log in as Student
 6. Go to Shop App and do Shopping using Wallet
 7. Add to Cart and Checkout; see how it calculates Wallet Amount after purchase
 8. Also see how cart item becomes zero after purchase and wallet amount change automatically
-9. Get messages in Inbox about Shopping, Meeting Confirmation/Cancellation and Transcript Request Completion
+9. Get messages in Inbox about Shopping, Meeting Confirmation/Cancellation, Wallet Reload and Transcript Request Completion
 
 Log in as Teacher
 1. Do CRUD operation with Course
