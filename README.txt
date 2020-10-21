@@ -24,6 +24,38 @@ jia		passjia
 corinna		passcorinna
 osase		passosase
 
+Instruction:
+
+Log in as Admin
+1. Do CRUD operation with Student
+2. Do CRUD operation with Teacher
+3. Do CRUD operation with Admin
+4. Do CRUD operation with Course
+5. Do CRUD operation with Shop
+6. View all Transcript Request
+7. View all Meeting Request
+8. View Admin's Profile Details
+
+Log in as Student
+1. View all list of Courses
+2. Request for Transcript 
+3. Request for Meeting with Teacher
+4. Pay Fee 
+5. View Student's Profile Details
+6. Go to Shop App and do Shopping using Wallet
+7. Add to Cart and Checkout; see how it calculates Wallet Amount after purchase
+8. Also see how cart item becomes zero after purchase and wallet amount change automatically
+9. Get messages in Inbox about Shopping, Meeting Confirmation/Cancellation and Transcript Request Completion
+
+Log in as Teacher
+1. Do CRUD operation with Course
+2. View list of Student
+3. View Meeting Request
+4. View Transcript Request
+5. View Teacher's Profile Details
+6. Complete/Notify/Delete Meeting Request
+7. Complete/Notify/Delete Transcript Request
+
 Help Links:
 https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-3.1
 https://www.youtube.com/watch?v=f72ookCWhsQ

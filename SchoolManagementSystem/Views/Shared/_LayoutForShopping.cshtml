@@ -22,7 +22,7 @@
                 <li>@Html.ActionLink("Shop", "Index", "Product")</li>
                 <li style="float:right">@Html.ActionLink("Sign Out", "Signout", "Signin")</li>
                 <li style="float: right; color: red;">@Html.ActionLink("(" + (string)@ViewBag.numberofqty + ") Cart Item", "Index", "Cart")</li>
-                <li style="float: right; color: red;">@Html.ActionLink("($" + (string)@ViewBag.walletqty + ") Wallet Amount", "Index", "Wallet")</li>
+                <li style="float: right; color: red;">@Html.ActionLink("($" + (string)@ViewBag.walletqty + ") Wallet Amount", "Index", "Product")</li>
 
                 <li style="float:right; color:red; font-weight:bold; padding: 14px 16px">Hello @ViewBag.firstname</li>
 
