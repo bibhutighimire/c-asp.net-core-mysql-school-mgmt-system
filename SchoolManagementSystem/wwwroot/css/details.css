@@ -17,7 +17,7 @@
         width: 20%;
     }
     #customer tr:nth-child(even) {
-        background-color: lightblue;
+        background-color: #62a9bf;
     }
 
     #customer tr:hover {
@@ -28,12 +28,12 @@
         padding-top: 12px;
         padding-bottom: 12px;
         text-align: left;
-        background-color: lightblue;
+        background-color: #62a9bf;
         color: black;
         border: 1px solid gray;
     }
 .treqBtn a {
-    background-color: lightblue;
+    background-color: #62a9bf;
     padding: 20px;
     border-radius: 12px;
     color: black;

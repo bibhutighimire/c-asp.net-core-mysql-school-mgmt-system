@@ -43,7 +43,7 @@
     height: 85px;
 }
 .subtotal {
-    background-color: lightblue;
+    background-color: #62a9bf;
     width: 750px;
     height: 52px;
     padding: 6px;
@@ -59,7 +59,7 @@
     margin:60px auto;
 }
     .checkoutBtn a {
-        background-color: lightblue;
+        background-color: #62a9bf;
         padding: 35px;
         font-size: large;
         border-radius: 15px;

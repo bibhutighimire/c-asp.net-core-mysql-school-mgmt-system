@@ -10,9 +10,14 @@ body {
     margin:0 auto;
     padding:5px;
 }
+.logoHolder  {
+    width: 1330px;
+    height: 175px;
+    background-color:#62a9bf;
+}
 .logoHolder img {
-    width: 100px;
-    height: 100px;
+    width: 1330px;
+    height: 175px;
 }
 .container {
     min-height:600px;
@@ -34,7 +39,7 @@ body {
     margin:15px 0;
 }
 .footer-box {
-    background-color: lightblue;
+    background-color: #62a9bf;
     width: 98%;
     margin: 40px auto;
     padding: 45px;
@@ -53,7 +58,7 @@ body {
     }
 
     #customers tr:nth-child(even) {
-        background-color: lightblue;
+        background-color: #62a9bf;
     }
 
     #customers tr:hover {
@@ -64,12 +69,12 @@ body {
         padding-top: 12px;
         padding-bottom: 12px;
         text-align: left;
-        background-color: lightblue;
+        background-color: #62a9bf;
         color: white;
         border: 1px solid gray;
     }
 .treqBtn a {
-    background-color: lightblue;
+    background-color: #62a9bf;
     padding: 20px;
     border-radius: 12px;
     color: black;

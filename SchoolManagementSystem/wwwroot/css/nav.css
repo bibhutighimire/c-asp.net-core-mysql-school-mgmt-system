@@ -7,7 +7,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: lightblue;
+    background-color: #62a9bf;
 }
 
 li {
@@ -27,5 +27,5 @@ li {
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
-        font-size:14px;
+        font-size:15px;
     }

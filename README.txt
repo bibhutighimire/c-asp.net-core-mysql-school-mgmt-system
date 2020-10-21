@@ -1,13 +1,12 @@
+Trello: https://trello.com/bibhutighimire/boards
+
+Problem Definition: There might be small school/training center in Edmonton here which just started and need help managing their daily activities. This application can keep track of their teachers, students, admins and course. 
+
+Scope: The main scope of this application is that  “This is a web application designed to help School manage their and student's daily activities. Student can pay fee, buy products, request for transcript, request to schedule meeting with teacher etc.
+
+Help Links:
 https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-3.1
 https://www.youtube.com/watch?v=f72ookCWhsQ
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_responsive_form
 https://www.tutorialspoint.com/create-increment-decrement-plus-minus-buttons-programmatically-for-html-input-type-number-in-javascript
-
-        <div class="row">
-            <div class="col-50">
-
-            </div>
-            <div class="col-75">
-
-            </div>
-        </div>
+https://www.w3schools.com/cssref/css3_pr_filter.asp

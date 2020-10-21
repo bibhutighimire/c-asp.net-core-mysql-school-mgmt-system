@@ -7,7 +7,9 @@
 }
 
 <h1>List of all the Students</h1>
-
+<p>
+    <a asp-action="Create">Add New Student</a>
+</p>
 <table id="customers">
     <tr>
         <th> First Name</th>
@@ -24,22 +26,22 @@
     </tr>
     @foreach (var item in Model)
     {
-<tr>
-    <td>  @Html.DisplayFor(modelItem => item.firstname)</td>
-    <td> @Html.DisplayFor(modelItem => item.lastname)</td>
-    <td> @Html.DisplayFor(modelItem => item.dob)</td>
-    <td> @Html.DisplayFor(modelItem => item.email)</td>
-    <td> @Html.DisplayFor(modelItem => item.grade)</td>
-    <td>@Html.DisplayFor(modelItem => item.username)</td>
-    @*<td>
-        <a asp-action="Edit" asp-route-id="@item.studentid">Edit</a> |
-        <a asp-action="Details" asp-route-id="@item.studentid">Details</a> |
-        <a asp-action="Delete" asp-route-id="@item.studentid">Delete</a>
-    </td>*@
+        <tr>
+            <td>  @Html.DisplayFor(modelItem => item.firstname)</td>
+            <td> @Html.DisplayFor(modelItem => item.lastname)</td>
+            <td> @Html.DisplayFor(modelItem => item.dob)</td>
+            <td> @Html.DisplayFor(modelItem => item.email)</td>
+            <td> @Html.DisplayFor(modelItem => item.grade)</td>
+            <td>@Html.DisplayFor(modelItem => item.username)</td>
+            @*<td>
+                    <a asp-action="Edit" asp-route-id="@item.studentid">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.studentid">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.studentid">Delete</a>
+                </td>*@
 
 
-</tr>
-      
+        </tr>
+
     }
 </table>
 

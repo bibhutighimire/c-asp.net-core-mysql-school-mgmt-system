@@ -23,7 +23,7 @@ label {
 }
 
 input[type=submit] {
-    background-color: lightblue;
+    background-color: #62a9bf;
     padding: 15px;
     border-radius: 4px;
     color: black;
@@ -61,7 +61,7 @@ input[type=submit] {
 }
 
 .btnAlinks a {
-    background-color: lightblue;
+    background-color: #62a9bf;
     padding: 20px;
     border-radius: 12px;
     color: black;

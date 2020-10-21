@@ -10,7 +10,7 @@
 
 .icon {
     padding: 10px;
-    background: lightblue;
+    background: #62a9bf;
     color: white;
     min-width: 50px;
     text-align: center;
@@ -23,12 +23,12 @@
 }
 
     .input-field:focus {
-        border: 2px solid lightblue;
+        border: 2px solid #62a9bf;
     }
 
 /* Set a style for the submit button */
 .btn {
-    background-color: lightblue;
+    background-color: #62a9bf;
     color: white;
     padding: 15px 20px;
     border: none;
